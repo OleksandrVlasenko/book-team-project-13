@@ -3,6 +3,14 @@ body {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
   font-style: normal;
+
+  html.light &{
+    background-color: var(--main-bg-cl);
+  };
+
+  html.dark &{
+    background-color: var(--main-bg-cl-dark-theme);
+  }
 }
 
 img {
