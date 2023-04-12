@@ -1,0 +1,46 @@
+body {
+  position: relative;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+
+  font-size: 48px;
+  line-height: 52px;
+  /* identical to box height, or 108% */
+
+  letter-spacing: -0.04em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440;
+  }
+}

@@ -1,0 +1,35 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+// === Посилання ===
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+// === Стилі списку ===
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+button,
+a {
+  user-select: none;
+}
