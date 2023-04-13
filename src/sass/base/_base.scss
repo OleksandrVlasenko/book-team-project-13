@@ -1,14 +1,10 @@
 body {
   position: relative;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans';
   font-weight: 700;
   font-style: normal;
 
-  html.light &{
-    background-color: var(--main-bg-cl);
-  };
-
-  html.dark &{
+  html.dark & {
     background-color: var(--main-bg-cl-dark-theme);
   }
 }
