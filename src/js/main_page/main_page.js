@@ -1,9 +1,19 @@
 import axios from "axios"
- 
+import { BooksAPI } from "./fetch"
 
 const refBest = document.querySelector('.block__gallery')
 const refBooks = document.querySelector('.block__books')
 const refCategory = document.querySelector('.category__home')
+
+const bookApi = new BooksAPI();
+
+
+
+
+
+
+
+
 
 const URL = {
   all:'https://books-backend.p.goit.global/books/category-list',
