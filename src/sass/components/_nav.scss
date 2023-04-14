@@ -11,9 +11,10 @@
         @media screen and (min-width: 1200px) {
             margin-right: 16px; 
         }
-        
-    }
-    .nav__link {
+
+    };
+
+.nav__link {
         position: relative;
         display: block;
         padding-top: 27px;
@@ -23,5 +24,11 @@
         font-size: 14px;
         line-height: 1.28;
 
+    };
+
+.nav__list {
+    display: flex;
+    gap: 28px;
+    align-items: center;
         }
     
