@@ -27,12 +27,16 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 579px;
-    height: 516px;
+    max-width: 335px;
+    min-height: 384px;
 
     background: #F6F6F6;
     border: 2px solid #111111;
     border-radius: 18px;
+@media screen and (min-width: 1200px) {
+        max-width: 579px;
+        min-height: 516px;
+  }
 }
 
 .modal-auth__body {
@@ -69,7 +73,11 @@
 
 .form-auth__field{
     position: relative;
-    width: 499px;
+    max-width: 295px;
+
+    @media screen and (min-width: 1200px) {
+    max-width: 499px;
+    }
 }
 
 
@@ -80,9 +88,6 @@
     width: 52px;
     height: 24px;
 
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
     font-size: 18px;
     line-height: 24px;
 
@@ -103,38 +108,50 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px 173px;
+   
     margin-bottom: 20px;
     margin-top: 40px;
 
-    width: 499px;
+    max-width: 293px;
     height: 64px;
+    font-size: 18px;
+    line-height: 24px;
 
     background: #111111;
     color: white;
     border-radius: 40px;
     cursor: pointer;
 
+    @media screen and (min-width: 1200px) {
+            max-width: 499px;
+        }
+
     &:hover {
     background-color: #EAC645;
   }
 }
 
-.button-signup {
+.button-signIn {
     margin-left: auto;
     margin-right: 20px;
     border: none;
     outline: none;
     background-color: inherit;
     color: rgba(17, 17, 17, 0.5);
+
+    font-size: 18px;
+        line-height: 24px;
 }
 
-.button-signin {
+.button-signWithGoogle {
     margin-right: auto;
     border: none;
     outline: none;
     background-color: inherit;
-    color: rgba(17, 17, 17, 0.5);
+    color: rgba(17, 17, 17, 0.5); 
+
+    font-size: 18px;
+        line-height: 24px;
 }
 
 
