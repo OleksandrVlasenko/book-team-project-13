@@ -1,0 +1,30 @@
+<button class="registration-btn" id="loginBtn" type="button" data-logout>SIGN IN</button>
+
+<div class="modal-auth" id="modalSignIn">
+    <div class="modal-auth__body">
+        <button class="modal-auth__closeBtn" id="closeSignInBtn" type="button" >
+            <!-- <svg class="modal-auth__closeIcon" width="14px" height="14px">
+                    <use href=""></use>
+                </svg> -->
+        </button>
+        <form>
+            <div class="form-auth">
+                <div class="form-auth__field">
+                    <label for="email">EMAIL</label>
+                    <input id="email" type="email" name="email" placeholder=" " required>
+                </div>
+                <div class="form-auth__field">
+                    <label for="password">PASSWORD</label>
+                    <input id="password" type="password" name="password" placeholder=" " required>
+                </div>
+            </div>
+            <button class="form-auth__btn" id="signInBtn" type="submit"  >SIGN IN</button>
+            <div class="form-auth__button-wrapper">
+                <button id="signOut" type="submit" class="button-signIn">SIGN OUT</button>
+                <button type="submit" class="button-signWithGoogle" data-modal-google-auth>Login with google</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal-auth__backdrop" data-modal-backdrop></div>
