@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, set, ref, update } from 'firebase/database';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import Notiflix from 'notiflix';
 
 const firebaseConfig = {
   apiKey: "AIzaSyB8a0V2r63NS_Ih9TRySgf9b_hfgQZilt4",
@@ -27,13 +28,13 @@ export const signUp = (email, password, username) => {
                 password: password
             })
     
-            alert('User Created');
+            Notiflix.Notify.success(`Account: "${username}" created`);
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
     
-            alert(errorMessage);
+            Notiflix.Notify.failure(errorMessage);
         });
 };
 
@@ -48,23 +49,23 @@ export const signIn = (email, password) => {
                 last_login: lastLoginDate
             })
     
-            alert('User Loged In');
+            Notiflix.Notify.success(` Welcome ${email}!`);
 
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
 
-            alert(errorMessage);
+            Notiflix.Notify.failure('failed to login');
         });
     
 };
 
 export const singOutFunction = () => {
     signOut(auth).then(() => {
-        // Sign-out successful.
+       Notiflix.Notify.info('See you soon');
     }).catch((error) => {
-        // An error happened.
+         Notiflix.Notify.failure(error);
     });
 
 };
