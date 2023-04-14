@@ -4,78 +4,86 @@ import { BooksAPI } from "./fetch"
 const refBest = document.querySelector('.block__gallery')
 const refBooks = document.querySelector('.block__books')
 const refCategory = document.querySelector('.category__home')
+const markupBook = document.querySelector('.block__category')
+
+const bookCart = document.querySelector('.book-card__home')
+
 
 const bookApi = new BooksAPI();
 
 
 
+// async function api() { 
+//     console.log(await booksAPI.getTopBooks()) 
+//     console.log(await booksAPI.getCategoryList()) 
+//     console.log(await booksAPI.getOneCategory(`Series Books`)) 
+//     console.log(await booksAPI.getOneCategory(`Picture Books`)) 
+// };
 
+api()
 
-
-
-
-
-const URL = {
-  all:'https://books-backend.p.goit.global/books/category-list',
-  best:'https://books-backend.p.goit.global/books/top-books',
-  // books:'https://books-backend.p.goit.global/books/top-books',
-}
-async function getUrl(obj) { 
-  await Object.values(obj).map(el => 
-    api(el)
-   )
-
-//  return url 
-}
-getUrl(URL)
-
-async function api(curentUrl) {
+async function api() { 
+    const resp = (await bookApi.getTopBooks()) 
  
-  try {
+    if (!resp.statusText) { 
+ 
+        throw new Error(resp.statusText) 
+    } else { 
+        refBest.insertAdjacentHTML('afterbegin', (await murkup(resp.data)).join("")) 
+        return resp.data; 
+    } 
+     
+}
+
+
+async function murkup(api) { 
+    return await Promise.all(api.map(async ({ list_name, books }) => { 
+        return await ` 
+    <div> 
+    <h3 class="js-book-categoty">${list_name}</h3> 
+    <ul>${await marcupBook(books)}</ul> 
+    <button class="button">See more</button> 
+    </div> 
+    `; 
+    })); 
+ 
+}
+
+
+
+
+
+
+
+async function marcupBook(books) { 
     
-    return axios.get(curentUrl)
-      .then(e => murkup(e.data))
-  }
-  catch(e){
-    console.log(e);
-  }
-}
-
-async function murkup(api) {
-
- 
-
-  if (!api[0].books) {
-    const fetch = await api;
-    const markup = await fetch.map(({ list_name }) => {
-      return `
-
-<li>${list_name}</li>
-`
-    }).join('')
-    const murkarAllCatrgory = refCategory.insertAdjacentHTML('beforeend', markup)
-  }
-  else {
-    const fetch = await api;
-    console.log(fetch);
-    const markup = await fetch.map(e => Object.values(e)[1].map(({ book_uri, book_image,list_name }) => {
-      return `
-
-      
+     return await books.map(({ list_name, book_image,_id
+      }) => {
+        
+      return    `    
 <div class="book-card__home">
-          <div class="thumb__home">
-          <a href="${book_uri}"><img src="${book_image}" alt="" title="" loading="lazy"/></a> 
-          </div>
+  <div class="thumb__home data-book-id=${_id} js-item">
+  
+    <a  href="${book_image}"
+      ><img class="js-bookImg" src="${book_image}" alt="" title="" loading="lazy"
+    /></a>
+  </div>
+  <div>
+    <p class="info-item">
+      <b>${list_name}</b>
+    </p>
+  </div>
+</div>
+`}).join('')
 
-           <p class="info-item">
-            <b>${list_name}</b>
-          </p>
-          </div>
-          </div>
 
-`
-    }).join(''))
-    const murkarBest = refBest.insertAdjacentHTML('beforeend', markup)
-  }
- 
-}
+   }
+
+
+
+
+
+// ===========================================================
+// addeventListner!!!!!!!!!!!!!!!!!!!!!!!!!!
+// ===========================================================
+// refBest.addEventListener('click', onClick)
