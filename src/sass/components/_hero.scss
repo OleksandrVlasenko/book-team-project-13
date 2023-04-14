@@ -20,40 +20,40 @@
 
     height: 600px;
     outline: 1px solid tomato;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 3;
+    // grid-column-start: 1;
+    // grid-column-end: 2;
+    // grid-row-start: 1;
+    // grid-row-end: 3;
 }
 
-.block__gallery {
-    height: 600px;
-    outline: 3px solid teal;
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
-}
+// .block__gallery {
+//     height: 600px;
+//     outline: 3px solid teal;
+//     grid-column-start: 2;
+//     grid-column-end: 2;
+//     grid-row-start: 1;
+//     grid-row-end: 1;
+// }
 
-.block__books {
-    height: 1200px;
-    outline: 2px solid yellow;
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 2;
+// .block__books {
+//     height: 1200px;
+//     outline: 2px solid yellow;
+//     grid-column-start: 2;
+//     grid-column-end: 2;
+//     grid-row-start: 2;
+//     grid-row-end: 2;
 
-}
+// }
 
 .thumb__home {
-    width: 100px;
-    height: 150px;
+    width: 180px;
+    height: 256px;
 }
 
-.book-card__home {
-    width: 100px;
-    height: 180px;
-}
+// .book-card__home {
+//     width: 100px;
+//     height: 180px;
+// }
 
 .thumb__home img {
     width: 100%;
@@ -61,11 +61,32 @@
 }
 
 .block__gallery {
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.list-books__home {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.block__books {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+.collection-books__home {
+    // width: 996px;
+    // height: 426px;
+
+}
+
+// .block__books {
+//     display: grid;
+//     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+// }
+
+.see-more {
+    margin-left: 800px;
+}
+
+.item-books__home {
+    width: 996px;
+    height: 426px;
+
 }

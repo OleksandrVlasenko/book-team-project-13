@@ -7,17 +7,17 @@ export async function murkupCategoryList(fetch) {
 export async function murkup(data) {
     return await Promise.all(data.map(async ({ list_name, books }) => {
         return await ` 
-    <div> 
+    <div class="item-books__home"> 
     <h3 class="js-book-categoty">${list_name}</h3> 
-    <ul>${await marcupBook(books)}</ul> 
-    <button class="button">See more</button> 
+    <ul class='list-books__home'>${await marcupBook(books)}</ul> 
+    <button class="button see-more">See more</button> 
     </div> 
     `;
     }));
 }
 
 export async function marcupBook(books) {
-    return await books.map(({ list_name, book_image, _id
+    return await books.map(({ list_name, book_image, _id,author,title
     }) => {
         return `    
 <div class="book-card__home">
@@ -28,7 +28,10 @@ export async function marcupBook(books) {
   </div>
   <div>
     <p class="info-item">
-      <b>${list_name}</b>
+      <b>${title}</b>
+    </p>
+    <p class="info-item">
+      <b>${author}</b>
     </p>
   </div>
 </div>
