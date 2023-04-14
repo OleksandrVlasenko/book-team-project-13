@@ -7,9 +7,22 @@
         margin-left: auto;
         margin-right: 24px;
 
-        padding-bottom: 27px;
+        
     }
         @media screen and (min-width: 1200px) {
             margin-right: 16px;
             
         }
+    }
+    .nav__link {
+        position: relative;
+        display: block;
+        padding-top: 27px;
+        padding-bottom: 27px;
+        
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.28;
+
+        }
+    
