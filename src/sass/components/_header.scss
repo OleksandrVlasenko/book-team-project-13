@@ -1,12 +1,18 @@
 .header {
     background-color: var(--main-bg-cl);
+    border: 1.5px solid #111111;
+    border-radius: 0px 0px 8px 8px;
 }
 
 .header__container {
-    @extend %container;
+    @extend .container;
 
     display: flex;
     align-items: center;
     padding-top: 12px;
+    
+}
+
+.header__logo {
     
 }
