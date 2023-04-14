@@ -23,21 +23,18 @@
 }
 
 .nav__link {
-    font-family: var(--main-font);
+    font-family: 'DM Sans';
     font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.25;
-
-    align-items: center;
-
-    color: #FCFCFC;
-
-    transition: color var(--timing-function);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    
+        color: #111111;
 
     &:hover,
     &:focus {
-        color: #F8D24E;
+        background-color: #EAC645;
     }
 }
     
