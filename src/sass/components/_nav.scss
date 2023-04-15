@@ -4,11 +4,9 @@
     @media screen and (min-width: 768px) {
         display: flex;
         margin-top: auto;
-        margin-left: auto;
         margin-right: 139px;
-
-        padding-bottom: 27px;
     }
+
 @media screen and (min-width: 1280px) {
     margin-right: 749px;
 }
@@ -17,24 +15,29 @@
 .nav__list {
     @media screen and (min-width: 768px) {
         display: flex;
-        gap: 40px;
+        gap: 32px;
         align-items: center;
     }
 }
 
 .nav__link {
+    position: relative;
+    display: block;
+    margin-top: 27px;
+    margin-bottom: 27px;
+
     font-family: 'DM Sans';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.04em;
     
-    color: #111111;
+    color: var(--main-text-cl-light-theme);
 
-    &:hover,
-    &:focus {
-        background-color: #EAC645;
+.nav &:hover,
+.nav &:focus {
+        background-color: var(--secondary-accent-cl);
     }
 }
     
