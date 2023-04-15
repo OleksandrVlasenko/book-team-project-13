@@ -1,4 +1,4 @@
-export default fondsList = [
+export const supporters = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
