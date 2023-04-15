@@ -21,7 +21,8 @@ async function onFirstload() {
     throw new Error(resp.statusText)
   } else {
     refCategory.insertAdjacentHTML('beforeend', (await murkupCategoryList(categoryApi)))
-    refBooks.insertAdjacentHTML('afterbegin', (await murkup(resp.data)).join(""))
+    refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>')
+    refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join(""))
     return resp.data;
   }
 
@@ -31,7 +32,12 @@ refCategory.addEventListener('click', onCategoryClick);
 async function onCategoryClick(el) {
   refBooks.innerHTML = "";
   const data = await (await bookApi.getOneCategory(`${el.target.innerText}`)).data;
-  await refBooks.insertAdjacentHTML('afterbegin', await makeCategoryPage(`${el.target.innerText}`, data));
+  const resp = (await bookApi.getTopBooks());
+  if (el.target.innerText === `All categories`) {
+    refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>')
+    refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join(""));
+  }
+  refBooks.insertAdjacentHTML('beforeend', await makeCategoryPage(`${el.target.innerText}`, data));
 };
 
 // ===========================================================
