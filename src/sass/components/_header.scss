@@ -12,7 +12,17 @@
       
 };
 
-// .header__logo {
-//     // padding-top: 16px;
-//     // padding-bottom: 16px;
-// }
+.header__logo {
+    margin-top: 21px;
+    margin-right: 170px;
+    margin-bottom: 21px;
+    
+    
+
+    @media screen and (min-width: 768px) {
+            
+            margin-right: 32px;
+    
+            padding-bottom: 27px;
+        }
+}
