@@ -1,4 +1,4 @@
-import { refs } from './refs';
+import { refs } from '../refs';
 import { signUp, signIn, singOutFunction } from './firebaseFunction';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { ref } from 'firebase/database';
@@ -8,25 +8,26 @@ const auth = getAuth();
 refs.submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-  const { value : email } = document.getElementById('email');
-  const { value : password } = document.getElementById('password');
-  const { value : username } = document.getElementById('username');
-    
-    signUp(email, password, username);
- 
-})
- 
-
-
-refs.submitBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-
+    if (refs.submitBtn.textContent === 'Sign up') {
     const { value : email } = document.getElementById('email');
-    const { value: password } = document.getElementById('password');
+    const { value : password } = document.getElementById('password');
+    const { value: username } = document.getElementById('username');
+        
+    if (email !== '' && password !== '' && username !== '') {
+            signUp(email, password, username);
+        }
+    } else {
+    const { value : email } = document.getElementById('email');
+        const { value: password } = document.getElementById('password');
+        
+    if (email !== '' && password !== '') {
+            signIn(email, password);
+        }
     
-    signIn(email, password);
+  }
 
 })
+ 
 
 refs.signOutBtn.addEventListener('click', (e) => {
     e.preventDefault();
