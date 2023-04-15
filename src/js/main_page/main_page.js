@@ -3,6 +3,10 @@ import { BooksAPI } from "./fetch";
 import { makeCategoryPage } from "./functions";
 import { murkupCategoryList } from "./functions";
 import { murkup } from "./functions";
+import { addMediaWidth } from "./media-width";
+
+
+
 
 const refBooks = document.querySelector('.block__books')
 const refCategory = document.querySelector('.category__home')
@@ -44,9 +48,6 @@ async function onCategoryClick(el) {
 // addeventListner!!!!!!!!!!!!!!!!!!!!!!!!!!
 // ===========================================================
 // refBooks.addEventListener('click', onClick)
-
-
-
 
 
 

@@ -1,15 +1,16 @@
-
+import { addMediaWidth } from "./media-width";
 
 export async function murkupCategoryList(fetch) {
   return await fetch.data.map(({ list_name }) => { return `<li class="category__home-itm">${list_name}</li>` }).join('');
 }
 
 export async function murkup(data) {
+ 
   return await Promise.all(data.map(async ({ list_name, books }) => {
     return ` 
     <div class="item-books__home"> 
     <h3 class="js-book-categoty">${list_name}</h3> 
-    <ul class='list-books__home'>${await makeListOfBooks(books)}</ul> 
+    <ul class='list-books__home'>${await sliceData(books)}</ul> 
     <button class="button see-more">See more</button> 
     </div> 
     `;
@@ -18,15 +19,30 @@ export async function murkup(data) {
 
 
 export async function makeCategoryPage(category, data) {
+
   const title = category.split(" ");
   return ` 
   <h2 class="block__books-title">${title.splice(0, (title.length / 2)).join(' ')} <span class="block__books-colortitle">${title.splice((title.length / 2), title.length).join(' ')}</span></h2> 
-        <ul class="block__books-list">${await makeListOfBooks(data)}</ul>`
+        <ul class="block__books-list">${await sliceData(data)}</ul>`
 
 
 };
 
+async function sliceData(data) { 
+
+  if (addMediaWidth() === "mobile") {
+      return makeListOfBooks(data.splice(0, 1))
+  } else if (addMediaWidth() === "tablet") {
+      return makeListOfBooks(await data.splice(0, 3))
+  } else { 
+      return makeListOfBooks(data)
+  }
+}
+
+
+
 export async function makeListOfBooks(data) {
+  console.log(data);
   return data.map(({ author, book_image, title, description, _id }) => {
     return `<li class="books__itm">  
     <div class="books__wrapper" > 
@@ -43,6 +59,8 @@ export async function makeListOfBooks(data) {
   }
   ).join('');
 };
+
+
 
 
 
