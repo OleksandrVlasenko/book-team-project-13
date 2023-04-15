@@ -19,10 +19,13 @@
         gap: 32px;
         align-items: center;
     }
+
+        @media screen and (min-width: 1280px) {
+            gap: 40px;
+        }
 }
 
 .nav__link_home {
-    position: relative;
     display: block;
     margin-top: 27px;
     margin-bottom: 27px;
@@ -33,14 +36,12 @@
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.04em;
-    
+    text-transform: uppercase;
+
     color: var(--main-text-cl-light-theme);
 
 .nav &:hover,
 .nav &:focus {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     padding: 8px 16px;
     gap: 10px;
     
@@ -55,18 +56,19 @@
 
 .nav__link_shopping {
 position: relative;
-    display: block;
-    margin-top: 27px;
-    margin-bottom: 27px;
+display: block;
+margin-top: 27px;
+margin-bottom: 27px;
 
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.04em;
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.04em;
+text-transform: uppercase;
 
-    color: var(--main-text-cl-light-theme);
+color: var(--main-text-cl-light-theme);
 
     .nav &:hover,
     .nav &:focus {
@@ -85,12 +87,5 @@ position: relative;
     }
 };
 
-// .nav__link::after {
-//     content: ' ';
-//     display: block;
-//     width: 13.3px;
-//     height: 16.7px;
-//     background-repeat: no-repeat;
-//     background-position: center;
-// }
+
  
