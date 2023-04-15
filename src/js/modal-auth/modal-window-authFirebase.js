@@ -1,33 +1,52 @@
-import { refs } from './refs';
+import { refs } from '../refs';
 
-
-// refs.registrationBtn.addEventListener('click', () => {
-//   refs.modalSignUP.classList.add('show');
-// });
-
-
-// refs.signUpcloseBtn.addEventListener('click', () => {
-//   refs.modalSignUP.classList.remove('show');
-// });
 
 refs.openAuthBtn.addEventListener('click', toggleModal);
 refs.closeAutBtn.addEventListener('click', toggleModal);
+
+
+
+refs.formAuth.addEventListener('input', () => {
+
+  if (refs.submitBtn.textContent === 'Sign up') {
+
+    if (refs.formAuth.elements.mail.value !== '' &&
+      refs.formAuth.elements.name.value !== '' &&
+      refs.formAuth.elements.password.value !== ''
+    ) {
+      refs.submitBtn.classList.remove('disabled');
+    } else {
+      refs.submitBtn.classList.add('disabled');
+    }
+
+  } else {
+    if (refs.formAuth.elements.mail.value !== '' &&
+      refs.formAuth.elements.password.value !== ''
+    ) {
+      refs.submitBtn.classList.remove('disabled');
+    } else {
+      refs.submitBtn.classList.add('disabled');
+    }
+
+  }
+  
+});
 
 function toggleModal() {
   refs.modalAuth.classList.toggle('is-hidden');
 }
 
-refs.signInBtn.addEventListener('click', onsignInBtn);
-refs.signUpBtn.addEventListener('click', onButtonSignUp);
+refs.signInBtn.addEventListener('click', onSignInBtn);
+refs.signUpBtn.addEventListener('click', onSignUpBtn);
 
-function onsignInBtn() {
+function onSignInBtn() {
   refs.signUpBtn.classList.remove('active');
   refs.signInBtn.classList.add('active');
   refs.submitBtn.textContent = 'Sign in';
   refs.formInputs.innerHTML = '';
 }
 
-function onButtonSignUp() {
+function onSignUpBtn() {
   refs.signInBtn.classList.remove('active');
   refs.signUpBtn.classList.add('active');
   refs.submitBtn.textContent = 'Sign up';

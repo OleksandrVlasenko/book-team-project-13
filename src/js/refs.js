@@ -14,6 +14,7 @@ export const refs = {
   labelMail: document.querySelector('.form__label-mail'),
   inputPassword: document.querySelector('.form__input-password'),
   labelPassword: document.querySelector('.form__label-password'),
+  formAuth: document.querySelector('.form'),
 
 
 

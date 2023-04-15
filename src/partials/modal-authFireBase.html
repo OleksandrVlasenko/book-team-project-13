@@ -4,7 +4,7 @@
     </svg>Sign Up</button>
 <div class="auth__backdrop is-hidden auth__modal-js">
     <div class="auth__modal">
-        <form class="form" autocomplete="on">
+        <form class="form" autocomplete="off">
             <div class="form__render">
                 <div class="form__field">
                     <input id="username"
@@ -43,17 +43,17 @@
                 </svg>
             </div>
 
-            <button type="submit" class="form__btn">Sign up</button>
+            <button type="submit" class="form__btn disabled">Sign up</button>
             <div class="form__btns">
                 <button type="button" class="form__btn-up active">Sign up</button>
                 <button type="button" class="form__btn-in">Sign in</button>
+                <button type="button" class="form__btn-out">Log out</button>
             </div>
             <button class="auth__modal-close auth__modal-close-js">
                 <svg class="auth__modal-close-icon" width="32" height="32">
                 <use href="./images/icons.svg#icon-auth-close"></use>
                 </svg>
             </button>
-            <button type="button" class="form__btn-out">Log out</button>
         </form>
     </div>
 </div>

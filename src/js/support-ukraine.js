@@ -1,18 +1,18 @@
-// import { fondsList } from './support-fonds';
+// import { supporters } from './support-fonds';
 
 // const fondsContainer = document.querySelector('#fonds');
 
 // let fondsHtml = '';
-// for (let i = 0; i < fondsList.length; i++) {
+// for (let i = 0; i < supporters.length; i++) {
 //   let number = i + 1 < 10 ? `0${i + 1}` : `${i + 1}`;
 
 //   fondsHtml += `<div class=""wrapper>
 //   <span class="support_number">${number}</span>
-//   <a href="${fondsList[i].url}">
+//   <a href="${supporters[i].url}">
 //     <img
-//     srcset="${fondsList[i].img} 1x, ${fondsList[i].imgRetinaTwo} 2x, ${fondsList[i].imgRetinaThree} 3x"
+//     srcset="${supporters[i].img} 1x, ${supporters[i].imgRetinaTwo} 2x, ${supporters[i].imgRetinaThree} 3x"
 //     class="support_img"
-//     src="${fondsList[i].img}" alt="${fondsList[i].title}" />
+//     src="${supporters[i].img}" alt="${supporters[i].title}" />
 //   </a>
 //   </div>
 //   `;
@@ -22,7 +22,7 @@
 
 import Swiper from 'swiper';
 import 'swiper/swiper.css';
-import supporters from './support-fonds';
+import { supporters } from './support-fonds';
 
 const swiperOptions = {
   direction: 'vertical',
@@ -93,4 +93,3 @@ function toggleBtn() {
 function rotateBtn() {
   refs.btn.classList.toggle('supporters__btn--up');
 }
-
