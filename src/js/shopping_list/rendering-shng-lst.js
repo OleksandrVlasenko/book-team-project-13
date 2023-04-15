@@ -3,6 +3,11 @@ export {
     renderClearShoppingList,
 }
 
+const bgImagesUrl = new URL (
+    `../../images/shoppingList-clear--bg-x3.png`,    
+    import.meta.url
+);
+
 const dumpImagesUrl = new URL (
     `../../images/dump.svg`,    
     import.meta.url
@@ -55,14 +60,14 @@ function renderShoppingList(book) {
                             </ul>
                             <img width="38" height="38" class="shopping-list__icon-deleteBtn" src="${dumpImagesUrl}" alt="bookShop">
                         </div>
-                    </div>
                         <p class="shopping-list__description">${description}</p>
+                    </div>
                     </div>`}).join("");
 }
 
 function renderClearShoppingList() {
     return  `<div class="shopping-list__clear">
                 <p>This page is empty, add some books and proceed to order.</p>
-                <img src="./images/shoppingList-clear--bg-x2.png" alt="books">
+                <img class="shopping-list__clear-bg" src="${bgImagesUrl}" alt="books">
             </div>`;
 }

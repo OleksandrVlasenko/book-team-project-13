@@ -28,12 +28,15 @@
 }
 
 .shopping-list__gallery-boocks {
-    margin-top: 40px;    
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .shopping-list__card-boock {
     position: relative;
-    margin-top: 20px;
+    // margin-top: 20px;
     padding: 20px;
     width: 100%;
 
@@ -249,5 +252,18 @@
 }
 
 .shopping-list__clear{
-    margin: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.shopping-list__clear-bg {
+    margin-top: 14px;
+}
+
+
+// для мобілки контейнер flex-column, support Ukraine вгорі
+//для таблетки контейнер flex-column, support Ukraine none
+//для PC контейнер flex, support Ukraine зліва
+//кнопка видалення
+//перевірка на залогованість
