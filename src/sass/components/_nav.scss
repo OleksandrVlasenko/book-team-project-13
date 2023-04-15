@@ -15,12 +15,13 @@
 .nav__list {
     @media screen and (min-width: 768px) {
         display: flex;
+        flex-direction: row;
         gap: 32px;
         align-items: center;
     }
 }
 
-.nav__link {
+.nav__link_home {
     position: relative;
     display: block;
     margin-top: 27px;
@@ -37,7 +38,27 @@
 
 .nav &:hover,
 .nav &:focus {
-        background-color: var(--secondary-accent-cl);
-    }
-}
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 16px;
+    gap: 10px;
     
+    width: 72px;
+    height: 34px;
+    background-color: var(--secondary-accent-cl);
+    border-radius: 36px;
+
+    font-weight: 700;
+    }
+};
+
+.nav__link::after {
+    content: ' ';
+    display: block;
+    width: 13.3px;
+    height: 16.7px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+ 
