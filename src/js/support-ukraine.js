@@ -22,7 +22,7 @@
 
 import Swiper from 'swiper';
 import 'swiper/swiper.css';
-import supporters from './support-fonds';
+import { supporters } from './support-fonds';
 
 const swiperOptions = {
   direction: 'vertical',
@@ -93,4 +93,3 @@ function toggleBtn() {
 function rotateBtn() {
   refs.btn.classList.toggle('supporters__btn--up');
 }
-
