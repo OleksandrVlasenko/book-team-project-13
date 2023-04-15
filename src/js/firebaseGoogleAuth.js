@@ -5,12 +5,12 @@ import { ref } from 'firebase/database';
 
 const auth = getAuth();
 
-refs.signUpBtn.addEventListener('click', (e) => {
+refs.submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-  const { value : email } = document.getElementById('email1');
-  const { value : password } = document.getElementById('password1');
-  const { value : username } = document.getElementById('username1');
+  const { value : email } = document.getElementById('email');
+  const { value : password } = document.getElementById('password');
+  const { value : username } = document.getElementById('username');
     
     signUp(email, password, username);
  
@@ -18,7 +18,7 @@ refs.signUpBtn.addEventListener('click', (e) => {
  
 
 
-refs.signInBtn.addEventListener('click', (e) => {
+refs.submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
     const { value : email } = document.getElementById('email');
