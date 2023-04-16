@@ -8,6 +8,10 @@ const auth = getAuth();
 refs.submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
+    if (!refs.submitBtn.classList.contains('disabled')) {
+    refs.modalAuth.classList.add('is-hidden');
+  }
+
     if (refs.submitBtn.textContent === 'Sign up') {
     const { value : email } = document.getElementById('email');
     const { value : password } = document.getElementById('password');
