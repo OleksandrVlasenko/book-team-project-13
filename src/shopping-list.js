@@ -6,3 +6,5 @@ import './js/menu';
 import './js/toggle-color-theme';
 import './js/refs';
 import './js/shopping_list/deleteBookBtn'
+import './js/modal-auth/modal-window-authFirebase';
+
