@@ -1,81 +1,53 @@
 import axios from "axios"
-import { BooksAPI } from "./fetch"
+import { BooksAPI } from "./fetch";
+import { makeCategoryPage } from "./functions";
+import { murkupCategoryList } from "./functions";
+import { murkup } from "./functions";
+import { addMediaWidth } from "./media-width";
 
-const refBest = document.querySelector('.block__gallery')
+
+
+
 const refBooks = document.querySelector('.block__books')
 const refCategory = document.querySelector('.category__home')
+const markupBook = document.querySelector('.block__category')
+
+const bookCart = document.querySelector('.book-card__home')
 
 const bookApi = new BooksAPI();
 
+onFirstload()
 
-
-
-
-
-
-
-
-const URL = {
-  all:'https://books-backend.p.goit.global/books/category-list',
-  best:'https://books-backend.p.goit.global/books/top-books',
-  // books:'https://books-backend.p.goit.global/books/top-books',
-}
-async function getUrl(obj) { 
-  await Object.values(obj).map(el => 
-    api(el)
-   )
-
-//  return url 
-}
-getUrl(URL)
-
-async function api(curentUrl) {
- 
-  try {
-    
-    return axios.get(curentUrl)
-      .then(e => murkup(e.data))
+async function onFirstload() {
+  const resp = (await bookApi.getTopBooks());
+  const categoryApi = (await bookApi.getCategoryList());
+  if (!resp.statusText) {
+    throw new Error(resp.statusText)
+  } else {
+    refCategory.insertAdjacentHTML('beforeend', (await murkupCategoryList(categoryApi)))
+    refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>')
+    refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join(""))
+    return resp.data;
   }
-  catch(e){
-    console.log(e);
-  }
+
 }
+refCategory.addEventListener('click', onCategoryClick);
 
-async function murkup(api) {
-
- 
-
-  if (!api[0].books) {
-    const fetch = await api;
-    const markup = await fetch.map(({ list_name }) => {
-      return `
-
-<li>${list_name}</li>
-`
-    }).join('')
-    const murkarAllCatrgory = refCategory.insertAdjacentHTML('beforeend', markup)
+async function onCategoryClick(el) {
+  refBooks.innerHTML = "";
+  const data = await (await bookApi.getOneCategory(`${el.target.innerText}`)).data;
+  const resp = (await bookApi.getTopBooks());
+  if (el.target.innerText === `All categories`) {
+    refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>')
+    refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join(""));
   }
-  else {
-    const fetch = await api;
-    console.log(fetch);
-    const markup = await fetch.map(e => Object.values(e)[1].map(({ book_uri, book_image,list_name }) => {
-      return `
+  refBooks.insertAdjacentHTML('beforeend', await makeCategoryPage(`${el.target.innerText}`, data));
+};
 
-      
-<div class="book-card__home">
-          <div class="thumb__home">
-          <a href="${book_uri}"><img src="${book_image}" alt="" title="" loading="lazy"/></a> 
-          </div>
+// ===========================================================
+// addeventListner!!!!!!!!!!!!!!!!!!!!!!!!!!
+// ===========================================================
+// refBooks.addEventListener('click', onClick)
 
-           <p class="info-item">
-            <b>${list_name}</b>
-          </p>
-          </div>
-          </div>
 
-`
-    }).join(''))
-    const murkarBest = refBest.insertAdjacentHTML('beforeend', markup)
-  }
- 
-}
+
