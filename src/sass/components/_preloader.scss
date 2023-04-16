@@ -1,0 +1,81 @@
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  background: var(--main-bg-cl);
+  z-index: 1001;
+
+  html.dark & {
+    background-color: var(--main-bg-cl-dark-theme);
+  }
+
+  &.books {
+    position: absolute;
+  }
+}
+
+.preloader__row {
+  position: relative;
+
+  display: inline-block;
+
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+
+  overflow: hidden;
+
+  .preloader.books & {
+    top: 35vh;
+    margin-top: 0;
+  }
+}
+
+.preloader__item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+
+  & div {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+
+    width: 40px;
+    height: 40px;
+    border: 9px solid #4f2ee8;
+    border-top-color: transparent;
+    border-radius: 50%;
+
+    box-sizing: content-box;
+
+    animation: preloader__item 1s linear infinite;
+  }
+}
+
+.loaded_hiding .preloader {
+  opacity: 1;
+}
+
+.loaded .preloader {
+  display: none;
+}
+
+@keyframes preloader__item {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
