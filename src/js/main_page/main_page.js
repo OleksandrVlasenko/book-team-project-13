@@ -4,6 +4,11 @@ import { makeCategoryPage } from "./functions";
 import { murkupCategoryList } from "./functions";
 import { murkup } from "./functions";
 import { addMediaWidth } from "./media-width";
+import {
+  startPreloader,
+  stopPreloader,
+  addMarkupOfPreloader,
+} from '../preloader';
 
 
 
@@ -36,7 +41,16 @@ refCategory.addEventListener('click', onCategoryClick);
 async function onCategoryClick(el) { 
   el.preventDefault(); 
   if (el.target.classList.contains("category__home-itm")) { 
-    refBooks.innerHTML = ""; 
+    refBooks.innerHTML = "";
+
+    //Add and start preloader
+    refBooks.insertAdjacentHTML(
+      'afterbegin',
+      addMarkupOfPreloader()
+    );
+    startPreloader();
+    //------------------------
+
     const data = await (await bookApi.getOneCategory(`${el.target.innerText}`)).data; 
     const resp = (await bookApi.getTopBooks()); 
     if (el.target.innerText === `All categories`) { 
@@ -45,20 +59,40 @@ async function onCategoryClick(el) {
     } 
     refBooks.insertAdjacentHTML('beforeend', await makeCategoryPage(`${el.target.innerText}`, data)); 
   } 
+
+  //Stop and remove preloader
+  stopPreloader();
+  //-------------------------
 };
-
-
 
 refBooks.addEventListener('click', onSeeMoreClick); 
  
 async function onSeeMoreClick(event) { 
   event.preventDefault(); 
-  if (event.target.classList.contains("see-more")) { 
-    const requestedCategory = event.target.dataset.js 
-    console.dir(requestedCategory) 
-    refBooks.innerHTML = ""; 
-    const data = await (await bookApi.getOneCategory(`${requestedCategory}`)).data; 
-    refBooks.insertAdjacentHTML('beforeend', await makeCategoryPage(`${requestedCategory}`, data)); 
+  if (event.target.classList.contains("see-more")) {
+    const requestedCategory = event.target.dataset.js;
+    console.dir(requestedCategory);
+    refBooks.innerHTML = '';
+
+    //Add and start preloader
+    refBooks.insertAdjacentHTML(
+      'afterbegin',
+      addMarkupOfPreloader()
+    );
+    startPreloader();
+    //------------------------
+
+    const data = await (
+      await bookApi.getOneCategory(`${requestedCategory}`)
+    ).data;
+    refBooks.insertAdjacentHTML(
+      'beforeend',
+      await makeCategoryPage(`${requestedCategory}`, data)
+    );
+
+    //Stop and remove preloader
+    stopPreloader();
+    //-------------------------
   }; 
 };
 
