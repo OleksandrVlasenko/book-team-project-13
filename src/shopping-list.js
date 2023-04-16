@@ -4,3 +4,4 @@ import './js/toggle-color-theme';
 import './js/menu';
 import './js/toggle-color-theme';
 import './js/refs';
+import './js/shopping_list/deleteBookBtn'
