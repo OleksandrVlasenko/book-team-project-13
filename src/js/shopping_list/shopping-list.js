@@ -1,10 +1,11 @@
 import { BooksAPI } from "../main_page/fetch";
 import { books } from "../backend-books";
 import { renderClearShoppingList, renderShoppingList } from "./rendering-shng-lst";
+import { handleDeleteBookBtn } from "./deleteBookBtn";
+export {renderCardOfBooks}
 const getBook = new BooksAPI();
 
 const galleryBooksEl = document.querySelector(`.shopping-list__gallery-boocks`);
-console.log(galleryBooksEl)
 
 const objBooks = books;    
 localStorage.setItem(`idBooks`, JSON.stringify(objBooks));    
@@ -26,9 +27,14 @@ async function renderCardOfBooks() {
         if (IdBooks.length === 0) {
             return galleryBooksEl.innerHTML = renderClearShoppingList();
         }
-        galleryBooksEl.innerHTML = renderShoppingList(data);
+        galleryBooksEl.innerHTML = renderShoppingList(data);    
+
+        const cardBook = document.querySelectorAll(`.shopping-list__card-boock`);
+        cardBook.forEach(eventCard => eventCard.addEventListener(`click`, handleDeleteBookBtn))
+
     } catch (error) {
         console.log(error)
+    } finally {
     }
 }
 

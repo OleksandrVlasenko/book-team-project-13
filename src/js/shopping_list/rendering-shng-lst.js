@@ -43,17 +43,17 @@ function renderShoppingList(book) {
                             <p class="shopping-list__author--near">${author}</p>
                             <ul class="shopping-list__shop-list">
                                 <li class="shopping-list__shop-list-item">
-                                    <a class="shopping-list__shop-list-link" href="${buy_links[0].url}" target="_blank">
+                                    <a rel="noreferrer noopener nofollow" class="shopping-list__shop-list-link" href="${buy_links[0].url}" target="_blank">
                                         <img class="shopping-list__shop-lis--img logoAmazon" src="${logoAmazonImagesUrl}" alt="logoAmazon">
                                     </a>
                                 </li>
                                 <li class="shopping-list__shop-list-item">
-                                    <a class="shopping-list__shop-list-link" href="${buy_links[1].url} " target="_blank">
+                                    <a rel="noreferrer noopener nofollow" class="shopping-list__shop-list-link" href="${buy_links[1].url} " target="_blank">
                                         <img class="shopping-list__shop-lis--img" src="${logoBookImagesUrl}" alt="logoBook">
                                     </a>
                                 </li>
                                 <li class="shopping-list__shop-list-item">
-                                    <a class="shopping-list__shop-list-link" href="${buy_links[4].url} " target="_blank">
+                                    <a rel="noreferrer noopener nofollow" class="shopping-list__shop-list-link" href="${buy_links[4].url} " target="_blank">
                                         <img class="shopping-list__shop-lis--img bookShop" src="${bookShopImagesUrl}" alt="bookShop">
                                     </a>
                                 </li>
@@ -67,7 +67,7 @@ function renderShoppingList(book) {
 
 function renderClearShoppingList() {
     return  `<div class="shopping-list__clear">
-                <p>This page is empty, add some books and proceed to order.</p>
+                <p class="shopping-list__clear--description" >This page is empty, add some books and proceed to order.</p>
                 <img class="shopping-list__clear-bg" src="${bgImagesUrl}" alt="books">
             </div>`;
 }
