@@ -5,9 +5,7 @@
   width: 100%;
   height: 100%;
 
-  /* фоновый цвет элемента */
   background: var(--main-bg-cl);
-  /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
   z-index: 1001;
 
   html.dark & {
@@ -21,14 +19,18 @@
 
 .preloader__row {
   position: relative;
+
+  display: inline-block;
+
   top: 50%;
   left: 50%;
-  width: 70px;
-  height: 70px;
+  width: 200px;
+  height: 200px;
   margin-top: -35px;
   margin-left: -35px;
   text-align: center;
-  animation: preloader-rotate 2s infinite linear;
+
+  overflow: hidden;
 
   .preloader.books & {
     top: 35vh;
@@ -37,44 +39,43 @@
 }
 
 .preloader__item {
-  position: absolute;
-  display: inline-block;
-  top: 0;
-  background-color: #337ab7;
-  border-radius: 100%;
-  width: 35px;
-  height: 35px;
-  animation: preloader-bounce 2s infinite ease-in-out;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
 
-  &:last-child {
-    top: auto;
-    bottom: 0;
-    animation-delay: -1s;
-  }
-}
+  & div {
+    position: absolute;
+    top: 100px;
+    left: 100px;
 
-@keyframes preloader-rotate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
+    width: 40px;
+    height: 40px;
+    border: 9px solid #4f2ee8;
+    border-top-color: transparent;
+    border-radius: 50%;
 
-@keyframes preloader-bounce {
-  0%,
-  100% {
-    transform: scale(0);
-  }
+    box-sizing: content-box;
 
-  50% {
-    transform: scale(1);
+    animation: preloader__item 1s linear infinite;
   }
 }
 
 .loaded_hiding .preloader {
-  // transition: 0.3s opacity;
   opacity: 1;
 }
 
 .loaded .preloader {
   display: none;
+}
+
+@keyframes preloader__item {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
