@@ -1,0 +1,191 @@
+.header__menu {
+    display: flex;
+    position: absolute;
+    width: 60px;
+    margin-left: auto;
+    height: 64px;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    border: 1.5px solid #111111;
+    border-radius: 0px 0px 8px 8px;
+    justify-content: right;
+    align-items: center;
+  }
+  
+  .menu__toggle {
+    display: flex;
+    padding: 0;
+    border: none;
+    background-color: #FFFFFF;
+    height: 28px;
+    width: 28px;
+   margin-right: 20px;
+   stroke: #111111;
+  }
+  .menu__toggle:hover {
+    stroke: #4F2EE8;
+  }
+
+  .menu__toggle:focus {
+    stroke: #4F2EE8;
+  }
+  
+  body.show-modal .backdrop{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+  }
+  
+  body.show-modal .modal{
+  transform: scale(1);
+  }
+  .backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform-origin: top left; 
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+  }
+  
+  .modal {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/books.png), radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+    background-repeat: no-repeat;
+    background-position: right bottom, center;
+    background-size: 100%, cover;
+    box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+    transform-origin: top left;
+    transform: scale(1.1);
+    transition: transform 200ms ease-in-out;
+  }
+  
+  .modal__header {
+    display: flex;
+    width: 100%;
+    height: 64px;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    border: 1.5px solid #111111;
+    border-radius: 0px 0px 8px 8px;
+    justify-content: right;
+    align-items: center;
+  }
+  
+  .registration__btn {
+    display: flex;
+    width: 184px;
+    height: 48px;
+    left: 0px;
+    top: 0px;
+    background: #4F2EE8;
+    border: 1.5px solid #111111;
+    border-radius: 18px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+    flex: none;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-between;
+    padding: 14px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .registration__btn:hover{
+    background-color: #EAC645;
+  }  
+
+  .registration__btn:focus{
+    background-color: #EAC645;
+  }  
+
+
+  // .nav {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   margin-top: 24.5vh;
+  // }
+  
+  .nav__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  
+  }
+  .nav__link--current{
+    border: 0px solid rgba(0, 0, 0, 0.2);
+    padding: 8px 16px;
+    border-radius: 36px;
+    background-color: #EAC645;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+  
+  
+  color: #111111;
+  }
+  
+  .nav__shopping {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 25px;
+  }
+
+  .exit_btn{
+    display: flex;
+    width: 118px;
+    height: 48px;
+    left: 0px;
+    bottom: 0px;
+    background: #FFFFFF;
+    border: 1.5px solid #111111;
+    border-radius: 18px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    color: #111111;
+    flex: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7.33px;
+    padding: 14px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }

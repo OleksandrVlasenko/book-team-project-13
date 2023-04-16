@@ -4,12 +4,13 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 import Notiflix from 'notiflix';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB8a0V2r63NS_Ih9TRySgf9b_hfgQZilt4",
-  authDomain: "book-project-team13.firebaseapp.com",
-  projectId: "book-project-team13",
-  storageBucket: "book-project-team13.appspot.com",
-  messagingSenderId: "340832674468",
-  appId: "1:340832674468:web:98e6ba50474242c91b3c31"
+  apiKey: "AIzaSyAmjMPhgeiPnKuRTAY8vypkpT4j7HmPfug",
+  authDomain: "fu11stack-book-project.firebaseapp.com",
+  databaseURL: "https://fu11stack-book-project-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "fu11stack-book-project",
+  storageBucket: "fu11stack-book-project.appspot.com",
+  messagingSenderId: "110270361117",
+  appId: "1:110270361117:web:304c337163371a2e8920f4"
 };
 
 const app = initializeApp(firebaseConfig);

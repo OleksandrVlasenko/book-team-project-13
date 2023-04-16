@@ -56,7 +56,7 @@ function onSignUpBtn() {
             type="text"
             class="form__input form__input-name"
             name="name"
-            pattern="^[A-Za-z][A-Za-z0-9_]{7,29}$"
+            pattern="^[A-Za-z][A-Za-z0-9_]{3,10}$"
             required
           />
           <label for="name" class="form__label form__label-name">Name</label>

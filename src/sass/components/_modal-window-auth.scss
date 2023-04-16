@@ -24,10 +24,12 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
 
     &:hover {
         background-color: $yellow-color;
+        box-shadow: 10px 17px 28px -7px $dark-color;
     }
 
     &:focus {
         background-color: $yellow-color;
+        box-shadow: 10px 17px 28px -7px $dark-color;
     }
 }
 
@@ -35,6 +37,10 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     position: absolute;
     top: 40%;
     right: 5px;
+}
+
+.registration__btn:hover + .registration__icon-arrow {
+    stroke: #4f2ee8;
 }
 
 .auth__backdrop {
@@ -136,9 +142,13 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     }
 }
 
-.form__field:focus input {
+.form__field input:focus {
     border-color: $blue-color;
     outline: none;
+}
+
+.form__field input:valid:required {
+    border-color: #41e82ed7;
 }
 
 
@@ -216,24 +226,10 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     gap: 5px;
 }
 
-.form__btn-up {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.01em;
-    color: #11111180;
-    text-transform: uppercase;
-    border: none;
-    background-color: $primary-background-color;
-    cursor: pointer;
-
-    @media screen and (min-width: 1280px) {
-        font-size: 18px;
-        line-height: 1.33;
-    }
-}
-
+.form__btn-up,
 .form__btn-in {
+    position: relative;
+
     font-weight: 700;
     font-size: 14px;
     line-height: 1.29;
@@ -244,14 +240,37 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     background-color: $primary-background-color;
     cursor: pointer;
 
+    &:hover {
+            color: $blue-color;
+        }
+
     @media screen and (min-width: 1280px) {
         font-size: 18px;
         line-height: 1.33;
     }
 }
+
+.form__btn-up::after,
+.form__btn-in::after {
+    content: '';
+        position: absolute;
+        bottom: 5;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 1.5px;
+        background-color: $blue-color;
+        transition: width 0.3s ease-out;
+}
+
+.form__btn-up:hover::after,
+.form__btn-in:hover::after {
+    width: 85%;
+}
+
 
 .form__btn-out {
-position: relative;
+    position: relative;
 
     font-weight: 700;
     font-size: 14px;
@@ -286,7 +305,7 @@ position: relative;
 }
 
 .form__btn-out:hover::after {
-    width: 100%;
+    width: 85%;
 }
 
 .form__icon {

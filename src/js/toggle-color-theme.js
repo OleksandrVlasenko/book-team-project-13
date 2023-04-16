@@ -24,6 +24,7 @@ window.addEventListener('load', () => {
       localStorage.setItem('theme', 'light');
       addDarkClassToHTML();
     }
+    
   });
 
   darkModeMatchMedia.addEventListener('change', event => {
