@@ -32,7 +32,7 @@ refs.formAuth.addEventListener('input', () => {
   
 });
 
-function toggleModal() {
+export function toggleModal() {
   refs.modalAuth.classList.toggle('is-hidden');
 }
 
