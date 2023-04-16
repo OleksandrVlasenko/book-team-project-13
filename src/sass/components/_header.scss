@@ -2,6 +2,8 @@
     position: fixed;
     border: 1.5px solid #111111;
     border-radius: 0px 0px 8px 8px;
+    width: 100%;
+    background-color:  var(--main-text-cl-dark-theme);
 }
 
 .header__container {

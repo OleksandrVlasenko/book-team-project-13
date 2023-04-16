@@ -3,7 +3,7 @@ import { refs } from './refs';
 
 import { auth } from './modal-auth/firebaseFunction';
 import { onAuthStateChanged } from 'firebase/auth';
-
+import { toggleModal } from './modal-auth/modal-window-authFirebase'
 
   refs.openModalBtn.addEventListener('click', onOpenModal);
   refs.closeModalBtn.addEventListener('click', onCloseModal);
@@ -19,6 +19,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 
   function onRegistration () {
     document.body.classList.remove('show-modal')
+    toggleModal ()
   }
 
   onAuthStateChanged(auth, user => {
@@ -37,6 +38,9 @@ const currentPath = window.location.pathname;
 
 if (currentPath === '/index.html') {
     refs.homePainting.classList.add('nav__link--current')
+}
+else if (currentPath === '/') {
+  refs.homePainting.classList.add('nav__link--current')
 }
 else if (currentPath === '/shopping-list.html') {
     refs.shoppingListPainting.classList.add('nav__link--current')
