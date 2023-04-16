@@ -2,8 +2,10 @@ import { BooksAPI } from "../main_page/fetch";
 import { books } from "../backend-books";
 import { renderClearShoppingList, renderShoppingList } from "./rendering-shng-lst";
 import { handleDeleteBookBtn } from "./deleteBookBtn";
-export {renderCardOfBooks}
+export { renderCardOfBooks }
+
 const getBook = new BooksAPI();
+let logIn = true;
 
 const galleryBooksEl = document.querySelector(`.shopping-list__gallery-boocks`);
 
@@ -38,4 +40,9 @@ async function renderCardOfBooks() {
     }
 }
 
-window.addEventListener("load", renderCardOfBooks());
+window.addEventListener("load", () => {
+    if (!logIn) {
+        return
+    } else {
+    renderCardOfBooks()}
+});
