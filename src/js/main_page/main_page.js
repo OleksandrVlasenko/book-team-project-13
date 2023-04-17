@@ -38,9 +38,9 @@ async function onFirstload() {
 }
 refCategory.addEventListener('click', onCategoryClick);
 
-async function onCategoryClick(el) { 
-  el.preventDefault(); 
-  if (el.target.classList.contains("category__home-itm")) { 
+async function onCategoryClick(el) {
+  el.preventDefault();
+  if (el.target.classList.contains("category__home-itm")) {
     refBooks.innerHTML = "";
 
     //Add and start preloader
@@ -51,27 +51,26 @@ async function onCategoryClick(el) {
     startPreloader();
     //------------------------
 
-    const data = await (await bookApi.getOneCategory(`${el.target.innerText}`)).data; 
-    const resp = (await bookApi.getTopBooks()); 
-    if (el.target.innerText === `All categories`) { 
-      refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>') 
-      refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join("")); 
-    } 
-    refBooks.insertAdjacentHTML('beforeend', await makeCategoryPage(`${el.target.innerText}`, data)); 
-  } 
+    const data = await (await bookApi.getOneCategory(`${el.target.innerText}`)).data;
+    const resp = (await bookApi.getTopBooks());
+    if (el.target.innerText === `All categories`) {
+      refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>')
+      refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join(""));
+    }
+    refBooks.insertAdjacentHTML('beforeend', await makeCategoryPage(`${el.target.innerText}`, data));
+  }
 
   //Stop and remove preloader
   stopPreloader();
   //-------------------------
 };
 
-refBooks.addEventListener('click', onSeeMoreClick); 
- 
-async function onSeeMoreClick(event) { 
-  event.preventDefault(); 
+refBooks.addEventListener('click', onSeeMoreClick);
+
+async function onSeeMoreClick(event) {
+  event.preventDefault();
   if (event.target.classList.contains("see-more")) {
     const requestedCategory = event.target.dataset.js;
-    console.dir(requestedCategory);
     refBooks.innerHTML = '';
 
     //Add and start preloader
@@ -93,7 +92,7 @@ async function onSeeMoreClick(event) {
     //Stop and remove preloader
     stopPreloader();
     //-------------------------
-  }; 
+  };
 };
 
 
