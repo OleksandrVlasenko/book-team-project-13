@@ -15,7 +15,7 @@ refs.inputMail.addEventListener('input', debounce(onInput, 250));
 refs.inputPassword.addEventListener('input', debounce(onInput, 250));
 
 
-function openModal() {
+export function openModal() {
   refs.modalAuth.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
   window.addEventListener('keydown', OnEscPress);
