@@ -1,81 +1,130 @@
 import axios from "axios"
-import { BooksAPI } from "./fetch"
+import { BooksAPI } from "./fetch";
+import { makeCategoryPage } from "./functions";
+import { murkupCategoryList } from "./functions";
+import { murkup } from "./functions";
+import { addMediaWidth } from "./media-width";
+import {
+  startPreloader,
+  stopPreloader,
+  addMarkupOfPreloader,
+} from '../preloader';
+import Notiflix from "notiflix";
 
-const refBest = document.querySelector('.block__gallery')
+
+
+
 const refBooks = document.querySelector('.block__books')
 const refCategory = document.querySelector('.category__home')
+const markupBook = document.querySelector('.block__category')
+
+const bookCart = document.querySelector('.book-card__home')
 
 const bookApi = new BooksAPI();
 
+onFirstload()
 
-
-
-
-
-
-
-
-const URL = {
-  all:'https://books-backend.p.goit.global/books/category-list',
-  best:'https://books-backend.p.goit.global/books/top-books',
-  // books:'https://books-backend.p.goit.global/books/top-books',
-}
-async function getUrl(obj) { 
-  await Object.values(obj).map(el => 
-    api(el)
-   )
-
-//  return url 
-}
-getUrl(URL)
-
-async function api(curentUrl) {
- 
+async function onFirstload() {
   try {
-    
-    return axios.get(curentUrl)
-      .then(e => murkup(e.data))
+    const categoryApi = (await bookApi.getCategoryList());
+    refCategory.insertAdjacentHTML('beforeend', (await murkupCategoryList(categoryApi)));
+  } catch (error) {
+    Notiflix.Notify.failure(`Categories was not found : ${error.message}`);
   }
-  catch(e){
-    console.log(e);
+  try {
+    const resp = (await bookApi.getTopBooks());
+    refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>');
+    refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join(""));
+    return resp.data;
+  } catch (error) {
+    Notiflix.Notify.failure(`Books was not found : ${error.message}`);
   }
 }
+refCategory.addEventListener('click', onCategoryClick);
 
-async function murkup(api) {
+async function onCategoryClick(el) {
+  el.preventDefault();
 
- 
+  if (el.target.classList.contains("category__home-itm")) {
+    refBooks.innerHTML = "";
+    //Add and start preloader
+    refBooks.insertAdjacentHTML(
+      'afterbegin',
+      addMarkupOfPreloader()
+    );
+    startPreloader();
+    //-----------------------
+    if (el.target.innerText === `All categories`) {
+      try {
+        const resp = (await bookApi.getTopBooks());
+        refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>')
+        refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join(""));
+        stopPreloader();
+      } catch (error) {
+        Notiflix.Notify.failure(`Books was not found : ${error.message}`);
+      };
+      return;
+    } else {
+      try {
+        const data = await (await bookApi.getOneCategory(`${el.target.innerText}`)).data;
+        refBooks.insertAdjacentHTML('beforeend', await makeCategoryPage(`${el.target.innerText}`, data));
+        stopPreloader();
+      } catch (error) {
+        Notiflix.Notify.failure(`Books was not found : ${error.message}`);
+      };
+    }
+  };
+};
 
-  if (!api[0].books) {
-    const fetch = await api;
-    const markup = await fetch.map(({ list_name }) => {
-      return `
+refBooks.addEventListener('click', onSeeMoreClick);
 
-<li>${list_name}</li>
-`
-    }).join('')
-    const murkarAllCatrgory = refCategory.insertAdjacentHTML('beforeend', markup)
+async function onSeeMoreClick(event) {
+  event.preventDefault();
+  if (event.target.classList.contains("see-more")) {
+    const requestedCategory = event.target.dataset.js;
+    refBooks.innerHTML = '';
+    //Add and start preloader
+    refBooks.insertAdjacentHTML(
+      'afterbegin',
+      addMarkupOfPreloader()
+    );
+    startPreloader();
+    //------------------------
+    try {
+      const data = await (
+        await bookApi.getOneCategory(`${requestedCategory}`)
+      ).data;
+      refBooks.insertAdjacentHTML(
+        'beforeend',
+        await makeCategoryPage(`${requestedCategory}`, data)
+      );
+      stopPreloader();
+    } catch (error) {
+      Notiflix.Notify.failure(`Books was not found : ${error.message}`);
+    }
+
+  } else if (event.target.classList.contains("all-categories__btn")) {
+    refBooks.innerHTML = '';
+    //Add and start preloader
+    refBooks.insertAdjacentHTML(
+      'afterbegin',
+      addMarkupOfPreloader()
+    );
+    startPreloader();
+    //------------------------
+    try {
+      const resp = (await bookApi.getTopBooks());
+      refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>');
+      refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join(""));
+      stopPreloader();
+    } catch (error) {
+      Notiflix.Notify.failure(`Books was not found : ${error.message}`);
+    }
   }
-  else {
-    const fetch = await api;
-    console.log(fetch);
-    const markup = await fetch.map(e => Object.values(e)[1].map(({ book_uri, book_image,list_name }) => {
-      return `
+};
 
-      
-<div class="book-card__home">
-          <div class="thumb__home">
-          <a href="${book_uri}"><img src="${book_image}" alt="" title="" loading="lazy"/></a> 
-          </div>
 
-           <p class="info-item">
-            <b>${list_name}</b>
-          </p>
-          </div>
-          </div>
 
-`
-    }).join(''))
-    const murkarBest = refBest.insertAdjacentHTML('beforeend', markup)
-  }
- 
-}
+
+
+
