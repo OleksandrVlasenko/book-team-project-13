@@ -2,6 +2,14 @@
     // width: 1300px;
     margin-left: auto;
     margin-right: auto;
+
+    @media screen and (max-width: 767px) {
+        padding-top: 64px;
+    }
+
+    @media screen and (min-width: 768px) {
+        padding-top: 72px;
+    }
 }
 
 
@@ -9,39 +17,39 @@
 
 
 
-    .container {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 20px;
-        padding-right: 20px;
+.container__home {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
 
-        @media screen and (min-width: 375px) {
-            width: 375px;
-        }
-
-        @media screen and (min-width: 768px) {
-            width: 768px;
-            padding-left: 32px;
-            padding-right: 32px;
-        }
-
-        @media screen and (min-width: 1280px) {
-            width: 100%;
-            padding-left: 24px;
-            padding-right: 24px;
-        }
-
-        @media screen and (min-width: 1440px) {
-            width: 1440;
-        }
+    @media screen and (min-width: 375px) {
+        width: 375px;
     }
+
+    @media screen and (min-width: 768px) {
+        width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 1440px;
+    }
+}
 
 
 .block__category {
 
     margin-right: 40px;
- 
+
 }
 
 .category__home {
@@ -74,14 +82,8 @@
 }
 
 
-
-
-
 .list-books__home {
     display: grid;
-
-         
-        
 }
 
 
@@ -96,12 +98,10 @@
 
 }
 
-
 .container__home {
     padding: 40px 24px;
     margin-left: auto;
     margin-right: auto;
     display: grid;
-   
-}
 
+}
