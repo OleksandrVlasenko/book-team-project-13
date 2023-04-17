@@ -23,11 +23,10 @@ const user = auth.currentUser;
 
 
 // Читання даних
-const btnRead = document.querySelector('.btn_read');
-btnRead.addEventListener('click', readShoppingList);
 
 
-    function readShoppingList() {
+
+export const readShoppingList = () => {
     const userId = auth.currentUser.uid;
     const shoppingListEl = ref(database, '/users' + userId);
     onValue(shoppingListEl, (snapshot) => {
@@ -37,15 +36,11 @@ btnRead.addEventListener('click', readShoppingList);
     });
 }
 
-const testBtnEl = document.querySelector('.test-button')
-console.log(testBtnEl)
 
 
 // Оновлення даних (якщо такого поля в базі ще не було, поле створюється і записує потрібні дані)
-const btnUpDate = document.querySelector('.btn_update');
-btnUpDate.addEventListener('click', updateShoppingList)
 
-function updateShoppingList() {
+export const updateShoppingList = () => {
     const userId = auth.currentUser.uid; 
     const email = ref(database, '/users' + userId);
     
