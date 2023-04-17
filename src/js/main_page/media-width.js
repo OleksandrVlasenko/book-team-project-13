@@ -4,7 +4,7 @@
 
 export function addMediaWidth() { 
     const checkedWidts = document.documentElement.clientWidth
-    // console.log(checkedWidts);
+    
     if (checkedWidts < 767) {
         
         return "mobile"

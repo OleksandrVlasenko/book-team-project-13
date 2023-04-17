@@ -10,10 +10,14 @@
 @import './utils/visually-hidden';
 
 //components
+@import './components/header';
+@import './components/nav';
 @import './components/toggle-color-theme';
 @import './components/menu';
 @import './components/hero';
 @import './components/hero-category';
 @import './components/modal-window-auth';
+@import './components/hero-fetch';
 @import './components/support-ukraine';
 @import './components/shopping-list';
+@import './components/preloader';

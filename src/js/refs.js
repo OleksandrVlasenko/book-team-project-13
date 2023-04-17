@@ -15,7 +15,11 @@ export const refs = {
   inputPassword: document.querySelector('.form__input-password'),
   labelPassword: document.querySelector('.form__label-password'),
   formAuth: document.querySelector('.form'),
-
-
-
+  openModalBtn: document.querySelector('[data-action="open-modal"]'),
+  closeModalBtn: document.querySelector('[data-action="close-modal"]'),
+  registrationBtn: document.querySelector('[data-action="registration"]'),
+  homePainting: document.querySelector('.nav__home'),
+  shoppingListPainting: document.querySelector('.nav__shopping'),
+  exitBtn: document.querySelector('.exit_btn'),
+  userName: document.querySelector('.modal__item')
 }
