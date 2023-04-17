@@ -4,8 +4,11 @@ import { renderClearShoppingList, renderShoppingList } from "./rendering-shng-ls
 import { handleDeleteBookBtn } from "./deleteBookBtn";
 export { renderCardOfBooks }
 
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from "../modal-auth/firebaseFunction";
+
+
 const getBook = new BooksAPI();
-let logIn = true;
 
 const galleryBooksEl = document.querySelector(`.shopping-list__gallery-boocks`);
 
@@ -14,7 +17,7 @@ localStorage.setItem(`idBooks`, JSON.stringify(objBooks));
     
 async function fetchBookByID(booksFromLocalStorage) {
     try {
-        const books = await Promise.all(booksFromLocalStorage.map(async id => await getBook.getBookByID(id._id)));
+            const books = await Promise.all(booksFromLocalStorage.map(async id => await getBook.getBookByID(id._id)));
             return books;
         } catch (error) {
             console.log(error);
@@ -29,20 +32,29 @@ async function renderCardOfBooks() {
         if (IdBooks.length === 0) {
             return galleryBooksEl.innerHTML = renderClearShoppingList();
         }
+        
         galleryBooksEl.innerHTML = renderShoppingList(data);    
-
-        const cardBook = document.querySelectorAll(`.shopping-list__card-boock`);
-        cardBook.forEach(eventCard => eventCard.addEventListener(`click`, handleDeleteBookBtn))
+        const cardBook = document.querySelector(`.shopping-list__gallery-boocks`);
+        cardBook.addEventListener(`click`, handleDeleteBookBtn);
 
     } catch (error) {
         console.log(error)
-    } finally {
     }
 }
 
 window.addEventListener("load", () => {
-    if (!logIn) {
-        return
-    } else {
-    renderCardOfBooks()}
+
+    onAuthStateChanged(auth, user => { 
+        
+        if (user) {
+        
+            renderCardOfBooks()
+            return
+            
+    } else { 
+        galleryBooksEl.innerHTML = renderClearShoppingList();
+    
+    } 
+        
+    });
 });

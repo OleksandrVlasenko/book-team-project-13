@@ -1,9 +1,13 @@
+body {
+    position: relative;
+}
+
 .shopping-list__section {
 @media screen and (min-width: 1200px) {
-            display: flex;
-            flex-direction: row-reverse;
-            padding-left: 32px;
-        }
+                display: flex;
+                flex-direction: row-reverse;
+        padding-left: 380px;
+    }
 }
 
 .shopping-list__container {
@@ -137,6 +141,11 @@
     html.dark & {
             color: var(--main-text-cl-dark-theme);
         }
+
+    @media screen and (max-width: 375px) {
+        padding-right: 38px;
+        font-size: 4.266vw;
+    }
 }
 
 .shopping-list__list-name {
@@ -192,44 +201,42 @@
 
 .shopping-list__shop-lis--img {
     filter: grayscale(100%);
-    mix-blend-mode: luminosity;
-    html.dark &{
+    // mix-blend-mode: luminosity;
+
+    &:hover,
+    &:focus {
+        filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+        transition: filter var(--timing-function);
+    }
+
+    html.dark &.logoBook{
+        mix-blend-mode: luminosity;
         filter: grayscale(0%) brightness(1);
-        width: 28px;
         &:hover,
         &:focus {
-            transition: scale var(--timing-function);
+            filter: drop-shadow(0px 3px 3px #ffffff85);
+            transition: filter var(--timing-function);
         }
     }
+    
     html.dark &.logoAmazon {
         filter: brightness(0) invert(1);
-        width: 48px;
     
         &:hover,
         &:focus {
-            transition: scale var(--timing-function);
+            filter: brightness(0) invert(1) drop-shadow(0px 3px 3px #ffffff85);
+            transition: filter var(--timing-function);
         }
     }
-        html.dark li &.bookShop {
-            width: 32px;
+        html.dark &.bookShop {
             filter: grayscale(0%) brightness(1) invert(0);
     
             &:hover,
             &:focus {
-                transition: scale var(--timing-function);
+                filter: drop-shadow(0px 3px 3px #ffffff85);
+                transition: filter var(--timing-function);
             }
         }
-
-    &:hover{
-            scale: var(--transform-scale);
-            filter: grayscale(0%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
-            transition: filter var(--timing-function), scale var(--timing-function);
-        }
-    &:focus {
-        scale: var(--transform-scale);
-        filter: grayscale(0%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
-        transition: filter var(--timing-function), scale var(--timing-function);
-    }
 }
 
 .shopping-list__description{
@@ -309,10 +316,13 @@
 }
 
 .shopping-list__section .supporters {
-    display: none;
-    margin-top: calc(40px + var(--height-header));
-    margin-right: 20px;
-    @media screen and (min-width: 1200px) {
-        display:block;
-        }
+    @media screen and (max-width: 1200px) {
+        display: none;    
+    }
+
+    position: fixed;
+    left: 24px;
+    top:calc(40px + var(--height-header));
+
+    width: 359px;
 }
