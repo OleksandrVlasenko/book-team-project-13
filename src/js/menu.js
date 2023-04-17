@@ -3,7 +3,7 @@ import { refs } from './refs';
 
 import { auth } from './modal-auth/firebaseFunction';
 import { onAuthStateChanged } from 'firebase/auth';
-import { toggleModal } from './modal-auth/modal-window-authFirebase'
+// import { toggleModal } from './modal-auth/modal-window-authFirebase'
 
   refs.openModalBtn.addEventListener('click', onOpenModal);
   refs.closeModalBtn.addEventListener('click', onCloseModal);
