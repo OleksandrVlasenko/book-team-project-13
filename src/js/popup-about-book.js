@@ -15,7 +15,7 @@ function toggleModal() {
     modal.classList.toggle("is-hidden");
 }
 
-function modalAboutBook(e) {
+ export function modalAboutBook(e) {
     // const bookId = "642fd89ac8cf5ee957f12362";
     // ???
     const bookId = e.target._id;
