@@ -3,6 +3,7 @@ body {
   font-family: 'DM Sans';
   font-weight: 700;
   font-style: normal;
+  background: var(--main-bg-cl);
 
   html.dark & {
     background-color: var(--main-bg-cl-dark-theme);
@@ -22,7 +23,7 @@ img {
   padding-left: 20px;
   padding-right: 20px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 376px) {
     width: 375px;
   }
 

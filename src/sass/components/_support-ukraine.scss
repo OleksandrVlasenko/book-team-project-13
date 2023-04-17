@@ -6,9 +6,11 @@
   width: 335px;
   max-height: 352;
   border-radius: 16px;
-  background: radial-gradient(183.6% 183.01% at 59.76% -23.42%,
-      #4f2ee8 18.03%,
-      #ffffff 100%);
+  background: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #ffffff 100%
+  );
 }
 
 .supporters__title {
@@ -52,10 +54,10 @@
 }
 
 .supporters__img {
-  filter: brightness(0) invert(1); 
+  filter: brightness(0) invert(1);
   display: inline-block;
   vertical-align: middle;
- height: 32px; 
+  height: auto;
 }
 
 .supporters__btn {
@@ -87,7 +89,7 @@
 }
 
 .swiper {
-  margin-bottom: 16;  
+  margin-bottom: 16;
 }
 
 @media screen and (min-width: 768px) {

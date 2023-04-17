@@ -16,7 +16,7 @@ async function sliceData(data) {
 }
 
 export async function murkup(data) {
- 
+
   return await Promise.all(data.map(async ({ list_name, books }) => {
     return ` 
     <div class="item-books__home"> 
@@ -34,19 +34,19 @@ export async function makeCategoryPage(category, data) {
   const title = category.split(" ");
   return ` 
   <h2 class="block__books-title">${title.splice(0, (title.length / 2)).join(' ')} <span class="block__books-colortitle">${title.splice((title.length / 2), title.length).join(' ')}</span></h2> 
-        <ul class="block__books-list">${await makeListOfBooks(data)}</ul>`
-
+        <ul class="block__books-list">${await makeListOfBooks(data)}</ul>
+        <button class="button all-categories__btn" data-js="All Categories">All Categories</button>`
 
 };
 
 export async function makeListOfBooks(data) {
- 
+
   return data.map(({ author, book_image, title, description, _id }) => {
     return `<li class="books__itm">  
     <div class="books__wrapper" id=${_id} > 
     <img class="books__image" src="${book_image}"  alt="${description}" loading="lazy"  /> 
     <div class="books__overlay"> 
-    <p class="books__overlay-text"></p> 
+    <p class="books__overlay-text">QUICK VIEW</p> 
     </div> 
     </div> 
     <div class="books__info">  
@@ -57,29 +57,3 @@ export async function makeListOfBooks(data) {
   }
   ).join('');
 };
-
-
-
-
-
-// export async function marcupBook(books) {
-//   return await books.map(({ list_name, book_image, _id, author, title
-//   }) => {
-//     return `
-// <div class="book-card__home">
-//   <div class="thumb__home js-item">
-//     <a  href="${book_image}"
-//       ><img class="js-bookImg" src="${book_image}" id=${_id} alt="" title="" loading="lazy"
-//     /></a>
-//   </div>
-//   <div>
-//     <p class="info-title">
-//       <b>${title}</b>
-//     </p>
-//     <p class="info-autor">
-//       <b>${author}</b>
-//     </p>
-//   </div>
-// </div>
-// `}).join('')
-// }
