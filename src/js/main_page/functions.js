@@ -16,7 +16,7 @@ async function sliceData(data) {
 }
 
 export async function murkup(data) {
- 
+
   return await Promise.all(data.map(async ({ list_name, books }) => {
     return ` 
     <div class="item-books__home"> 
@@ -40,13 +40,13 @@ export async function makeCategoryPage(category, data) {
 };
 
 export async function makeListOfBooks(data) {
- 
+
   return data.map(({ author, book_image, title, description, _id }) => {
     return `<li class="books__itm">  
     <div class="books__wrapper" id=${_id} > 
     <img class="books__image" src="${book_image}"  alt="${description}" loading="lazy"  /> 
     <div class="books__overlay"> 
-    <p class="books__overlay-text"></p> 
+    <p class="books__overlay-text">QUICK VIEW</p> 
     </div> 
     </div> 
     <div class="books__info">  
