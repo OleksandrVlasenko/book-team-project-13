@@ -49,32 +49,33 @@ const refs = {
   btn: document.querySelector('.supporters__btn'),
 };
 
-function getBookName(title) {
-  return title.toLowerCase().replaceAll(' ', '-');
-}
+// function getBookName(title) {
+//   return title.toLowerCase().replaceAll(' ', '-');
+// }
 
 const markup = supporters
-  .map((el, index) => {
-    const bookName = getBookName(el.title);
-    console.log(bookName);
+  .map(
+    (el, index) =>
+      // const bookName = getBookName(el.title);
+      // console.log(bookName);
 
-    const fondSource = new URL(
-      `../images/save-the-children@1x.png`,
-      import.meta.url
-    );
-    console.log(fondSource);
+      // const fondSource = new URL(
+      //   `../images/save-the-children@1x.png`,
+      //   import.meta.url
+      // );
+      // console.log(fondSource);
 
-    return `<div class ="supporters__item swiper-slide">
+      `<div class ="supporters__item swiper-slide">
       <span class="supporters__number">
       ${(index + 1).toString().padStart(2, '0')}
         </span>
         <a href = "${el.url}" title = "${el.title}" target='_blank'>
-      <img src = "${fondSource}" class="supporters__img" srcset="${fondSource} 1x, ${fondSource}@2x.png 2x, ${fondSource}@3x.png 3x" alt = "${
-      el.title
-    } logo"/>
+      <img src = "${el.img}" class="supporters__img" srcset="${el.img} 1x, ${
+        el.imgRetinaTwo
+      } 2x, ${el.imgRetinaThree} 3x" alt = "${el.title} logo"/>
       </a>
-      </div>`;
-  })
+      </div>`
+  )
   .join('');
 
 refs.list.innerHTML = markup;
