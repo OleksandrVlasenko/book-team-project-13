@@ -1,13 +1,35 @@
 import { refs } from '../refs';
+import debounce from 'lodash.debounce';
 
 
-refs.openAuthBtn.addEventListener('click', toggleModal);
-refs.closeAutBtn.addEventListener('click', toggleModal);
+refs.openAuthBtn.addEventListener('click', openModal);
+refs.closeAutBtn.addEventListener('click', closeModal);
+
+refs.formAuth.addEventListener('input', onDisabledStatus);
+
+refs.signInBtn.addEventListener('click', onSignInBtn);
+refs.signUpBtn.addEventListener('click', onSignUpBtn);
+
+refs.inputName.addEventListener('input', debounce(onInput, 250));
+refs.inputMail.addEventListener('input', debounce(onInput, 250));
+refs.inputPassword.addEventListener('input', debounce(onInput, 250));
+
+
+function openModal() {
+  refs.modalAuth.classList.remove('is-hidden');
+  document.body.classList.add('modal-open');
+  window.addEventListener('keydown', OnEscPress);
+}
+
+function closeModal() {
+  refs.modalAuth.classList.add('is-hidden');
+  document.body.classList.remove('modal-open');
+  window.removeEventListener('keydown', OnEscPress);
+}
 
 
 
-refs.formAuth.addEventListener('input', () => {
-
+function onDisabledStatus() {
   if (refs.submitBtn.textContent === 'Sign up') {
 
     if (refs.formAuth.elements.mail.value !== '' &&
@@ -27,17 +49,10 @@ refs.formAuth.addEventListener('input', () => {
     } else {
       refs.submitBtn.classList.add('disabled');
     }
-
-  }
-  
-});
-
-export function toggleModal() {
-  refs.modalAuth.classList.toggle('is-hidden');
+  } 
 }
 
-refs.signInBtn.addEventListener('click', onSignInBtn);
-refs.signUpBtn.addEventListener('click', onSignUpBtn);
+
 
 function onSignInBtn() {
   refs.signUpBtn.classList.remove('active');
@@ -61,32 +76,24 @@ function onSignUpBtn() {
           />
           <label for="name" class="form__label form__label-name">Name</label>
         </div>`;
+  refs.inputName = document.querySelector('.form__input-name');
+  refs.inputName.addEventListener('input', debounce(onInput, 250));
 }
 
-refs.inputName.addEventListener('input', onInputName);
-refs.inputMail.addEventListener('input', onInputMail);
-refs.inputPassword.addEventListener('input', onInputPassword);
 
-function onInputName() {
-  if (refs.inputName.value) {
-    refs.labelName.classList.add('checked');
+
+function onInput(e) {
+  if (e.target.value) {
+    e.target.nextElementSibling.classList.add('checked');
   } else {
-    refs.labelName.classList.remove('checked');
+    e.target.nextElementSibling.classList.remove('checked');
   }
 }
 
-function onInputMail() {
-  if (refs.inputMail.value) {
-    refs.labelMail.classList.add('checked');
-  } else {
-    refs.labelMail.classList.remove('checked');
-  }
-}
 
-function onInputPassword() {
-  if (refs.inputPassword.value) {
-    refs.labelPassword.classList.add('checked');
-  } else {
-    refs.labelPassword.classList.remove('checked');
+
+function OnEscPress(e) {
+  if (e.code === 'Escape') {
+    closeModal();
   }
 }
