@@ -6,3 +6,4 @@ import './js/refs';
 import './js/modal-auth/modal-window-authFirebase';
 import './js/modal-auth/firebaseAuth';
 import './js/menu';
+import './js/modal-auth/firebaseDatabase';
