@@ -42,7 +42,7 @@
 }
 
 .supporters__number {
-  // display: inline-block;
+  display: inline-block;
   font-weight: 400;
   font-family: 'DM Sans';
   font-size: 14px;
@@ -57,7 +57,7 @@
   filter: brightness(0) invert(1);
   display: inline-block;
   vertical-align: middle;
-  height: auto;
+  height: 32px;
 }
 
 .supporters__btn {
@@ -108,9 +108,9 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
   .supporters {
-    width: 356;
+    width: 356px;
     max-height: 490px;
     padding-bottom: 24px;
   }
