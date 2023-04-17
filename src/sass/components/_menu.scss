@@ -2,18 +2,18 @@
     display: flex;
     padding: 0;
     border: none;
-    background-color: #FFFFFF;
+    background-color: var(--main-text-cl-dark-theme);
     height: 28px;
     width: 28px;
    margin-right: 20px;
    stroke: #111111;
   }
   .menu__toggle:hover {
-    stroke: #4F2EE8;
+    stroke: var(--accent-cl);
   }
 
   .menu__toggle:focus {
-    stroke: #4F2EE8;
+    stroke: var(--accent-cl);
   }
   
   body.show-modal .backdrop{
@@ -48,7 +48,7 @@
     border-radius: 4px;
     width: 100%;
     height: 100%;
-    background-image: url(../images/books.png), radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+    background-image: url(../images/books.png), radial-gradient(183.6% 183.01% at 59.76% -23.42%, var(--accent-cl) 18.03%, var(--main-text-cl-dark-theme) 100%);
     background-repeat: no-repeat;
     background-position: right bottom, center;
     background-size: 100%, cover;
@@ -64,8 +64,8 @@
     height: 64px;
     left: 0px;
     top: 0px;
-    background: #FFFFFF;
-    border: 1.5px solid #111111;
+    background: var(--main-text-cl-dark-theme);
+    border: 1.5px solid var(--main-text-cl-light-theme);
     border-radius: 0px 0px 8px 8px;
     justify-content: right;
     align-items: center;
@@ -77,8 +77,8 @@
     height: 48px;
     left: 0px;
     top: 0px;
-    background: #4F2EE8;
-    border: 1.5px solid #111111;
+    background: var(--accent-cl);
+    border: 1.5px solid var(--main-text-cl-light-theme);
     border-radius: 18px;
     font-family: 'DM Sans';
     font-style: normal;
@@ -86,7 +86,7 @@
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.04em;
-    color: #FFFFFF;
+    color: var(--main-text-cl-dark-theme);
     flex: none;
     flex-wrap: wrap;
     align-content: space-around;
@@ -98,11 +98,11 @@
   }
 
   .registration__btn:hover{
-    background-color: #EAC645;
+    background-color: var(--secondary-accent-cl);
   }  
 
   .registration__btn:focus{
-    background-color: #EAC645;
+    background-color: var(--secondary-accent-cl);
   }  
 
 
@@ -123,23 +123,21 @@
     line-height: 1.29;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: var(--main-text-cl-dark-theme);
   
   }
   .nav__link--current{
     border: 0px solid rgba(0, 0, 0, 0.2);
     padding: 8px 16px;
     border-radius: 36px;
-    background-color: #EAC645;
+    background-color: var(--secondary-accent-cl);
     font-family: 'DM Sans';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.04em;
-  
-  
-  color: #111111;
+    color: var(--main-text-cl-light-theme);
   }
   
   .nav__shopping {
@@ -155,8 +153,8 @@
     height: 48px;
     left: 0px;
     bottom: 0px;
-    background: #FFFFFF;
-    border: 1.5px solid #111111;
+    background: var(--main-text-cl-dark-theme);
+    border: 1.5px solid var(--main-text-cl-light-theme);
     border-radius: 18px;
     font-family: 'DM Sans';
     font-style: normal;
@@ -164,7 +162,7 @@
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.04em;
-    color: #111111;
+    color: var(--main-text-cl-light-theme);
     flex: none;
     flex-wrap: wrap;
     justify-content: center;
