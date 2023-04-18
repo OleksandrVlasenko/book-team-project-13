@@ -1,34 +1,200 @@
+$primary-background-color: #f6f6f6;
+$white-gray-color: #f3f3f3;
+$text-gray-color: #b4afaf;
+$dark-color: #111111;
+$blue-color: #4f2ee8;
+$yellow-color: #eac645;
+$white-color: #ffffff;
+$cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
+
+
 .header {
-    position: fixed;
-    border: 1.5px solid #111111;
-    border-radius: 0px 0px 8px 8px;
-    width: 100%;
-    background-color:  var(--main-text-cl-dark-theme);
+  //   position: fixed;
+  border: 1.5px solid #111111;
+  border-radius: 0px 0px 8px 8px;
+  width: 100%;
+  background-color: var(--main-text-cl-dark-theme);
+
+  @media screen and (min-width: 768px) {
+    // height: 72px;
+  }
+  html.dark & {
+    background-color: #111;
+    border: 1.5px solid #fff;
+  }
 }
 
 .header__container {
-    @extend .container;
+  @extend .container;
 
-    display: flex;
-    align-items: center;
-      
-};
+  display: flex;
+  align-items: center;
+}
 
 .header__logo {
-    margin-top: 21px;
-    margin-right: 170px;
-    margin-bottom: 21px;
-    
-    
+  // margin-top: 21px;
+  // margin-right: 170px;
+  // margin-bottom: 21px;
+  //   margin-left: auto;
+  //   padding-top: 18px;
+  //   padding-bottom: 18px;
+  fill: #000;
+  html.dark & {
+    fill: #f3f3f3;
+  }
+}
+.header__logo__link {
+  display: flex;
+  gap: 8px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  align-items: center;
+  // fill: rgb(0, 255, 255);
+}
+.header__togglers {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  gap: 14px;
 
-    @media screen and (min-width: 768px) {
-            margin-top: 25px;
-            margin-right: 32px;
-          
-        };
+  @media screen and (min-width: 768px) {
+    margin-left: 132px;
+  }
 
-        @media screen and (min-width: 1280px) {
-            margin-right: 99px;
+  @media screen and (min-width: 1280px) {
+    margin-left: 650px;
+    // margin-right: 200px;
+  }
+}
+
+
+//registration__btn
+
+.registration__btnMain {
+  display: none;
+
+  position: relative;
+  width: 184;
+  height: 48;
+  background-color: $blue-color;
+  text-align: left;
+  align-items: center;
+  border: 1.5px solid $dark-color;
+  border-radius: 18px;
+  color: $white-color;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding-left: 14px;
+  transition: background $cubic-time, box-shadow $cubic-time;
     
-        }
+      @media screen and (min-width: 768px) {
+        display: flex;
+      }
+    
+      // &.is-hidden {
+      //   display: none;
+      //   opacity: 0;
+      //   visibility: hidden;
+      //   pointer-events: none;
+      // }
+
+  &:hover {
+    background: linear-gradient(90deg, rgba(234, 198, 69, 1) 37%, rgba(79, 46, 232, 1) 75%, rgba(79, 46, 232, 1) 100%);
+    box-shadow: 10px 17px 28px -7px $dark-color;
+  }
+
+  &:focus {
+    background: linear-gradient(90deg, rgba(234, 198, 69, 1) 37%, rgba(79, 46, 232, 1) 75%, rgba(79, 46, 232, 1) 100%);
+    box-shadow: 10px 17px 28px -7px $dark-color;
+  }
+}
+
+.registration__icon-arrow {
+  position: absolute;
+  top: 40%;
+  right: 5px;
+}
+
+.registration__btnMain:hover+.registration__icon-arrow {
+  stroke: #4f2ee8;
+}
+
+.header__group {
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-left: auto;
+    
+      @media screen and (min-width: 768px) {
+        gap: 24px;
+      }
+}
+
+.auth-btns__wrapper {
+  position: relative;
+
+  // &.is-hidden {
+  //   display: none;
+  //   opacity: 0;
+  //   visibility: hidden;
+  //   pointer-events: none;
+  // }
+}
+
+.auth-btn__user {
+  display: none;
+
+  align-items: center;
+  justify-content: space-around;
+  gap: 5px;
+
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 29px;
+  letter-spacing: -0.02em;
+
+  color: $white-color;
+  border: 1px solid $blue-color;
+  border-radius: 36px;
+  background-color: $blue-color;
+
+  height: 45px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+
+}
+
+.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+
+.auth-btn__logOut {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  width: 184px;
+  height: 48px;
+  background-color: $white-color;
+  border: 1.5px solid $dark-color;
+  border-radius: 18px;
+  color: $dark-color;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.auth-btn__logOut.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }

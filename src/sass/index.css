@@ -1,28 +1,31 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 @font-face {
-  font-family: "DM Sans";
-  src: url("../fonts/dmsans-regular-webfont.woff2") format("woff2"), url("../fonts/dmsans-regular-webfont.woff") format("woff");
+  font-family: 'DM Sans';
+  src: url('../fonts/dmsans-regular-webfont.woff2') format('woff2'),
+    url('../fonts/dmsans-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "DM Sans";
-  src: url("../fonts/dmsans-italic-webfont.woff2") format("woff2"), url("../fonts/dmsans-italic-webfont.woff") format("woff");
+  font-family: 'DM Sans';
+  src: url('../fonts/dmsans-italic-webfont.woff2') format('woff2'),
+    url('../fonts/dmsans-italic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: "DM Sans";
-  src: url("../fonts/dmsans-bold-webfont.woff2") format("woff2"), url("../fonts/dmsans-bold-webfont.woff") format("woff");
+  font-family: 'DM Sans';
+  src: url('../fonts/dmsans-bold-webfont.woff2') format('woff2'),
+    url('../fonts/dmsans-bold-webfont.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 body {
   position: relative;
-  font-family: "DM Sans";
+  font-family: 'DM Sans';
   font-weight: 700;
   font-style: normal;
 }
@@ -98,17 +101,17 @@ svg {
 button,
 a {
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 :root {
   --main-text-cl-light-theme: #111111;
-  --main-text-cl-dark-theme: #FFFFFF;
-  --secondary-text-cl: #B4AFAF;
-  --accent-cl: #4F2EE8;
-  --secondary-accent-cl: #EAC645;
-  --main-bg-cl: #F6F6F6;
+  --main-text-cl-dark-theme: #ffffff;
+  --secondary-text-cl: #b4afaf;
+  --accent-cl: #4f2ee8;
+  --secondary-accent-cl: #eac645;
+  --main-bg-cl: #f6f6f6;
   --main-bg-cl-dark-theme: #202024;
   --timing-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -156,7 +159,7 @@ a {
 }
 
 .switch-slider::before {
-  content: "";
+  content: '';
   position: absolute;
   cursor: pointer;
   height: 26px;
@@ -165,7 +168,8 @@ a {
   bottom: 4px;
   border-radius: 50%;
   background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1), 1px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1),
+    1px 2px 4px rgba(0, 0, 0, 0.1);
   transition: 0.4s;
 }
 
@@ -186,7 +190,7 @@ a {
 }
 
 .container__home {
-  width: 1280;
+  width: 1440px;
   margin-left: 10px;
   margin-right: 10px;
   display: grid;
@@ -201,6 +205,8 @@ a {
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .block__gallery {
@@ -211,7 +217,7 @@ a {
   grid-row-start: 1;
   grid-row-end: 1;
 }
-
+/* 
 .block__books {
   height: 1200px;
   outline: 2px solid yellow;
@@ -219,7 +225,7 @@ a {
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 2;
-}
+} */
 
 .thumb__home {
   width: 100px;
@@ -240,8 +246,3 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
-
-.block__books {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}/*# sourceMappingURL=index.css.map */
