@@ -3,6 +3,8 @@ import { getDatabase, set, ref, update } from 'firebase/database';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import Notiflix from 'notiflix';
 
+import { readShoppingList } from './firebaseDatabase';
+
 const firebaseConfig = {
   apiKey: "AIzaSyAmjMPhgeiPnKuRTAY8vypkpT4j7HmPfug",
   authDomain: "fu11stack-book-project.firebaseapp.com",
@@ -65,8 +67,10 @@ export const signIn = (email, password) => {
             update(ref(database, '/users' + user.uid), {
                 last_login: lastLoginDate
             })
-    
+            const listShop = readShoppingList();
+            
             Notiflix.Notify.success(` Welcome ${email}!`);
+            
 
         })
         .catch((error) => {
@@ -80,7 +84,8 @@ export const signIn = (email, password) => {
 
 export const singOutFunction = () => {
     signOut(auth).then(() => {
-       Notiflix.Notify.info('See you soon');
+        localStorage.removeItem("idBooks");
+        Notiflix.Notify.info('See you soon');
     }).catch((error) => {
          Notiflix.Notify.failure(error);
     });

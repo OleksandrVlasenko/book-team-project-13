@@ -24,21 +24,29 @@ const user = auth.currentUser;
 
 // Читання даних
 
-
-
 export const readShoppingList = () => {
     const userId = auth.currentUser.uid;
     const shoppingListEl = ref(database, '/users' + userId);
     onValue(shoppingListEl, (snapshot) => {
-        const data = snapshot.val();
-        alert(data.shoppingList);
-        console.log(data.shoppingList);
+    const data = snapshot.val();
+    console.log(data.shoppingList);
+    return localStorage.setItem("idBooks", JSON.stringify(data.shoppingList)); 
     });
+}
+
+export const readUsername = () => {
+    const userId = auth.currentUser.uid;
+    const shoppingListEl = ref(database, '/users' + userId);
+    onValue(shoppingListEl, (snapshot) => {
+    const data = snapshot.val();
+    console.log(data.username);
+    return data.username;
+});
 }
 
 
 
-// Оновлення даних (якщо такого поля в базі ще не було, поле створюється і записує потрібні дані)
+// Оновлення даних
 
 export const updateShoppingList = () => {
     const userId = auth.currentUser.uid; 
@@ -49,11 +57,11 @@ export const updateShoppingList = () => {
     })
          .then(() => {
             // Data saved successfully!
-            alert('data updated');
+            console.log('data updated');
         })
             .catch((error) => {
                 // The write failed...
-                alert(error);
+                console.log(error);
             });
 
 }
