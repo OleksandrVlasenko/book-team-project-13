@@ -14,6 +14,8 @@ refs.inputName.addEventListener('input', debounce(onInput, 250));
 refs.inputMail.addEventListener('input', debounce(onInput, 250));
 refs.inputPassword.addEventListener('input', debounce(onInput, 250));
 
+refs.userBtn.addEventListener('click', openModal);
+
 
 export function openModal() {
   refs.modalAuth.classList.remove('is-hidden');
