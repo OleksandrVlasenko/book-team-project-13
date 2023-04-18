@@ -2,9 +2,8 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, update, onValue } from 'firebase/database';
 import { getAuth} from "firebase/auth";
 
-
 // Тест
-import { books } from "../backend-books";
+// import { books } from "../backend-books";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAmjMPhgeiPnKuRTAY8vypkpT4j7HmPfug",
@@ -21,26 +20,22 @@ const database = getDatabase(app);
 export const auth = getAuth();
 const user = auth.currentUser;
 
-
 // Читання даних
-
-
-
 export const readShoppingList = () => {
     const userId = auth.currentUser.uid;
     const shoppingListEl = ref(database, '/users' + userId);
     onValue(shoppingListEl, (snapshot) => {
         const data = snapshot.val();
-        alert(data.shoppingList);
+        console.log(data)
+        localStorage.setItem(`idBooks`, JSON.stringify(data.shoppingList))
+        // alert(data.shoppingList);
         console.log(data.shoppingList);
     });
 }
 
-
-
 // Оновлення даних (якщо такого поля в базі ще не було, поле створюється і записує потрібні дані)
 
-export const updateShoppingList = () => {
+export const updateShoppingList = (books) => {
     const userId = auth.currentUser.uid; 
     const email = ref(database, '/users' + userId);
     
@@ -49,7 +44,7 @@ export const updateShoppingList = () => {
     })
          .then(() => {
             // Data saved successfully!
-            alert('data updated');
+            // alert('data updated');
         })
             .catch((error) => {
                 // The write failed...
