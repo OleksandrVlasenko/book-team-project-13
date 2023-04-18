@@ -72,6 +72,6 @@ const bookShopImagesUrlx3 = new URL(
 
 // Remove book button
 const dumpImagesUrl = new URL (
-    `../../images/dump.svg`,    
+    `../../images/remove-book-btn.svg`,    
     import.meta.url
 );
