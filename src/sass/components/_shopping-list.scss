@@ -3,7 +3,6 @@ body {
 }
 
 .shopping-list__section {
-
     @media screen and (min-width: 768px) {
         padding-top: calc(40px + var(--height-header));
     }
@@ -55,8 +54,8 @@ body {
 }
 
 .shopping-list__card-boock {
+    z-index: -1;
     position: relative;
-    // margin-top: 20px;
     padding: 20px;
     width: 100%;
 
