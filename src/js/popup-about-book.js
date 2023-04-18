@@ -16,10 +16,6 @@ function toggleModal() {
 }
 
  export function modalAboutBook(e) {
-    // const bookId = "642fd89ac8cf5ee957f12362";
-    // ???
-    const bookId = e.target._id;
-    // ???
     const bookEl = books.find(book => book._id === bookId);
 
     murkupConteiner.innerHTML = "";
