@@ -42,7 +42,7 @@
     transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
   }
   
-  .modal {
+  .modal__menu {
     display: flex;
     flex-direction: column;
     border-radius: 4px;
@@ -105,6 +105,13 @@
     background-color: var(--secondary-accent-cl);
   }  
 
+  .modal__user{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
 
   .nav__modal{
     display: flex;
@@ -113,7 +120,7 @@
     margin-top: 24.5vh;
   }
   
-  .nav__link {
+  .nav__links {
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'DM Sans';

@@ -21,5 +21,6 @@ export const refs = {
   homePainting: document.querySelector('.nav__home'),
   shoppingListPainting: document.querySelector('.nav__shopping'),
   exitBtn: document.querySelector('.exit_btn'),
-  userName: document.querySelector('.modal__item')
+  userName: document.querySelector('.modal__item'),
+  userNameModal: document.querySelector('.modal__user')
 }
