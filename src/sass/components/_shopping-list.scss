@@ -1,4 +1,5 @@
 .shopping-list__section {
+    width: 100%;
     @media screen and (min-width: 768px) {
         padding-top: calc(40px + var(--height-header));
     }
@@ -15,12 +16,12 @@
     margin: auto;
     margin-bottom: 20px;
     padding-left: 20px;
-    padding-right: 20px;
+    // padding-right: 20px;
     
     @media screen and (min-width: 768px) {
         margin-bottom: 40px;
-        padding-right: 32px;
-        padding-left: 32px;
+        // padding-right: 32px;
+        padding-left: 40px;
     }
 }
 
@@ -320,7 +321,7 @@
     left: 24px;
     top:calc(40px + var(--height-header));
 
-    width: 356px;
-    max-height: 490px;
+    min-width: 359px;
+    // max-height: 490px;
     padding-bottom: 24px;
 }

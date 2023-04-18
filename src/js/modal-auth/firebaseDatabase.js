@@ -46,7 +46,7 @@ export const readUsername = () => {
 
 // Оновлення даних
 
-export const updateShoppingList = (books) => {
+export const updateShoppingList = () => {
     const userId = auth.currentUser.uid; 
     const email = ref(database, '/users' + userId);
     
