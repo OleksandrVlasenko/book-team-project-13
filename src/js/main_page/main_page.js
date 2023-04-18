@@ -29,6 +29,11 @@ async function onFirstload() {
   try {
     const categoryApi = (await bookApi.getCategoryList());
     refCategory.insertAdjacentHTML('beforeend', (await murkupCategoryList(categoryApi)));
+
+    const preloader = document.querySelector('#preloader');
+    preloader.style.zIndex = "-1";
+    
+
   } catch (error) {
     Notiflix.Notify.failure(`Categories was not found : ${error.message}`);
   }
@@ -36,9 +41,11 @@ async function onFirstload() {
     const resp = (await bookApi.getTopBooks());
     refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>');
     refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join(""));
+    stopPreloader();
     return resp.data;
   } catch (error) {
     Notiflix.Notify.failure(`Books was not found : ${error.message}`);
+    stopPreloader();
   }
 }
 refCategory.addEventListener('click', onCategoryClick);
