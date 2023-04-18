@@ -35,9 +35,9 @@ function toggleModal() {
             }
         }
 
-        const amazonLogo = new URL(`./img/amazon.png`,import.meta.url);
-        const appleBooksLogo = new URL(`./img/apple-book.png`, import.meta.url);
-        const bookShopLogo = new URL(`./img/book-shop.png`, import.meta.url);
+        const amazonLogo = new URL(`../images/shoppingList--logoAmazon.png`,import.meta.url);
+        const appleBooksLogo = new URL(`../images/shoppingList--logoBook.png`, import.meta.url);
+        const bookShopLogo = new URL(`../images/shoppingList--bookShop.png`, import.meta.url);
 
         if (book) {
             return `<div class="book">
