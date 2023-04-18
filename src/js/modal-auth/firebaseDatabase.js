@@ -22,8 +22,7 @@ export const auth = getAuth();
 const user = auth.currentUser;
 
 
-// Читання даних
-
+// Читання даних Shopping List з бази даних database
 export const readShoppingList = () => {
     const userId = auth.currentUser.uid;
     const shoppingListEl = ref(database, '/users' + userId);
@@ -33,18 +32,16 @@ export const readShoppingList = () => {
     return localStorage.setItem("idBooks", JSON.stringify(data.shoppingList)); 
     });
 }
-
+// Читання даних Username з бази даних database
 export const readUsername = () => {
     const userId = auth.currentUser.uid;
-    const shoppingListEl = ref(database, '/users' + userId);
-    onValue(shoppingListEl, (snapshot) => {
+    const usernameEl = ref(database, '/users' + userId);
+    onValue(usernameEl, (snapshot) => {
     const data = snapshot.val();
     console.log(data.username);
     return data.username;
 });
 }
-
-
 
 // Оновлення даних
 

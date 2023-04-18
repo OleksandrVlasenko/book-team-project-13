@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, set, ref, update } from 'firebase/database';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import Notiflix from 'notiflix';
-
 import { readShoppingList } from './firebaseDatabase';
 
 const firebaseConfig = {
@@ -67,8 +66,7 @@ export const signIn = (email, password) => {
             update(ref(database, '/users' + user.uid), {
                 last_login: lastLoginDate
             })
-            const listShop = readShoppingList();
-            
+            readShoppingList();
             Notiflix.Notify.success(` Welcome ${email}!`);
             
 
