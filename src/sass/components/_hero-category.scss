@@ -24,8 +24,9 @@
 .js-book-categoty{
     color:var(--secondary-text-cl)
 }
-.button.see-more{
+.see-more{
     color: var(--main-text-cl-dark-theme);
+    background-color:var(--main-bg-cl-dark-theme);
 }
 }
 
@@ -63,7 +64,7 @@
 
     :hover {
         .books__overlay {
-            top: 300px;
+            top: 372px;
         }
     }
 }
@@ -104,6 +105,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin-top: 14px;
     margin-bottom: 4px;
 
 }

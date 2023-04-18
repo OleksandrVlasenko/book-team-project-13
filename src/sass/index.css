@@ -217,15 +217,7 @@ a {
   grid-row-start: 1;
   grid-row-end: 1;
 }
-/* 
-.block__books {
-  height: 1200px;
-  outline: 2px solid yellow;
-  grid-column-start: 2;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 2;
-} */
+
 
 .thumb__home {
   width: 100px;

@@ -9,7 +9,7 @@ congratMessage.hidden = true;
 // OPEN/CLOSE MODAL
 
 // openModal.addEventListener("click", toggleModal);
-closeModalBtn.addEventListener("click", toggleModal);
+// closeModalBtn.addEventListener("click", toggleModal);
 
 function toggleModal() {
     modal.classList.toggle("is-hidden");

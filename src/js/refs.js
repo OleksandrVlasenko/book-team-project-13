@@ -7,6 +7,8 @@ export const refs = {
   signInBtn: document.querySelector('.form__btn-in'),
   signOutBtn: document.querySelector('.form__btn-out'),
   submitBtn: document.querySelector('.form__btn'),
+  userBtn: document.querySelector('.auth-btn__user-js'),
+  logOut: document.querySelector('.auth-btn__logOut-js'),
   formInputs: document.querySelector('.form__render'),
   inputName: document.querySelector('.form__input-name'),
   labelName: document.querySelector('.form__label-name'),

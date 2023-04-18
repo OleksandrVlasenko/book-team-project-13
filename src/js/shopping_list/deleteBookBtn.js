@@ -2,7 +2,8 @@ import { renderCardOfBooks } from "./shopping-list";
 
 export function handleDeleteBookBtn(e) {
     const goalDeleteBtn = e.target.closest(`.shopping-list__icon-deleteBtn`);
-    
+
+
     if (goalDeleteBtn !== e.target) {
         return;
     }

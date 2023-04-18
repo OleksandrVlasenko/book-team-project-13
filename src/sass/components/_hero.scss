@@ -41,7 +41,23 @@
 .list-books__home {
     display: grid;
 }
-
+.js-book-categoty{
+    margin-bottom: 18px;
+    width: 277px;
+        height: 24px;
+    
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        /* identical to box height, or 171% */
+    
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+    
+        color: #B4AFAF;
+}
 
 
 

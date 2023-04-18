@@ -1,13 +1,10 @@
 window.addEventListener('load', () => {
   startPreloader();
-  stopPreloader(preloader);
 });
 
 function startPreloader() {
   document.body.classList.remove('loaded');
   document.body.classList.add('loaded_hiding');
-  // const preloader = document.querySelector('#preloader');
-  return preloader;
 }
 
 function stopPreloader() {

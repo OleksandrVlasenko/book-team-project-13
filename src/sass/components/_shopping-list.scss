@@ -54,7 +54,6 @@ body {
 }
 
 .shopping-list__card-boock {
-    z-index: -1;
     position: relative;
     padding: 20px;
     width: 100%;
@@ -203,7 +202,6 @@ body {
 
 .shopping-list__shop-lis--img {
     filter: grayscale(100%);
-    // mix-blend-mode: luminosity;
 
     &:hover,
     &:focus {
@@ -231,6 +229,8 @@ body {
         }
     }
         html.dark &.bookShop {
+            filter: grayscale(100%);
+            mix-blend-mode: luminosity;
             filter: grayscale(0%) brightness(1) invert(0);
     
             &:hover,
