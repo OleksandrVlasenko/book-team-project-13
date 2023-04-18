@@ -8,6 +8,10 @@
   @media screen and (min-width: 768px) {
     // height: 72px;
   }
+  html.dark & {
+    background-color: #111;
+    border: 1.5px solid #fff;
+  }
 }
 
 .header__container {
@@ -24,19 +28,18 @@
   //   margin-left: auto;
   //   padding-top: 18px;
   //   padding-bottom: 18px;
-
-  @media screen and (min-width: 768px) {
-    // margin-top: 25px;
-    // margin-right: 32px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    // margin-right: 99px;
+  fill: #000;
+  html.dark & {
+    fill: #f3f3f3;
   }
 }
 .header__logo__link {
+  display: flex;
+  gap: 8px;
   padding-top: 18px;
   padding-bottom: 18px;
+  align-items: center;
+  // fill: rgb(0, 255, 255);
 }
 .header__togglers {
   display: flex;
