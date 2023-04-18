@@ -9,7 +9,7 @@ function renderShoppingList(book) {
     return book.map(({ _id, book_image, author, list_name, title, description, buy_links }) => {
     return `<li id="${_id}" class="shopping-list__card-boock">
                 <div class="shopping-list__general-information">
-                    <div >
+                    <div>
                         <img class="shopping-list__img" src="${book_image}" alt="book image">
                         <p class="shopping-list__author">${author}</p>
                     </div>
