@@ -1,7 +1,7 @@
 import { addMediaWidth } from "./media-width";
 
 export async function murkupCategoryList(fetch) {
-  return await fetch.data.map(({ list_name }) => { return `<li class="category__home-itm">${list_name}</li>` }).join('');
+  return await fetch.data.map(({ list_name }) => { return `<li class="category__home-itm" data-category="${list_name}">${list_name}</li>` }).join('');
 }
 
 async function sliceData(data) {
@@ -56,4 +56,9 @@ export async function makeListOfBooks(data) {
     </li>`
   }
   ).join('');
+};
+
+export async function currentCategoryTogle(value) {
+  document.querySelector('.js-current-category').classList.remove(`js-current-category`);
+  document.querySelector(`li[data-category="${value}"]`).classList.add(`js-current-category`);
 };
