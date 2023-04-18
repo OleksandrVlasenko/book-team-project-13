@@ -70,5 +70,7 @@ congratMessage.hidden = true;
                 localStorage.setItem('idBooks', bookEl._id);
             }  
     })  
+     
+    //  ...addEventListener('click', onOpenModal);
 }
 
