@@ -2,9 +2,8 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, update, onValue } from 'firebase/database';
 import { getAuth} from "firebase/auth";
 
-
 // Тест
-import { books } from "../backend-books";
+// import { books } from "../backend-books";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAmjMPhgeiPnKuRTAY8vypkpT4j7HmPfug",
@@ -27,9 +26,11 @@ export const readShoppingList = () => {
     const userId = auth.currentUser.uid;
     const shoppingListEl = ref(database, '/users' + userId);
     onValue(shoppingListEl, (snapshot) => {
-    const data = snapshot.val();
-    console.log(data.shoppingList);
-    return localStorage.setItem("idBooks", JSON.stringify(data.shoppingList)); 
+        const data = snapshot.val();
+        console.log(data)
+        localStorage.setItem(`idBooks`, JSON.stringify(data.shoppingList))
+        // alert(data.shoppingList);
+        console.log(data.shoppingList);
     });
 }
 // Читання даних Username з бази даних database
