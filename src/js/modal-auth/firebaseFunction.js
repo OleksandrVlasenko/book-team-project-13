@@ -67,7 +67,7 @@ export const signIn = (email, password) => {
             })
     
             Notiflix.Notify.success(` Welcome ${email}!`);
-
+            
         })
         .catch((error) => {
             const errorCode = error.code;
