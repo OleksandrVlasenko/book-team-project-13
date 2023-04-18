@@ -1,0 +1,174 @@
+// .book-link {
+//     text-decoration: none;
+// }
+
+// ul {
+//     list-style-type: none;
+// }
+
+// h2,
+// h3 {
+//     margin: 0;
+// }
+
+// p {
+//     margin: 0;
+// }
+
+.popup-about-book__backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    visibility: hidden;
+}
+
+.is-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-about-book__window {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 499px;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #111;
+    border-radius: 20px;
+}
+
+.popup-about-book__render-book-container {
+    display: flex;
+    gap: 24px;
+}
+
+.popup__book-image {
+    object-fit: contain;
+    align-items: stretch;
+}
+
+.popup__text-content {
+    width: 279px;
+    justify-content: flex-start;
+}
+
+.popup__book_title {
+    font-family: 'DM Sans';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.04em;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+.popup__book_author {
+    font-family: 'DM Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    color: #B4AFAF;
+    margin-bottom: 20px;
+}
+
+.popup__book_review {
+    font-family: 'DM Sans';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    color: #111111;
+    margin-bottom: 20px;
+}
+
+.popup__shopping-links-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.popup__shopping-links-icon {
+    filter: grayscale(100%);
+}
+
+.modal-button--add-to-shopinglist {
+    margin-top: 40px;
+    width: 499px;
+    border: 2px solid #4F2EE8;
+    border-radius: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-family: 'DM Sans';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #111111;
+}
+
+.modal-button--add-to-shopinglist:hover {
+    color: #fff;
+    background-color: #4F2EE8;
+}
+
+.popup-about-book__close-btn {
+    padding: 0;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: none;
+    fill: #111;
+}
+
+.popup-about-book__close-btn:hover {
+    fill: #4F2EE8;
+}
+
+.popup-about-book__close-btn-icon{
+    width: 28px;
+    height: 28px;
+
+}
+
+.popup-about-book__add-button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.under-btn-text {
+    width: 324px;
+    margin-top: 8px;
+    color: rgba(17, 17, 17, 0.5);
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: -0.04em;
+}

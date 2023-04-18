@@ -20,7 +20,8 @@ const database = getDatabase(app);
 export const auth = getAuth();
 const user = auth.currentUser;
 
-// Читання даних
+
+// Читання даних Shopping List з бази даних database
 export const readShoppingList = () => {
     const userId = auth.currentUser.uid;
     const shoppingListEl = ref(database, '/users' + userId);
@@ -32,8 +33,18 @@ export const readShoppingList = () => {
         console.log(data.shoppingList);
     });
 }
+// Читання даних Username з бази даних database
+export const readUsername = () => {
+    const userId = auth.currentUser.uid;
+    const usernameEl = ref(database, '/users' + userId);
+    onValue(usernameEl, (snapshot) => {
+    const data = snapshot.val();
+    console.log(data.username);
+    return data.username;
+});
+}
 
-// Оновлення даних (якщо такого поля в базі ще не було, поле створюється і записує потрібні дані)
+// Оновлення даних
 
 export const updateShoppingList = (books) => {
     const userId = auth.currentUser.uid; 
@@ -44,11 +55,11 @@ export const updateShoppingList = (books) => {
     })
          .then(() => {
             // Data saved successfully!
-            // alert('data updated');
+            console.log('data updated');
         })
             .catch((error) => {
                 // The write failed...
-                alert(error);
+                console.log(error);
             });
 
 }
