@@ -2,6 +2,7 @@ import { BooksAPI } from "../main_page/fetch";
 import { books } from "../backend-books";
 import { renderClearShoppingList, renderShoppingList } from "./rendering-shng-lst";
 import { handleDeleteBookBtn } from "./deleteBookBtn";
+import {stopPreloader} from "../preloader"
 import Notiflix from 'notiflix';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from "../modal-auth/firebaseFunction";
@@ -49,11 +50,13 @@ window.addEventListener("load", () => {
         if (user) {
         
             renderCardOfBooks()
+            stopPreloader();
             return
             
         } else {
             Notiflix.Notify.info(`Sign in to view your shopping list`)
-        galleryBooksEl.innerHTML = renderClearShoppingList();
+            galleryBooksEl.innerHTML = renderClearShoppingList();
+            stopPreloader();
     
     } 
         
