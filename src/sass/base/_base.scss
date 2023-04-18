@@ -5,6 +5,8 @@ body {
   font-style: normal;
   background: var(--main-bg-cl);
 
+  transition: all 0.3s ease 0s;
+
   html.dark & {
     background-color: var(--main-bg-cl-dark-theme);
   }
