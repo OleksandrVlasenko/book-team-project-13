@@ -7,6 +7,8 @@ export const refs = {
   signInBtn: document.querySelector('.form__btn-in'),
   signOutBtn: document.querySelector('.form__btn-out'),
   submitBtn: document.querySelector('.form__btn'),
+  userBtn: document.querySelector('.auth-btn__user-js'),
+  logOut: document.querySelector('.auth-btn__logOut-js'),
   formInputs: document.querySelector('.form__render'),
   inputName: document.querySelector('.form__input-name'),
   labelName: document.querySelector('.form__label-name'),
@@ -21,5 +23,6 @@ export const refs = {
   homePainting: document.querySelector('.nav__home'),
   shoppingListPainting: document.querySelector('.nav__shopping'),
   exitBtn: document.querySelector('.exit_btn'),
-  userName: document.querySelector('.modal__item')
+  userName: document.querySelector('.modal__item'),
+  userNameModal: document.querySelector('.modal__user')
 }

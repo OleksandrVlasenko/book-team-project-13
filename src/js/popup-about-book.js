@@ -56,7 +56,7 @@ congratMessage.hidden = true;
                     </div>
                 </div>`;
         }
-    }   
+    }    
     
     murkupConteiner.insertAdjacentHTML(`beforeend`, createModalMarcup(bookEl));
     

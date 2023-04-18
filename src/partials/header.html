@@ -1,8 +1,14 @@
 <header id="header" class="header">
   <div class="header__container container">
     <a href="./index.html" class="header__logo__link">
-      <svg class="header__logo" width="86" height="28">
+      <!-- <svg class="header__logo" width="86" height="28">
         <use href="./images/icons.svg#icon-logo"></use>
+      </svg> -->
+      <svg class="header__logo" width="25" height="25">
+        <use href="./images/icons.svg#icon-logo-1"></use>
+      </svg>
+      <svg class="header__logo" width="53" height="17">
+        <use href="./images/icons.svg#icon-Book"></use>
       </svg>
     </a>
     <nav class="nav">
@@ -19,6 +25,7 @@
         </li>
       </ul>
     </nav>
+    <div class="header__group">
     <div class="header__togglers">
       <label class="switch">
         <input type="checkbox" class="switch-input" />
@@ -30,5 +37,29 @@
         </svg>
       </button>
     </div>
+    <button class="auth__modal-open-js registration__btnMain">
+      <svg class="registration__icon-arrow" width="32" height="32">
+        <use href="./images/icons.svg#icon-auth-arrow"></use>
+      </svg>Sign Up</button>
+      <div class="auth-btns__wrapper">
+        <button class="auth-btn__user auth-btn__user-js" type="button">
+          <span class="auth-btn__icon-user">
+            <!-- <svg class="" width="19px" height="19px">
+              <use href=""></use>
+            </svg> -->
+          </span>
+          User
+          <!-- <svg class="" width="23px" height="26px">
+            <use href=""></use>
+          </svg> -->
+        </button>
+        <button class="auth-btn__logOut auth-btn__logOut-js" type="button">
+          Log out
+          <!-- <svg class="" width="20px" height="20px">
+            <use href=""></use>
+          </svg> -->
+        </button>
+      </div>
+  </div>
   </div>
 </header>
