@@ -7,41 +7,41 @@ $yellow-color: #eac645;
 $white-color: #ffffff;
 $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61); 
 
-.registration__btn {
-    position: relative;
-    width: 184;
-    height: 48;
-    background-color: $blue-color;
-    text-align: left;
-    border: 1.5px solid $dark-color;
-    border-radius: 18px;
-    color: $white-color;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    padding-left: 14px;
-    transition: background-color $cubic-time;
+// .registration__btn {
+//     position: relative;
+//     width: 184;
+//     height: 48;
+//     background-color: $blue-color;
+//     text-align: left;
+//     border: 1.5px solid $dark-color;
+//     border-radius: 18px;
+//     color: $white-color;
+//     font-size: 16px;
+//     font-weight: bold;
+//     cursor: pointer;
+//     padding-left: 14px;
+//     transition: background-color $cubic-time;
 
-    &:hover {
-        background-color: $yellow-color;
-        box-shadow: 10px 17px 28px -7px $dark-color;
-    }
+//     &:hover {
+//         background-color: $yellow-color;
+//         box-shadow: 10px 17px 28px -7px $dark-color;
+//     }
 
-    &:focus {
-        background-color: $yellow-color;
-        box-shadow: 10px 17px 28px -7px $dark-color;
-    }
-}
+//     &:focus {
+//         background-color: $yellow-color;
+//         box-shadow: 10px 17px 28px -7px $dark-color;
+//     }
+// }
 
-.registration__icon-arrow {
-    position: absolute;
-    top: 40%;
-    right: 5px;
-}
+// .registration__icon-arrow {
+//     position: absolute;
+//     top: 40%;
+//     right: 5px;
+// }
 
-.registration__btn:hover + .registration__icon-arrow {
-    stroke: #4f2ee8;
-}
+// .registration__btn:hover + .registration__icon-arrow {
+//     stroke: #4f2ee8;
+// }
 
 .auth__backdrop {
     z-index: 1000;
