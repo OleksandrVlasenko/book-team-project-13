@@ -120,3 +120,19 @@
     text-align: left;
     color: rgba(180, 175, 175, 1);
 }
+
+.js-current-category {
+    font-family: DM Sans;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: rgba(79, 46, 232, 1);
+}
+
+*.dark {
+    .js-current-category {
+        color: rgba(234, 198, 69, 1);
+    }
+}

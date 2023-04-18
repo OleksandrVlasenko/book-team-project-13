@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.timeout = 4000;
 export class BooksAPI {
 
     #BASE_URL = 'https://books-backend.p.goit.global/books/';
