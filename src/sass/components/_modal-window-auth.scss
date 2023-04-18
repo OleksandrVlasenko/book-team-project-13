@@ -77,6 +77,10 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     border: 2px solid $dark-color;
     border-radius: 18px;
 
+    html.dark & {
+            background-color: var(--main-bg-cl-dark-theme);
+        }
+
     @media screen and (min-width: 1280px) {
         max-width: 579px;
         padding: 80px 40px 40px 40px;
@@ -108,11 +112,19 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
 .auth__modal-close-icon {
     fill: $dark-color;
     transition: fill $cubic-time;
+
+    html.dark & {
+        background-color: var(--main-bg-cl-dark-theme);
+    }
 }
 
 .auth__modal-close:hover .auth__modal-close-icon,
 .auth__modal-close:focus .auth__modal-close-icon {
     fill: $blue-color;
+
+    html.dark & {
+        fill: $yellow-color;
+    }
 }
 
 .form__field {
@@ -135,6 +147,12 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     background-color: $primary-background-color;
     transition: border $cubic-time;
 
+    html.dark & {
+        color: $white-color;
+        background-color: var(--main-bg-cl-dark-theme);
+        border-color: $primary-background-color;
+        }
+
     @media screen and (min-width: 1280px) {
         padding-left: 40px;
         width: 499px;
@@ -143,16 +161,28 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
 }
 
 .form__field input:focus {
-    border-color: $blue-color;
+    border-color: $yellow-color;
     outline: none;
+
+    html.dark & {
+        border-color: $blue-color;
+    }
 }
 
 .form__field input:valid:required {
-    border-color: #41e82ed7;
+    border-color: $blue-color;
+
+    html.dark & {
+        border-color: $yellow-color;
+    }
 }
 
 
 .form__label {
+    position: absolute;
+        top: 50%;
+        left: 24px;
+
     font-weight: 700;
     font-size: 16px;
     line-height: 1.12;
@@ -160,28 +190,30 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     text-transform: uppercase;
     color: $dark-color;
 
-    @media screen and (min-width: 1280px) {
-        font-size: 18px;
-        line-height: 1.33;
-    }
-}
-
-.form__label {
-    position: absolute;
-    top: 50%;
-    left: 24px;
     transform: translateY(-50%);
     transition: transform $cubic-time;
 
+        html.dark & {
+              color: $primary-background-color;
+            }
+
     @media screen and (min-width: 1280px) {
+        font-size: 18px;
+        line-height: 1.33;
         left: 40px;
     }
 }
+
+
 
 .form__input:focus + .form__label,
 .form__input:hover + .form__label {
     transform: translateY(-50px);
     color: $blue-color;
+
+    html.dark & {
+        color: $yellow-color;
+    }
 
     @media screen and (min-width: 1280px) {
         transform: translateY(-55px);
@@ -204,6 +236,11 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     cursor: pointer;
     transition: background-color $cubic-time, border $cubic-time;
 
+    html.dark & {
+        color: $dark-color;
+        background-color: $primary-background-color;
+    }
+
     @media screen and (min-width: 1280px) {
         font-size: 18px;
         line-height: 1.33;
@@ -218,6 +255,11 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
 .form__btn:focus {
     background-color: $blue-color;
     border: 3px solid $blue-color;
+
+    html.dark & {
+    border: 3px solid $yellow-color;
+    background-color: $yellow-color;
+    }
 }
 
 .form__btns {
@@ -240,9 +282,18 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     background-color: $primary-background-color;
     cursor: pointer;
 
+    html.dark & {
+        color: $yellow-color;
+        background-color: var(--main-bg-cl-dark-theme);
+    }
+
     &:hover {
             color: $blue-color;
+
+        html.dark & {
+            color: $yellow-color;
         }
+    }
 
     @media screen and (min-width: 1280px) {
         font-size: 18px;
@@ -261,6 +312,10 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
         height: 1.5px;
         background-color: $blue-color;
         transition: width 0.3s ease-out;
+
+    html.dark & {
+        background-color: $yellow-color;
+    }
 }
 
 .form__btn-up:hover::after,
@@ -282,8 +337,16 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     background-color: $primary-background-color;
     cursor: pointer;
 
+    html.dark & {
+        background-color: var(--main-bg-cl-dark-theme);
+    }
+
     &:hover {
         color: $blue-color;
+
+        html.dark & {
+        color: $yellow-color;
+        }
     }
 
     @media screen and (min-width: 1280px) {
@@ -302,6 +365,10 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
         height: 1.5px;
         background-color: $blue-color;
         transition: width 0.3s ease-out;
+
+    html.dark & {
+         background-color: $yellow-color;
+    }
 }
 
 .form__btn-out:hover::after {
@@ -317,6 +384,10 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     height: 18px;
     fill: $dark-color;
 
+    html.dark & {
+        fill: $white-color;
+    }
+
     @media screen and (min-width: 1280px) {
         right: 30px;
         width: 28px;
@@ -326,9 +397,16 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
 
 
 
+
+
 .checked {
     transform: translateY(-50px);
     color: $blue-color;
+
+    html.dark & {
+        color: $yellow-color;
+    }
+
 
     @media screen and (min-width: 1280px) {
         transform: translateY(-55px);
