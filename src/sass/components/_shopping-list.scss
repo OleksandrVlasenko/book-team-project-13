@@ -6,7 +6,7 @@
     @media screen and (min-width: 1200px) {
         display: flex;
         flex-direction: row-reverse;
-        padding-left: 380px;
+        // padding-left: 380px;
     }
 }
 
@@ -316,7 +316,7 @@
         display: none;    
     }
 
-    position: fixed;
+    // position:fixed;
     left: 24px;
     top:calc(40px + var(--height-header));
 
