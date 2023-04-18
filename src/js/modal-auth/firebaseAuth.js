@@ -33,24 +33,40 @@ refs.submitBtn.addEventListener('click', (e) => {
 })
  
 
+refs.logOut.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    singOutFunction();
+
+});
+
 refs.signOutBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
     singOutFunction();
 
-} )
+});
 
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log('registrated');
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
-            const uid = user.uid;
-            // ...
+        //     // User is signed in, see docs for a list of available properties
+        //     // https://firebase.google.com/docs/reference/js/firebase.User
+        //     const uid = user.uid;
+        //     // ...
+        refs.openAuthBtn.classList.add('is-hidden');
+        refs.userBtn.classList.remove('is-hidden');
+        refs.logOut.classList.remove('is-hidden');
+        localStorage.setItem('user-data', JSON.stringify({
+        id: user.uid,
+        name: user.displayName,
+        mail: user.email}));  
     } else {
         console.log('not registrated');
-            // User is signed out
-            // ...
+        refs.openAuthBtn.classList.remove('is-hidden');
+        refs.userBtn.classList.add('is-hidden');
+        refs.logOut.classList.add('is-hidden');
+        localStorage.removeItem('user-data'); 
         }
 });
