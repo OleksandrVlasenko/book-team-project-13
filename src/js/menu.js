@@ -3,7 +3,7 @@ import { refs } from './refs';
 
 import { auth } from './modal-auth/firebaseFunction';
 import { onAuthStateChanged } from 'firebase/auth';
-import { toggleModal } from './modal-auth/modal-window-authFirebase'
+import { openModal } from './modal-auth/modal-window-authFirebase' 
 
   refs.openModalBtn.addEventListener('click', onOpenModal);
   refs.closeModalBtn.addEventListener('click', onCloseModal);
@@ -19,7 +19,7 @@ import { toggleModal } from './modal-auth/modal-window-authFirebase'
 
   function onRegistration () {
     document.body.classList.remove('show-modal')
-    toggleModal ()
+    openModal ()
   }
 
   onAuthStateChanged(auth, user => {

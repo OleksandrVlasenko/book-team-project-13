@@ -1,36 +1,13 @@
+import { bgImagesUrl, logoAmazonImagesUrl, logoBookImagesUrl, bookShopImagesUrl, dumpImagesUrl } from "./imgAdress";
 export {
     renderShoppingList,
     renderClearShoppingList,
 }
 
-const bgImagesUrl = new URL (
-    `../../images/shoppingList-clear--bg-x3.png`,    
-    import.meta.url
-);
-
-const dumpImagesUrl = new URL (
-    `../../images/dump.svg`,    
-    import.meta.url
-);
-
-const bookShopImagesUrl = new URL(
-    `../../images/shoppingList--bookShop.png`,
-    import.meta.url
-);
-
-const logoBookImagesUrl = new URL(
-    `../../images/shoppingList--logoBook.png`,
-    import.meta.url
-);
-const logoAmazonImagesUrl = new URL(
-    `../../images/shoppingList--logoAmazon.png`,
-    import.meta.url
-);
-
 function renderShoppingList(book) {
         
     return book.map(({ _id, book_image, author, list_name, title, description, buy_links }) => {
-    return `<div id="${_id}" class="shopping-list__card-boock">
+    return `<li id="${_id}" class="shopping-list__card-boock">
                 <div class="shopping-list__general-information">
                     <div >
                         <img class="shopping-list__img" src="${book_image}" alt="book image">
@@ -49,7 +26,7 @@ function renderShoppingList(book) {
                                 </li>
                                 <li class="shopping-list__shop-list-item">
                                     <a rel="noreferrer noopener nofollow" class="shopping-list__shop-list-link" href="${buy_links[1].url} " target="_blank">
-                                        <img class="shopping-list__shop-lis--img" src="${logoBookImagesUrl}" alt="logoBook">
+                                        <img class="shopping-list__shop-lis--img logoBook" src="${logoBookImagesUrl}" alt="logoBook">
                                     </a>
                                 </li>
                                 <li class="shopping-list__shop-list-item">
@@ -58,11 +35,11 @@ function renderShoppingList(book) {
                                     </a>
                                 </li>
                             </ul>
-                            <img width="38" height="38" class="shopping-list__icon-deleteBtn" src="${dumpImagesUrl}" alt="bookShop">
+                            <img id="${_id}" width="38" height="38" class="shopping-list__icon-deleteBtn" src="${dumpImagesUrl}" alt="icon-deleteBtn">
                         </div>
                         <p class="shopping-list__description">${description}</p>
                     </div>
-                    </div>`}).join("");
+                    </li>`}).join("");
 }
 
 function renderClearShoppingList() {
