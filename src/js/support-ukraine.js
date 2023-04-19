@@ -69,9 +69,7 @@ const markup = supporters
       <span class="supporters__number">
       ${(index + 1).toString().padStart(2, '0')}
         </span>
-        <a href = "${el.url}" title = "${
-        el.title
-      }" target='_blank' rel="noopener noreferrer nofollow">
+        <a href = "${el.url}" title = "${el.title}" target='_blank' rel="noopener noreferrer nofollow">
       <img src = "${el.img}" class="supporters__img" srcset="${el.img} 1x, ${
         el.imgRetinaTwo
       } 2x, ${el.imgRetinaThree} 3x" alt = "${el.title} logo"/>

@@ -1,5 +1,4 @@
 import { BooksAPI } from '../main_page/fetch';
-// import { books } from "../backend-books";
 import {
   renderClearShoppingList,
   renderShoppingList,
@@ -16,9 +15,6 @@ export { renderCardOfBooks };
 const getBook = new BooksAPI();
 
 const galleryBooksEl = document.querySelector(`.shopping-list__gallery-boocks`);
-
-// const objBooks = books;
-// localStorage.setItem(`idBooks`, JSON.stringify(objBooks));
 
 async function fetchBookByID(booksFromLocalStorage) {
   try {
@@ -65,7 +61,6 @@ window.addEventListener('load', () => {
       stopPreloader();
       Notiflix.Notify.info(`Sign in to view your shopping list`);
       galleryBooksEl.innerHTML = renderClearShoppingList();
-      stopPreloader();
     }
   });
 });
