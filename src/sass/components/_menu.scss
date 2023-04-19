@@ -5,7 +5,6 @@
   background-color: var(--main-text-cl-dark-theme);
   height: 28px;
   width: 28px;
-  // margin-right: 20px;
   stroke: #111111;
 
   html.dark & {
@@ -13,7 +12,8 @@
     background-color: #111;
   }
   @media screen and (min-width: 768px) {
-    display: none;
+    opacity: 0;
+    transform: scale(0);
   }
 }
 .menu__toggle:hover {
@@ -48,6 +48,10 @@ body.show-modal .modal {
   opacity: 0;
   visibility: hidden;
   transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
 
 .modal__menu {
@@ -70,19 +74,6 @@ body.show-modal .modal {
   transform: scale(1.1);
   transition: transform 200ms ease-in-out;
 }
-
-// .modal__header {
-//   display: flex;
-//   width: 100%;
-//   height: 64px;
-//   left: 0px;
-//   top: 0px;
-//   background: var(--main-text-cl-dark-theme);
-//   border: 1.5px solid var(--main-text-cl-light-theme);
-//   border-radius: 0px 0px 8px 8px;
-//   justify-content: right;
-//   align-items: center;
-// }
 
 .registration__btn {
   display: flex;
@@ -116,6 +107,15 @@ body.show-modal .modal {
 .registration__btn:focus {
   background-color: var(--secondary-accent-cl);
 }
+
+.registration__arrow {
+  stroke:var(--secondary-accent-cl);
+}
+
+.registration__btn:focus .registration__arrow,
+.registration__btn:hover .registration__arrow {
+  stroke: var(--main-text-cl-dark-theme);
+};
 
 .modal__user {
   display: flex;
@@ -191,7 +191,11 @@ body.show-modal .modal {
   bottom: 20px;
   left: 20px;
 }
-
-.modal {
-  background-color: aqua;
+.registration__arrow {
+  stroke:var(--secondary-accent-cl);
 }
+
+
+.registration__arrow:hover {
+  stroke: var(--main-text-cl-dark-theme);
+};
