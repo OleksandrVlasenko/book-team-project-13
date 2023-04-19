@@ -5,7 +5,7 @@
     letter-spacing: -0.04em;
     text-align: left;
     color: rgba(17, 17, 17, 1);
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
     
 }
 *.dark {
@@ -14,7 +14,8 @@
       color:var(--main-text-cl-dark-theme);
     }
         .category__home-itm{
-            color: var(--secondary-text-cl);
+            color: var(--main-text-cl-light-theme);
+            
         }
     .category__home-itm:hover,
         .category__home-itm:focus{
@@ -30,7 +31,17 @@
 }
 }
 
-
+.category__home-itm{
+    font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        /* identical to box height, or 133% */
+        letter-spacing: -0.02em;
+        color: rgba(17, 17, 17, 0.6);
+        cursor: pointer;
+}
 
 
 .block__books-colortitle {
@@ -64,7 +75,7 @@
 
     :hover {
         .books__overlay {
-            top: 372px;
+            top: 378px;
         }
     }
 }

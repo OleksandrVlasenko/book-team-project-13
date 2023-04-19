@@ -28,12 +28,12 @@ export async function murkup(data) {
   }));
 }
 
-
 export async function makeCategoryPage(category, data) {
 
   const title = category.split(" ");
   return ` 
-  <h2 class="block__books-title">${title.splice(0, (title.length / 2)).join(' ')} <span class="block__books-colortitle">${title.splice((title.length / 2), title.length).join(' ')}</span></h2> 
+  <h2 class="block__books-title"
+>${title.splice(0, (title.length / 2)).join(' ')} <span class="block__books-colortitle">${title.splice((title.length / 2), title.length).join(' ')}</span></h2> 
         <ul class="block__books-list">${await makeListOfBooks(data)}</ul>
         <button class="button see-more all-categories__btn" data-js="All Categories">All Categories</button>`
 
