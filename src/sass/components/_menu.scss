@@ -5,7 +5,7 @@
   background-color: var(--main-text-cl-dark-theme);
   height: 28px;
   width: 28px;
-  margin-right: 20px;
+  // margin-right: 20px;
   stroke: #111111;
 
   html.dark & {
@@ -42,8 +42,8 @@ body.show-modal .modal {
   left: 0;
   transform-origin: top left;
   width: 100vw;
-  height: 100vh;
-  z-index: 999;
+  height: 91vh;
+  z-index: 99;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
@@ -71,18 +71,18 @@ body.show-modal .modal {
   transition: transform 200ms ease-in-out;
 }
 
-.modal__header {
-  display: flex;
-  width: 100%;
-  height: 64px;
-  left: 0px;
-  top: 0px;
-  background: var(--main-text-cl-dark-theme);
-  border: 1.5px solid var(--main-text-cl-light-theme);
-  border-radius: 0px 0px 8px 8px;
-  justify-content: right;
-  align-items: center;
-}
+// .modal__header {
+//   display: flex;
+//   width: 100%;
+//   height: 64px;
+//   left: 0px;
+//   top: 0px;
+//   background: var(--main-text-cl-dark-theme);
+//   border: 1.5px solid var(--main-text-cl-light-theme);
+//   border-radius: 0px 0px 8px 8px;
+//   justify-content: right;
+//   align-items: center;
+// }
 
 .registration__btn {
   display: flex;
@@ -105,9 +105,8 @@ body.show-modal .modal {
   align-content: space-around;
   justify-content: space-between;
   padding: 14px;
-  position: absolute;
-  top: 84px;
-  left: 20px;
+  margin-left: 20px;
+  margin-top: 84px;
 }
 
 .registration__btn:hover {
@@ -121,8 +120,9 @@ body.show-modal .modal {
 .modal__user {
   display: flex;
   gap: 9px;
-  margin-left: 20px;
-  margin-top: 20px;
+  padding: 5.5px;
+  margin-left: 14.5px;
+  margin-top: 84px;
   align-items: center;
 }
 
@@ -130,7 +130,7 @@ body.show-modal .modal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 24.5vh;
+  margin-top: 130px;
 }
 
 .nav__link {
@@ -192,7 +192,6 @@ body.show-modal .modal {
   left: 20px;
 }
 
-
-.modal{
+.modal {
   background-color: aqua;
 }

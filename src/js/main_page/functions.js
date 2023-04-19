@@ -35,15 +35,15 @@ export async function makeCategoryPage(category, data) {
   return ` 
   <h2 class="block__books-title">${title.splice(0, (title.length / 2)).join(' ')} <span class="block__books-colortitle">${title.splice((title.length / 2), title.length).join(' ')}</span></h2> 
         <ul class="block__books-list">${await makeListOfBooks(data)}</ul>
-        <button class="button see-more all-categories__btn" data-js="All Categories">All Categories</button>`
+        <button class="button all-categories__btn" data-js="All Categories">All Categories</button>`
 
 };
 
 export async function makeListOfBooks(data) {
 
   return data.map(({ author, book_image, title, description, _id }) => {
-    return `<li class="books__itm">  
-    <div class="books__wrapper" id=${_id} > 
+    return `<li class="books__itm" id=${_id} >  
+    <div class="books__wrapper"> 
     <img class="books__image" src="${book_image}"  alt="${description}" loading="lazy"  /> 
     <div class="books__overlay"> 
     <p class="books__overlay-text">QUICK VIEW</p> 
@@ -53,7 +53,7 @@ export async function makeListOfBooks(data) {
     <p class="books__info-title">${title}</p>  
     <p class="books__info-author">${author}</p>  
     </div>  
-    </li>`
+    </li>`;
   }
   ).join('');
 };

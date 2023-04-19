@@ -11,6 +11,7 @@ import {
 } from '../preloader';
 import Notiflix from "notiflix";
 import { currentCategoryTogle } from "./functions";
+import { modalAboutBook } from "../popup-about-book"
 
 
 
@@ -31,8 +32,9 @@ async function onFirstload() {
     refCategory.insertAdjacentHTML('beforeend', (await murkupCategoryList(categoryApi)));
 
     const preloader = document.querySelector('#preloader');
-    preloader.style.zIndex = "-1";
-    
+    setTimeout(() => {
+      preloader.firstElementChild.style.zIndex = '-1';
+    }, 350);
 
   } catch (error) {
     Notiflix.Notify.failure(`Categories was not found : ${error.message}`);
@@ -91,14 +93,18 @@ refBooks.addEventListener('click', onSeeMoreClick);
 
 async function onSeeMoreClick(event) {
   event.preventDefault();
-  if (event.target.classList.contains("see-more")) {
+  //Перевірка для відкриття модалки
+  const currentEl = event.target.closest('.books__itm');
+  if (currentEl) {
+    const bookId = currentEl.attributes.id.value;
+    modalAboutBook(bookId);
+  }
+
+  if (event.target.classList.contains('see-more')) {
     const requestedCategory = event.target.dataset.js;
     refBooks.innerHTML = '';
     //Add and start preloader
-    refBooks.insertAdjacentHTML(
-      'afterbegin',
-      addMarkupOfPreloader()
-    );
+    refBooks.insertAdjacentHTML('afterbegin', addMarkupOfPreloader());
     startPreloader();
     //------------------------
     try {
@@ -114,22 +120,24 @@ async function onSeeMoreClick(event) {
     } catch (error) {
       Notiflix.Notify.failure(`Books was not found : ${error.message}`);
     }
-
-  } else if (event.target.classList.contains("all-categories__btn")) {
+  } else if (event.target.classList.contains('all-categories__btn')) {
     refBooks.innerHTML = '';
     //Add and start preloader
-    refBooks.insertAdjacentHTML(
-      'afterbegin',
-      addMarkupOfPreloader()
-    );
+    refBooks.insertAdjacentHTML('afterbegin', addMarkupOfPreloader());
     startPreloader();
     //------------------------
     try {
-      const resp = (await bookApi.getTopBooks());
-      refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>');
-      refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join(""));
+      const resp = await bookApi.getTopBooks();
+      refBooks.insertAdjacentHTML(
+        'afterbegin',
+        '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>'
+      );
+      refBooks.insertAdjacentHTML(
+        'beforeend',
+        (await murkup(resp.data)).join('')
+      );
       stopPreloader();
-      currentCategoryTogle(`All categories`);
+      currentCategoryTogle("All categories");
     } catch (error) {
       Notiflix.Notify.failure(`Books was not found : ${error.message}`);
     }
