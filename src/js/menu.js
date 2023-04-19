@@ -38,7 +38,6 @@ const body = document.querySelector('body');
     refs.exitBtn.style.display = 'flex'
     refs.registrationBtn.style.display = 'none'
     refs.userNameModal.classList.remove('visually-hidden');
-      // auth.currentUser - це об'єкт, в якому записані ім'я користувача, пошта і т.д. Доступний тільки в if (true).
     } else {
       refs.exitBtn.style.display = 'none'
       refs.userNameModal.classList.add('visually-hidden');
