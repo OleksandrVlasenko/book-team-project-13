@@ -1,12 +1,12 @@
 .shopping-list__section {
-    width: 100%;
     @media screen and (min-width: 375px)  {
         padding-top: calc(40px + var(--height-header));
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1280px) {
         display: flex;
         flex-direction: row-reverse;
+        gap: 40px;
     }
 }
 
@@ -21,7 +21,7 @@
     
     @media screen and (min-width: 768px) {
         margin-bottom: 40px;
-        padding-left: 40px;
+        // padding-left: 40px;
     }
 }
 
@@ -318,15 +318,12 @@
     }
 }
 
+.for__support
+
 .shopping-list__section .supporters {
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1279px) {
         display: none;    
     }
 
-    // position:fixed;
-    // left: 24px;
-    // top:calc(40px + var(--height-header));
-
     min-width: 356px;
-    // max-height: 490px;
 }
