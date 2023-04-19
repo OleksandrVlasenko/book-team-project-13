@@ -32,18 +32,23 @@ async function fetchBookByID(booksFromLocalStorage) {
 }
 
 async function renderCardOfBooks() {
-  let IdBooks = localStorage.getItem(`idBooks`);
-  if (!IdBooks || JSON.parse(IdBooks).length === 0) {
-    return (galleryBooksEl.innerHTML = renderClearShoppingList());
-  }
-  try {
-    IdBooks = JSON.parse(IdBooks);
-    const books = await fetchBookByID(IdBooks);
-    const data = books.map(book => book.data);
-
-    galleryBooksEl.innerHTML = renderShoppingList(data);
-    const cardBook = document.querySelector(`.shopping-list__gallery-boocks`);
-    cardBook.addEventListener(`click`, handleDeleteBookBtn);
+    let IdBooks = localStorage.getItem(`idBooks`);
+    if (
+      IdBooks === 'undefined' ||
+      !IdBooks ||
+      IdBooks === '' ||
+      JSON.parse(IdBooks).length === 0
+    ) {
+      return (galleryBooksEl.innerHTML = renderClearShoppingList());
+    }
+    try {
+        IdBooks = JSON.parse(IdBooks);
+        const books = await fetchBookByID(IdBooks);
+        const data = books.map(book => book.data)
+        
+        galleryBooksEl.innerHTML = renderShoppingList(data);    
+        const cardBook = document.querySelector(`.shopping-list__gallery-boocks`);
+        cardBook.addEventListener(`click`, handleDeleteBookBtn);
   } catch (error) {
     console.log(error);
   }

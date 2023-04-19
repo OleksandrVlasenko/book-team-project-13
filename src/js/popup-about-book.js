@@ -2,8 +2,8 @@ import { onOpenPoPUpModal } from './open-and-close-modal';
 import Notiflix from 'notiflix';
 import { BooksAPI } from './main_page/fetch';
 import { updateShoppingList } from './modal-auth/firebaseDatabase';
-import {auth} from "./modal-auth/firebaseFunction"
-console.log("auth:", auth)
+import { auth } from './modal-auth/firebaseFunction';
+console.log('auth:', auth);
 
 const bookApi = new BooksAPI();
 
@@ -25,7 +25,6 @@ btn.addEventListener('click', addOrRemoveBook);
 export async function modalAboutBook(bookId) {
   try {
     const { data: book } = await bookApi.getBookByID(`${bookId}`);
-    console.log('modalAboutBook  book:', book);
 
     checkLocalStorage(book);
 
@@ -44,12 +43,7 @@ export async function modalAboutBook(bookId) {
 }
 
 function addOrRemoveBook(e) {
-  console.log('addOrRemoveBook  e:', e.target);
   const id = e.target.attributes.id.value;
-  // btn.textContent =
-  //   btn.textContent === 'Add to shopping list'
-  //     ? 'Remove from the shopping list'
-  //     : 'Add to shopping list';
   if (btn.textContent === 'Add to shopping list') {
     addBook(id);
   } else {
@@ -58,12 +52,15 @@ function addOrRemoveBook(e) {
 }
 
 function addBook(id) {
-  let idBooks = JSON.parse(localStorage.getItem(`idBooks`));
-  console.log('addBook  idBooks:', idBooks);
+  let idBooks = localStorage.getItem(`idBooks`);
 
-  if (!idBooks) {
+  if (idBooks === "undefined" || !idBooks || idBooks === "") {
     idBooks = [];
-  }
+    localStorage.setItem(`idBooks`, JSON.stringify(idBooks));
+  } 
+
+  idBooks = JSON.parse(localStorage.getItem(`idBooks`));
+
   idBooks.push(id);
   localStorage.setItem(`idBooks`, JSON.stringify(idBooks));
   btn.textContent = 'Remove from the shopping list';
@@ -75,7 +72,6 @@ function addBook(id) {
 
 function removeBook(id) {
   let idBooks = JSON.parse(localStorage.getItem(`idBooks`));
-  console.log('addBook  idBooks:', idBooks);
 
   idBooks.splice(idBooks.indexOf(id), 1);
   localStorage.setItem(`idBooks`, JSON.stringify(idBooks));
