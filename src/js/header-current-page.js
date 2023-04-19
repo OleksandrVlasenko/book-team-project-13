@@ -19,7 +19,7 @@ const currentPath = window.location.pathname;
 //   shopList.classList.add('current__page');
 // }
 
-if (currentPath === '/index.html' || currentPath === 'src/') {
+if (currentPath === '/index.html' || currentPath === '/') {
   console.log(currentPath);
   homePg.classList.add('current__page');
 } else if (currentPath === '/shopping-list.html') {
@@ -27,7 +27,8 @@ if (currentPath === '/index.html' || currentPath === 'src/') {
   shopList.classList.add('current__page');
   homePg.classList.remove('current__page');
 }
-
+const url = window.location.href;
+console.log(url);
 // ////////////////////////
 const auth = getAuth();
 
@@ -41,14 +42,14 @@ onAuthStateChanged(auth, user => {
     btnWr.classList.remove('is-hidden');
     shopList.classList.remove('is-hidden');
     homePg.classList.remove('is-hidden');
-    localStorage.setItem(
-      'user-data',
-      JSON.stringify({
-        id: user.uid,
-        name: user.displayName,
-        mail: user.email,
-      })
-    );
+    // localStorage.setItem(
+    //   'user-data',
+    //   JSON.stringify({
+    //     id: user.uid,
+    //     name: user.displayName,
+    //     mail: user.email,
+    //   })
+    // );
   } else {
     // console.log('not registrated');
     btnWr.classList.remove('is-hidden');
