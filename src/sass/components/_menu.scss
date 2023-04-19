@@ -7,8 +7,6 @@
   width: 28px;
   margin-right: 20px;
   stroke: #111111;
-  // fill: rgb(255, 0, 0);
-  // background-color: #fa0000;
 
   html.dark & {
     stroke: #ffffff;
@@ -52,7 +50,7 @@ body.show-modal .modal {
   transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
 }
 
-.modal {
+.modal__menu {
   display: flex;
   flex-direction: column;
   border-radius: 4px;
@@ -108,7 +106,7 @@ body.show-modal .modal {
   justify-content: space-between;
   padding: 14px;
   position: absolute;
-  top: 20px;
+  top: 84px;
   left: 20px;
 }
 
@@ -120,7 +118,15 @@ body.show-modal .modal {
   background-color: var(--secondary-accent-cl);
 }
 
-.nav__modal {
+.modal__user {
+  display: flex;
+  gap: 9px;
+  margin-left: 20px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.modal__nav {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -184,4 +190,9 @@ body.show-modal .modal {
   position: absolute;
   bottom: 20px;
   left: 20px;
+}
+
+
+.modal{
+  background-color: aqua;
 }
