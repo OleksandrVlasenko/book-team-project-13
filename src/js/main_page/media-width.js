@@ -8,9 +8,9 @@ export function addMediaWidth() {
     if (checkedWidts < 767) {
         
         return "mobile"
-    } if (checkedWidts < 1439) { 
+    } if (checkedWidts < 1279) { 
         return "tablet"
-    } if (checkedWidts >= 1440) { 
+    } if (checkedWidts >= 1280) { 
         return "desctop"
     }
 }

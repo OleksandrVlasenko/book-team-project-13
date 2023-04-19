@@ -11,7 +11,7 @@ import {
 } from '../preloader';
 import Notiflix from "notiflix";
 import { currentCategoryTogle } from "./functions";
-import {modalAboutBook} from "../popup-about-book"
+import { modalAboutBook } from "../popup-about-book"
 
 
 
@@ -137,7 +137,7 @@ async function onSeeMoreClick(event) {
         (await murkup(resp.data)).join('')
       );
       stopPreloader();
-      currentCategoryTogle(`All categories`);
+      currentCategoryTogle("All categories");
     } catch (error) {
       Notiflix.Notify.failure(`Books was not found : ${error.message}`);
     }
