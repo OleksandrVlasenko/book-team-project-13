@@ -1,16 +1,58 @@
-<div class="backdrop is-hidden" data-modal>
-  <div class="modal" modal-window>
-    <button class="close-btn" data-modal-close>
-      <svg class="close-btn-icon" width="24" height="24">
+<div class="popup-about-book__backdrop" data-modal>
+  <div class="popup-about-book__window modal" modal-window>
+    <button class="popup-about-book__close-btn" data-modal-close>
+      <svg class="popup-about-book__close-btn-icon" width="24" height="24">
         <use href="./images/icons.svg#icon-x-close"></use>
       </svg>
     </button>
-    <div class="book">  
+    <div class="book">
+      <img class="popup__book-image" src="#" alt="обкладинка" width="192px" />
+      <div class="popup__text-content">
+        <h2 class="popup__book_title"></h2>
+        <h3 class="popup__book_author"></h3>
+        <p class="popup__book_review"></p>
+        <ul class="popup__shopping-links-container">
+          <li>
+            <a
+              href="#"
+              target="blank"
+              rel="noreferrer noopener nofollow"
+              class="popup__shopping-links-icon amazon"
+            >
+              <img src="./images/shoppingList--logoAmazon.png" width="62" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              target="blank"
+              rel="noreferrer noopener nofollow"
+              class="popup__shopping-links-icon book"
+            >
+              <img src="./images/shoppingList--logoBook.png" width="33" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              target="blank"
+              rel="noreferrer noopener nofollow"
+              class="popup__shopping-links-icon bookShop"
+            >
+              <img src="./images/shoppingList--bookShop.png" width="30" />
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="submit-btn">
-      <button type="button" class="modal-button--add-to-shopinglist" id='add'>ADD TO SHOPPING LIST</button>
-      <p class="under-btn-text">Congratulations! You have added the book to the shopping list. To delete,
-                press the button "Remove from the shopping list".</p>
+    <div class="popup-about-book__add-button">
+      <button type="button" class="modal-button--add-to-shopinglist" id="add">
+        ADD TO SHOPPING LIST
+      </button>
+      <p class="under-btn-text">
+        Congratulations! You have added the book to the shopping list. To
+        delete, press the button "Remove from the shopping list".
+      </p>
     </div>
   </div>
 </div>

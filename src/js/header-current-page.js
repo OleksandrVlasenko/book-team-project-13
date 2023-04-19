@@ -10,10 +10,16 @@ const liEl = document.querySelector('.nav__item');
 
 const currentPath = window.location.pathname;
 
-if (currentPath === '/index.html') {
-  console.log(currentPath);
-  homePg.classList.add('current__page');
-} else if (currentPath === '/') {
+// if (currentPath === '/index.html') {
+//   console.log(currentPath);
+//   homePg.classList.add('current__page');
+// } else if (currentPath === '/') {
+//   homePg.classList.add('current__page');
+// } else if (currentPath === '/shopping-list.html') {
+//   shopList.classList.add('current__page');
+// }
+
+if (currentPath === '/index.html' || currentPath === '/') {
   homePg.classList.add('current__page');
 } else if (currentPath === '/shopping-list.html') {
   console.log(currentPath);

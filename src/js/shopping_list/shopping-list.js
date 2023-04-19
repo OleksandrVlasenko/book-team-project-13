@@ -1,11 +1,12 @@
 import { BooksAPI } from "../main_page/fetch";
-import { books } from "../backend-books";
+// import { books } from "../backend-books";
 import { renderClearShoppingList, renderShoppingList } from "./rendering-shng-lst";
 import { handleDeleteBookBtn } from "./deleteBookBtn";
 import {stopPreloader} from "../preloader"
 import Notiflix from 'notiflix';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from "../modal-auth/firebaseFunction";
+import { readShoppingList } from "../modal-auth/firebaseDatabase";
 
 export { renderCardOfBooks }
 
@@ -13,12 +14,12 @@ const getBook = new BooksAPI();
 
 const galleryBooksEl = document.querySelector(`.shopping-list__gallery-boocks`);
 
-const objBooks = books;    
-localStorage.setItem(`idBooks`, JSON.stringify(objBooks));    
+// const objBooks = books;    
+// localStorage.setItem(`idBooks`, JSON.stringify(objBooks));    
     
 async function fetchBookByID(booksFromLocalStorage) {
     try {
-            const books = await Promise.all(booksFromLocalStorage.map(async id => await getBook.getBookByID(id._id)));
+            const books = await Promise.all(booksFromLocalStorage.map(async id => await getBook.getBookByID(id)));
             return books;
         } catch (error) {
             console.log(error);
@@ -26,13 +27,14 @@ async function fetchBookByID(booksFromLocalStorage) {
 }
 
 async function renderCardOfBooks() {
-    const IdBooks = JSON.parse(localStorage.getItem(`idBooks`));
+    let IdBooks = localStorage.getItem(`idBooks`);
+    if (!IdBooks || JSON.parse(IdBooks).length === 0) {
+        return (galleryBooksEl.innerHTML = renderClearShoppingList());
+    }
     try {
+        IdBooks = JSON.parse(IdBooks);
         const books = await fetchBookByID(IdBooks);
         const data = books.map(book => book.data)
-        if (IdBooks.length === 0) {
-            return galleryBooksEl.innerHTML = renderClearShoppingList();
-        }
         
         galleryBooksEl.innerHTML = renderShoppingList(data);    
         const cardBook = document.querySelector(`.shopping-list__gallery-boocks`);
@@ -48,16 +50,16 @@ window.addEventListener("load", () => {
     onAuthStateChanged(auth, user => { 
         
         if (user) {
-        
-            renderCardOfBooks()
             stopPreloader();
+            readShoppingList()
+            renderCardOfBooks()
             return
             
         } else {
+            stopPreloader();
             Notiflix.Notify.info(`Sign in to view your shopping list`)
             galleryBooksEl.innerHTML = renderClearShoppingList();
             stopPreloader();
-    
     } 
         
     });

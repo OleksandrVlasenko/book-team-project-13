@@ -1,84 +1,99 @@
-const openModal = document.querySelector(`[data-modal-open]`);
-const closeModalBtn = document.querySelector(`[data-modal-close]`);
-const modal = document.querySelector(`[data-modal]`);
-const murkupConteiner = document.querySelector('.book');
+import { onOpenPoPUpModal } from './open-and-close-modal';
+import Notiflix from 'notiflix';
+import { BooksAPI } from './main_page/fetch';
+import { updateShoppingList } from './modal-auth/firebaseDatabase';
+import {auth} from "./modal-auth/firebaseFunction"
+console.log("auth:", auth)
+
+const bookApi = new BooksAPI();
+
+const bookIMG = document.querySelector('.popup__book-image');
+const bookTitle = document.querySelector('.popup__book_title');
+const bookAuthor = document.querySelector('.popup__book_author');
+const bookReview = document.querySelector('.popup__book_review');
+const linkAmazon = document.querySelector('.popup__shopping-links-icon.amazon');
+const linkBook = document.querySelector('.popup__shopping-links-icon.book');
+const linkBookShop = document.querySelector(
+  '.popup__shopping-links-icon.bookShop'
+);
 const btn = document.querySelector('#add');
 const congratMessage = document.querySelector('.under-btn-text');
 congratMessage.hidden = true;
 
-// OPEN/CLOSE MODAL
+btn.addEventListener('click', addOrRemoveBook);
 
-// openModal.addEventListener("click", toggleModal);
-// closeModalBtn.addEventListener("click", toggleModal);
+export async function modalAboutBook(bookId) {
+  try {
+    const { data: book } = await bookApi.getBookByID(`${bookId}`);
+    console.log('modalAboutBook  book:', book);
 
-function toggleModal() {
-    modal.classList.toggle("is-hidden");
+    checkLocalStorage(book);
+
+    bookIMG.attributes.src.value = book.book_image;
+    bookTitle.textContent = book.title;
+    bookAuthor.textContent = book.author;
+    bookReview.textContent = book.description;
+    linkAmazon.attributes.href.value = book.buy_links[0].url;
+    linkBook.attributes.href.value = book.buy_links[1].url;
+    linkBookShop.attributes.href.value = book.buy_links[4].url;
+
+    onOpenPoPUpModal();
+  } catch (error) {
+    Notiflix.Notify.failure(`Books was not found : ${error.message}`);
+  }
 }
 
- export function modalAboutBook(e) {
-    // const bookId = "642fd89ac8cf5ee957f12362";
-    // ???
-    const bookId = e.target._id;
-    // ???
-    const bookEl = books.find(book => book._id === bookId);
-
-    murkupConteiner.innerHTML = "";
-
-    function createModalMarcup(book) {
-
-        function checkLocalStorage() {
-            const contantLS = localStorage.getItem('idBooks', bookEl._id);
-            if (contantLS.value === bookId) {
-                btn.textContent = 'REMUVE FROM SHOPPING LIST';
-            } else {
-                btn.textContent = 'REMUVE FROM SHOPPING LIST';
-            }
-        }
-
-        const amazonLogo = new URL(`../images/shoppingList--logoAmazon.png`,import.meta.url);
-        const appleBooksLogo = new URL(`../images/shoppingList--logoBook.png`, import.meta.url);
-        const bookShopLogo = new URL(`../images/shoppingList--bookShop.png`, import.meta.url);
-
-        if (book) {
-            return `<div class="book">
-                   <img class="book-image" src="${book.book_image}" alt="обкладинка" width = "192px">
-                   <div class = "modal-text-content">
-                       <h2 class="book_title">${book.title}</h2>
-                       <h3 class="book_author">${book.author}</h3>
-                       <p class="book_review">${book.description}</p>
-                          <ul class = "shopping-list-container">
-                             <li>
-                                <a href = "${book.buy_links[0].url}" target = "blank" noopener noreffere nofollow>
-                                   <img src = "${amazonLogo}" width = "62">
-                                </a>
-                             </li>
-                             <li>
-                                <a href = "${book.buy_links[1].url}" target = "blank" noopener noreffere nofollow>
-                                   <img src = "${appleBooksLogo}" width = "33">
-                                </a>
-                             </li>
-                             <li>
-                                <a href = "${book.buy_links[4].url}" target = "blank" noopener noreffere nofollow>
-                                   <img src = "${bookShopLogo}" width = "30">
-                                </a>
-                             </li>
-                          </ul>
-                    </div>
-                </div>`;
-        }
-    }   
-    
-    murkupConteiner.insertAdjacentHTML(`beforeend`, createModalMarcup(bookEl));
-    
-    btn.addEventListener('click', function() {
-            btn.textContent = (btn.textContent === 'ADD TO SHOPPING LIST' ? ('REMUVE FROM SHOPPING LIST') : ('ADD TO SHOPPING LIST'));
-            if (btn.textContent === 'ADD TO SHOPPING LIST') {
-                congratMessage.hidden = true;
-                localStorage.removeItem('idBooks', bookEl._id);
-            } else {
-                congratMessage.hidden = false;
-                localStorage.setItem('idBooks', bookEl._id);
-            }  
-    })  
+function addOrRemoveBook(e) {
+  console.log('addOrRemoveBook  e:', e.target);
+  const id = e.target.attributes.id.value;
+  // btn.textContent =
+  //   btn.textContent === 'Add to shopping list'
+  //     ? 'Remove from the shopping list'
+  //     : 'Add to shopping list';
+  if (btn.textContent === 'Add to shopping list') {
+    addBook(id);
+  } else {
+    removeBook(id);
+  }
 }
 
+function addBook(id) {
+  let idBooks = JSON.parse(localStorage.getItem(`idBooks`));
+  console.log('addBook  idBooks:', idBooks);
+
+  if (!idBooks) {
+    idBooks = [];
+  }
+  idBooks.push(id);
+  localStorage.setItem(`idBooks`, JSON.stringify(idBooks));
+  btn.textContent = 'Remove from the shopping list';
+  congratMessage.hidden = false;
+  if (auth.currentUser) {
+    updateShoppingList();
+  }
+}
+
+function removeBook(id) {
+  let idBooks = JSON.parse(localStorage.getItem(`idBooks`));
+  console.log('addBook  idBooks:', idBooks);
+
+  idBooks.splice(idBooks.indexOf(id), 1);
+  localStorage.setItem(`idBooks`, JSON.stringify(idBooks));
+  btn.textContent = 'Add to shopping list';
+  congratMessage.hidden = true;
+  if (auth.currentUser) {
+    updateShoppingList();
+  }
+}
+
+function checkLocalStorage(book) {
+  let contantLS = localStorage.getItem(`idBooks`);
+
+  if (!contantLS || contantLS === '' || !contantLS.includes(book._id)) {
+    btn.textContent = 'Add to shopping list';
+  } else {
+    btn.textContent = 'Remove from the shopping list';
+    congratMessage.hidden = false;
+  }
+  btn.attributes.id.value = book._id;
+}
