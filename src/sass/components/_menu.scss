@@ -5,7 +5,7 @@
   background-color: var(--main-text-cl-dark-theme);
   height: 28px;
   width: 28px;
-  margin-right: 20px;
+  // margin-right: 20px;
   stroke: #111111;
 
   html.dark & {
@@ -192,7 +192,6 @@ body.show-modal .modal {
   left: 20px;
 }
 
-
-.modal{
+.modal {
   background-color: aqua;
 }
