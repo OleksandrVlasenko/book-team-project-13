@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, update, onValue } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
+import { refs } from '../refs';
 
 // Тест
 // import { books } from "../backend-books";
@@ -37,7 +38,8 @@ export const readUsername = () => {
   const usernameEl = ref(database, '/users' + userId);
   onValue(usernameEl, snapshot => {
     const data = snapshot.val();
-    console.log(data.username);
+    refs.userText.textContent = data.username;
+    console.log('username',data.username);
     return data.username;
   });
 };

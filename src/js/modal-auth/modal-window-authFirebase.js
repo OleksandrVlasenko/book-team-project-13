@@ -22,7 +22,7 @@ refs.userBtn.addEventListener('mouseover', () => {
   refs.userBtn.style.display = "inline-block";
 });
 
-refs.userBtn.addEventListener("mouseout", () => {
+refs.userBtn.addEventListener('mouseout', () => {
   refs.userBtn.innerHTML = "User";
   refs.userBtn.display = "none";
 });
@@ -33,12 +33,14 @@ export function openModal() {
   refs.modalAuth.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
   window.addEventListener('keydown', OnEscPress);
+  window.addEventListener('click', OnbackDropClick);
 }
 
 function closeModal() {
   refs.modalAuth.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
   window.removeEventListener('keydown', OnEscPress);
+  window.removeEventListener('click', OnbackDropClick);
 }
 
 
@@ -105,9 +107,14 @@ function onInput(e) {
 }
 
 
-
 function OnEscPress(e) {
   if (e.code === 'Escape') {
+    closeModal();
+  }
+}
+
+function OnbackDropClick(e) {
+  if (e.target === refs.modalAuth) {
     closeModal();
   }
 }

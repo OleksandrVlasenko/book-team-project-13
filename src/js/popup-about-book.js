@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 import { BooksAPI } from './main_page/fetch';
 import { updateShoppingList } from './modal-auth/firebaseDatabase';
 import { auth } from './modal-auth/firebaseFunction';
-console.log('auth:', auth);
+import { onAuthStateChanged } from 'firebase/auth';
 
 const bookApi = new BooksAPI();
 
@@ -54,10 +54,10 @@ function addOrRemoveBook(e) {
 function addBook(id) {
   let idBooks = localStorage.getItem(`idBooks`);
 
-  if (idBooks === "undefined" || !idBooks || idBooks === "") {
+  if (idBooks === 'undefined' || !idBooks || idBooks === '') {
     idBooks = [];
     localStorage.setItem(`idBooks`, JSON.stringify(idBooks));
-  } 
+  }
 
   idBooks = JSON.parse(localStorage.getItem(`idBooks`));
 
@@ -93,3 +93,16 @@ function checkLocalStorage(book) {
   }
   btn.attributes.id.value = book._id;
 }
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    btn.classList.remove('disabled');
+    congratMessage.textContent =
+      'Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".';
+    congratMessage.hidden = true;
+  } else {
+    btn.classList.add('disabled');
+    congratMessage.textContent = 'Please, log in to get more options.';
+    congratMessage.hidden = false;
+  }
+});
