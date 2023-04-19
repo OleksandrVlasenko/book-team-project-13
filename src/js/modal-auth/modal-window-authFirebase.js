@@ -1,5 +1,7 @@
+import { ref } from 'firebase/database';
 import { refs } from '../refs';
 import debounce from 'lodash.debounce';
+import { signOut } from 'firebase/auth';
 
 
 refs.openAuthBtn.addEventListener('click', openModal);
@@ -14,7 +16,17 @@ refs.inputName.addEventListener('input', debounce(onInput, 250));
 refs.inputMail.addEventListener('input', debounce(onInput, 250));
 refs.inputPassword.addEventListener('input', debounce(onInput, 250));
 
-refs.userBtn.addEventListener('click', openModal);
+
+refs.userBtn.addEventListener('mouseover', () => {
+  refs.userBtn.innerHTML = 'Log out';
+  refs.userBtn.style.display = "inline-block";
+});
+
+refs.userBtn.addEventListener("mouseout", () => {
+  refs.userBtn.innerHTML = "User";
+  refs.userBtn.display = "none";
+});
+
 
 
 export function openModal() {

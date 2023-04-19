@@ -33,7 +33,7 @@ refs.submitBtn.addEventListener('click', (e) => {
 })
  
 
-refs.logOut.addEventListener('click', (e) => {
+refs.userBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
     singOutFunction();
@@ -51,10 +51,8 @@ refs.signOutBtn.addEventListener('click', (e) => {
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log('registrated');
-        //     // User is signed in, see docs for a list of available properties
-        //     // https://firebase.google.com/docs/reference/js/firebase.User
-        //     const uid = user.uid;
-        //     // ...
+        
+        // refs.userBtn.textContent = user.displayName;
         refs.openAuthBtn.classList.add('is-hidden');
         refs.userBtn.classList.remove('is-hidden');
         refs.logOut.classList.remove('is-hidden');
