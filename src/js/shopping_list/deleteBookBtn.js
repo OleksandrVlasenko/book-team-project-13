@@ -10,8 +10,8 @@ export function handleDeleteBookBtn(e) {
         else {
         const idBookToDelete = e.target.attributes.id.nodeValue;
         const storedBooks = JSON.parse(localStorage.getItem("idBooks"));        
-        const updatedBooks = storedBooks.filter(book => book._id !== idBookToDelete);
-        localStorage.setItem("idBooks", JSON.stringify(updatedBooks));
+        storedBooks.splice(storedBooks.indexOf(idBookToDelete), 1);
+        localStorage.setItem('idBooks', JSON.stringify(storedBooks));
         updateShoppingList()
         renderCardOfBooks();
     }

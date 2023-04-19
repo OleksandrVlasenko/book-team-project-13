@@ -42,8 +42,8 @@ export async function makeCategoryPage(category, data) {
 export async function makeListOfBooks(data) {
 
   return data.map(({ author, book_image, title, description, _id }) => {
-    return `<li class="books__itm">  
-    <div class="books__wrapper" id=${_id} > 
+    return `<li class="books__itm" id=${_id} >  
+    <div class="books__wrapper"> 
     <img class="books__image" src="${book_image}"  alt="${description}" loading="lazy"  /> 
     <div class="books__overlay"> 
     <p class="books__overlay-text">QUICK VIEW</p> 
@@ -53,7 +53,7 @@ export async function makeListOfBooks(data) {
     <p class="books__info-title">${title}</p>  
     <p class="books__info-author">${author}</p>  
     </div>  
-    </li>`
+    </li>`;
   }
   ).join('');
 };
