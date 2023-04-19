@@ -1,4 +1,4 @@
-export function onOpenModal() {
+export function onOpenPoPUpModal() {
   const backdrop = document.querySelector('[data-modal]');
   backdrop.classList.add('is-active');
   document.body.classList.add('no-scroll');
@@ -28,7 +28,6 @@ function onCloseModalByClicking(e) {
 function onCloseModalByKey(e) {
   const backdrop = document.querySelector('[data-modal]');
 
-  console.log(e.keyCode);
   const key = e.keyCode;
   if (key == 27) {
     backdrop.classList.remove('is-active');
