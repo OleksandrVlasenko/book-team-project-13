@@ -68,9 +68,9 @@ window.addEventListener('load', () => {
 // //////////////////////
 const homePg = document.querySelector('.nav__link_home');
 const shopList = document.querySelector('.nav__link_shopping');
-const currentPath = window.location.pathname;
-
-if (currentPath === 'src/index.html' || currentPath === '/') {
+const currentPath = window.top.location.pathname;
+console.log(currentPath);
+if (currentPath === '/index.html' || currentPath === '/') {
   homePg.classList.add('current__page');
   shopList.classList.remove('current__page');
 } else if (currentPath === '/shopping-list.html') {
