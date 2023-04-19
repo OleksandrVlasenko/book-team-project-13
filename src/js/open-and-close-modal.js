@@ -11,7 +11,7 @@ function onCloseModalByClicking(e) {
   const backdrop = document.querySelector('[data-modal]');
   const modalWindow = document.querySelector('[modal-window]');
   const closeBtn = document.querySelector('[data-modal-close]');
-  withinBoundaries = e.composedPath().includes(modalWindow);
+  const withinBoundaries = e.composedPath().includes(modalWindow);
 
   if (
     !withinBoundaries ||

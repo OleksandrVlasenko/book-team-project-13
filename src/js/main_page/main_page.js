@@ -32,9 +32,11 @@ async function onFirstload() {
     refCategory.insertAdjacentHTML('beforeend', (await murkupCategoryList(categoryApi)));
 
     const preloader = document.querySelector('#preloader');
-    setTimeout(() => {
-      preloader.firstElementChild.style.zIndex = '-1';
-    }, 350);
+    preloader.firstElementChild.style.zIndex = '1002';
+    // const preloader = document.querySelector('#preloader');
+    // setTimeout(() => {
+    //   preloader.firstElementChild.style.zIndex = '-1';
+    // }, 350);
 
   } catch (error) {
     Notiflix.Notify.failure(`Categories was not found : ${error.message}`);
