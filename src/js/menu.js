@@ -5,6 +5,8 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { openModal } from './modal-auth/modal-window-authFirebase';
 import { singOutFunction } from './modal-auth/firebaseFunction';
 
+const body = document.querySelector('body');
+
   refs.openModalBtn.addEventListener('click', onOpenModal);
   refs.closeModalBtn.addEventListener('click', onCloseModal);
   refs.registrationBtn.addEventListener('click', onRegistration);
@@ -12,10 +14,12 @@ import { singOutFunction } from './modal-auth/firebaseFunction';
 
   function onOpenModal () {
     document.body.classList.add('show-modal');
+    body.style.overflow = 'hidden';
   }
   
   function onCloseModal () {
     document.body.classList.remove('show-modal');
+    body.style.overflow = 'auto'
   }
 
   function onRegistration () {
@@ -38,8 +42,6 @@ import { singOutFunction } from './modal-auth/firebaseFunction';
 
   function onExit () {
     
-    // refs.exitBtn.style.display = 'none'
-    
     singOutFunction()
   }
 
@@ -55,3 +57,4 @@ else if (currentPath === '/') {
 else if (currentPath === '/shopping-list.html') {
     refs.shoppingListPainting.classList.add('nav__link--current')
 }
+

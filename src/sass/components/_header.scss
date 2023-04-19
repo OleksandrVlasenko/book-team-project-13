@@ -86,7 +86,7 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
   font-weight: bold;
   cursor: pointer;
   padding-left: 14px;
-  transition: background $cubic-time, box-shadow $cubic-time;
+  transition: background $cubic-time, box-shadow $cubic-time, color $cubic-time;
     
       @media screen and (min-width: 768px) {
         display: flex;
@@ -100,13 +100,15 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
       // }
 
   &:hover {
-    background: linear-gradient(90deg, rgba(234, 198, 69, 1) 37%, rgba(79, 46, 232, 1) 75%, rgba(79, 46, 232, 1) 100%);
-    box-shadow: 10px 17px 28px -7px $dark-color;
+    color: $dark-color;
+    background: linear-gradient(90deg, $white-color 37%, rgba(79, 46, 232, 1) 75%, rgba(79, 46, 232, 1) 100%);
+    box-shadow: 3px 3px 28px -7px $dark-color;
   }
 
   &:focus {
-    background: linear-gradient(90deg, rgba(234, 198, 69, 1) 37%, rgba(79, 46, 232, 1) 75%, rgba(79, 46, 232, 1) 100%);
-    box-shadow: 10px 17px 28px -7px $dark-color;
+    color: $dark-color;
+    background: linear-gradient(90deg, $white-color 37%, rgba(79, 46, 232, 1) 75%, rgba(79, 46, 232, 1) 100%);
+    box-shadow: 3px 3px 28px -7px $dark-color;
   }
 }
 

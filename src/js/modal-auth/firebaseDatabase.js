@@ -3,7 +3,7 @@ import { getDatabase, ref, update, onValue } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 
 // Тест
-import { books } from '../backend-books';
+// import { books } from "../backend-books";
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAmjMPhgeiPnKuRTAY8vypkpT4j7HmPfug',

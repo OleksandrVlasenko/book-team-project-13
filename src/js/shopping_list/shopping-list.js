@@ -6,6 +6,7 @@ import {stopPreloader} from "../preloader"
 import Notiflix from 'notiflix';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from "../modal-auth/firebaseFunction";
+import { readShoppingList } from "../modal-auth/firebaseDatabase";
 
 export { renderCardOfBooks }
 
@@ -49,12 +50,13 @@ window.addEventListener("load", () => {
     onAuthStateChanged(auth, user => { 
         
         if (user) {
-        
-            renderCardOfBooks();
             stopPreloader();
+            readShoppingList()
+            renderCardOfBooks()
             return
             
         } else {
+            stopPreloader();
             Notiflix.Notify.info(`Sign in to view your shopping list`)
             galleryBooksEl.innerHTML = renderClearShoppingList();
             stopPreloader();
