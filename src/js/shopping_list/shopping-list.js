@@ -28,8 +28,13 @@ async function fetchBookByID(booksFromLocalStorage) {
 
 async function renderCardOfBooks() {
     let IdBooks = localStorage.getItem(`idBooks`);
-    if (!IdBooks || JSON.parse(IdBooks).length === 0) {
-        return (galleryBooksEl.innerHTML = renderClearShoppingList());
+    if (
+      IdBooks === 'undefined' ||
+      !IdBooks ||
+      IdBooks === '' ||
+      JSON.parse(IdBooks).length === 0
+    ) {
+      return (galleryBooksEl.innerHTML = renderClearShoppingList());
     }
     try {
         IdBooks = JSON.parse(IdBooks);
