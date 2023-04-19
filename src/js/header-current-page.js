@@ -3,7 +3,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const homePg = document.querySelector('.nav__link_home');
 const shopList = document.querySelector('.nav__link_shopping');
-
+// console.log(shopList);
 const btnWr = document.querySelector('.auth-btns__wrapper');
 
 const liEl = document.querySelector('.nav__item');
@@ -19,7 +19,8 @@ const currentPath = window.location.pathname;
 //   shopList.classList.add('current__page');
 // }
 
-if (currentPath === '/index.html' || currentPath === '/') {
+if (currentPath === '/index.html' || currentPath === 'src/') {
+  console.log(currentPath);
   homePg.classList.add('current__page');
 } else if (currentPath === '/shopping-list.html') {
   console.log(currentPath);
