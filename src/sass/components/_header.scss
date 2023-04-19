@@ -5,19 +5,23 @@ $dark-color: #111111;
 $blue-color: #4f2ee8;
 $yellow-color: #eac645;
 $white-color: #ffffff;
-$cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
-
+$cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
 
 .header {
-  //   position: fixed;
+  // display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  // right: 0;
+  z-index: 999;
   border: 1.5px solid #111111;
   border-radius: 0px 0px 8px 8px;
   width: 100%;
   background-color: var(--main-text-cl-dark-theme);
 
-  @media screen and (min-width: 768px) {
-    // height: 72px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   // height: 72px;
+  // }
   html.dark & {
     background-color: #111;
     border: 1.5px solid #fff;
@@ -25,19 +29,13 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
 }
 
 .header__container {
-  @extend .container;
+  // @extend .container;
 
   display: flex;
   align-items: center;
 }
 
 .header__logo {
-  // margin-top: 21px;
-  // margin-right: 170px;
-  // margin-bottom: 21px;
-  //   margin-left: auto;
-  //   padding-top: 18px;
-  //   padding-bottom: 18px;
   fill: #000;
   html.dark & {
     fill: #f3f3f3;
@@ -49,24 +47,29 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
   padding-top: 18px;
   padding-bottom: 18px;
   align-items: center;
+  margin-right: auto;
+  @media screen and (min-width: 768px) {
+    margin-right: 0;
+  }
+
   // fill: rgb(0, 255, 255);
 }
 .header__togglers {
   display: flex;
   margin-left: auto;
+  // margin-right: auto;
   align-items: center;
   gap: 14px;
 
   @media screen and (min-width: 768px) {
-    margin-left: 132px;
+    // margin-left: auto;
   }
 
   @media screen and (min-width: 1280px) {
-    margin-left: 650px;
+    margin-left: auto;
     // margin-right: 200px;
   }
 }
-
 
 //registration__btn
 
@@ -87,25 +90,35 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
   cursor: pointer;
   padding-left: 14px;
   transition: background $cubic-time, box-shadow $cubic-time;
-    
-      @media screen and (min-width: 768px) {
-        display: flex;
-      }
-    
-      // &.is-hidden {
-      //   display: none;
-      //   opacity: 0;
-      //   visibility: hidden;
-      //   pointer-events: none;
-      // }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+
+  // &.is-hidden {
+  //   display: none;
+  //   opacity: 0;
+  //   visibility: hidden;
+  //   pointer-events: none;
+  // }
 
   &:hover {
-    background: linear-gradient(90deg, rgba(234, 198, 69, 1) 37%, rgba(79, 46, 232, 1) 75%, rgba(79, 46, 232, 1) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(234, 198, 69, 1) 37%,
+      rgba(79, 46, 232, 1) 75%,
+      rgba(79, 46, 232, 1) 100%
+    );
     box-shadow: 10px 17px 28px -7px $dark-color;
   }
 
   &:focus {
-    background: linear-gradient(90deg, rgba(234, 198, 69, 1) 37%, rgba(79, 46, 232, 1) 75%, rgba(79, 46, 232, 1) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(234, 198, 69, 1) 37%,
+      rgba(79, 46, 232, 1) 75%,
+      rgba(79, 46, 232, 1) 100%
+    );
     box-shadow: 10px 17px 28px -7px $dark-color;
   }
 }
@@ -116,35 +129,39 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
   right: 5px;
 }
 
-.registration__btnMain:hover+.registration__icon-arrow {
+.registration__btnMain:hover + .registration__icon-arrow {
   stroke: #4f2ee8;
 }
 
 .header__group {
-    display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-left: auto;
-    
-      @media screen and (min-width: 768px) {
-        gap: 24px;
-      }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // gap: 14px;
+  // margin-left: auto;
+
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+    // gap: 24px;
+  }
 }
 
 .auth-btns__wrapper {
   position: relative;
-
+  // opacity: 0;
   // &.is-hidden {
-  //   display: none;
+  display: none;
   //   opacity: 0;
   //   visibility: hidden;
   //   pointer-events: none;
   // }
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }
 
 .auth-btn__user {
-  display: none;
+  // display: none;
 
   align-items: center;
   justify-content: space-around;
@@ -165,20 +182,20 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
   @media screen and (min-width: 768px) {
     display: flex;
   }
-
 }
 
 .is-hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
 .auth-btn__logOut {
+  // display: none;
+
   position: absolute;
 
-  display: flex;
   align-items: center;
   justify-content: center;
   gap: 90px;
