@@ -19,14 +19,17 @@ console.log(currentPath);
 //   shopList.classList.add('current__page');
 // }
 
-if (currentPath === '/index.html' || currentPath === '/') {
+if (
+  currentPath === '/book-team-project-13/index.html' ||
+  currentPath === '/index.html' ||
+  currentPath === '/'
+) {
   // console.log(currentPath);
   homePg.classList.add('current__page');
-
-  // } else if (currentPath === '/shopping-list.html') {
-  //   // console.log(currentPath);
-  //   shopList.classList.add('current__page');
-  //   homePg.classList.remove('current__page');
+} else if (currentPath === '/shopping-list.html') {
+  // console.log(currentPath);
+  shopList.classList.add('current__page');
+  homePg.classList.remove('current__page');
 }
 // const url = window.location.href;
 // console.log(url);
