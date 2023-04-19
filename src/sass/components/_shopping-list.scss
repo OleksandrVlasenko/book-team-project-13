@@ -4,7 +4,7 @@
         padding-top: calc(40px + var(--height-header));
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1280px) {
         display: flex;
         flex-direction: row-reverse;
         gap: 40px;
