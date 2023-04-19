@@ -32,23 +32,23 @@ async function fetchBookByID(booksFromLocalStorage) {
 }
 
 async function renderCardOfBooks() {
-    let IdBooks = localStorage.getItem(`idBooks`);
-    if (
-      IdBooks === 'undefined' ||
-      !IdBooks ||
-      IdBooks === '' ||
-      JSON.parse(IdBooks).length === 0
-    ) {
-      return (galleryBooksEl.innerHTML = renderClearShoppingList());
-    }
-    try {
-        IdBooks = JSON.parse(IdBooks);
-        const books = await fetchBookByID(IdBooks);
-        const data = books.map(book => book.data)
-        
-        galleryBooksEl.innerHTML = renderShoppingList(data);    
-        const cardBook = document.querySelector(`.shopping-list__gallery-boocks`);
-        cardBook.addEventListener(`click`, handleDeleteBookBtn);
+  let IdBooks = localStorage.getItem(`idBooks`);
+  if (
+    IdBooks === 'undefined' ||
+    !IdBooks ||
+    IdBooks === '' ||
+    JSON.parse(IdBooks).length === 0
+  ) {
+    return (galleryBooksEl.innerHTML = renderClearShoppingList());
+  }
+  try {
+    IdBooks = JSON.parse(IdBooks);
+    const books = await fetchBookByID(IdBooks);
+    const data = books.map(book => book.data);
+
+    galleryBooksEl.innerHTML = renderShoppingList(data);
+    const cardBook = document.querySelector(`.shopping-list__gallery-boocks`);
+    cardBook.addEventListener(`click`, handleDeleteBookBtn);
   } catch (error) {
     console.log(error);
   }
@@ -71,14 +71,30 @@ window.addEventListener('load', () => {
 });
 
 // //////////////////////
+// const homePg = document.querySelector('.nav__link_home');
+// const shopList = document.querySelector('.nav__link_shopping');
+// const currentPath = window.top.location.pathname;
+// console.log(currentPath);
+// if (currentPath === '/index.html' || currentPath === '/') {
+//   homePg.classList.add('current__page');
+//   shopList.classList.remove('current__page');
+// } else if (currentPath === '/shopping-list.html') {
+//   shopList.classList.add('current__page__shop');
+//   homePg.classList.remove('current__page');
+// }
+
 const homePg = document.querySelector('.nav__link_home');
 const shopList = document.querySelector('.nav__link_shopping');
 const currentPath = window.top.location.pathname;
 console.log(currentPath);
-if (currentPath === '/index.html' || currentPath === '/') {
-  homePg.classList.add('current__page');
-  shopList.classList.remove('current__page');
-} else if (currentPath === '/shopping-list.html') {
-  shopList.classList.add('current__page__shop');
+if (
+  currentPath === '/book-team-project-13/shopping-list.html' ||
+  currentPath === '/' ||
+  currentPath === '/shopping-list.html'
+) {
   homePg.classList.remove('current__page');
+  shopList.classList.add('current__page__shop');
+} else if (currentPath === '/index.html') {
+  shopList.classList.remove('current__page__shop');
+  homePg.classList.add('current__page');
 }
