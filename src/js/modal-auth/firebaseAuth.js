@@ -2,6 +2,7 @@ import { refs } from '../refs';
 import { signUp, signIn, singOutFunction } from './firebaseFunction';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { ref } from 'firebase/database';
+import { readUsername } from './firebaseDatabase';
 
 const auth = getAuth();
 
@@ -51,8 +52,10 @@ refs.signOutBtn.addEventListener('click', (e) => {
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log('registrated');
-        
-        // refs.userBtn.textContent = user.displayName;
+        readUsername();
+        console.log(username);
+
+        // refs.userBtn.textContent = username;
         refs.openAuthBtn.classList.add('is-hidden');
         refs.userBtn.classList.remove('is-hidden');
         refs.logOut.classList.remove('is-hidden');
