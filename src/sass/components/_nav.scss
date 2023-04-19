@@ -93,7 +93,29 @@
 
   font-weight: 700;
   html.dark & {
-    background-color: #ffee00;
+    background-color: var(--secondary-accent-cl);
     color: rgb(0, 0, 0);
+  }
+}
+.current__page__shop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 16px;
+  gap: 8px;
+
+  width: 156px;
+  height: 34px;
+
+  // background: #EAC645;
+  border-radius: 36px;
+  background-color: var(--secondary-accent-cl);
+
+  font-weight: 700;
+  html.dark & {
+    background-color: var(--secondary-accent-cl);
+    color: #111;
+    fill: #111;
   }
 }
