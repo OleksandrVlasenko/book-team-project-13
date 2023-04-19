@@ -1,5 +1,4 @@
 import { BooksAPI } from '../main_page/fetch';
-// import { books } from "../backend-books";
 import {
   renderClearShoppingList,
   renderShoppingList,
@@ -17,9 +16,6 @@ const getBook = new BooksAPI();
 
 const galleryBooksEl = document.querySelector(`.shopping-list__gallery-boocks`);
 
-// const objBooks = books;
-// localStorage.setItem(`idBooks`, JSON.stringify(objBooks));
-
 async function fetchBookByID(booksFromLocalStorage) {
   try {
     const books = await Promise.all(
@@ -33,7 +29,12 @@ async function fetchBookByID(booksFromLocalStorage) {
 
 async function renderCardOfBooks() {
   let IdBooks = localStorage.getItem(`idBooks`);
-  if (!IdBooks || JSON.parse(IdBooks).length === 0) {
+  if (
+    IdBooks === 'undefined' ||
+    !IdBooks ||
+    IdBooks === '' ||
+    JSON.parse(IdBooks).length === 0
+  ) {
     return (galleryBooksEl.innerHTML = renderClearShoppingList());
   }
   try {
@@ -60,20 +61,35 @@ window.addEventListener('load', () => {
       stopPreloader();
       Notiflix.Notify.info(`Sign in to view your shopping list`);
       galleryBooksEl.innerHTML = renderClearShoppingList();
-      stopPreloader();
     }
   });
 });
 
 // //////////////////////
+// const homePg = document.querySelector('.nav__link_home');
+// const shopList = document.querySelector('.nav__link_shopping');
+// const currentPath = window.top.location.pathname;
+// console.log(currentPath);
+// if (currentPath === '/index.html' || currentPath === '/') {
+//   homePg.classList.add('current__page');
+//   shopList.classList.remove('current__page');
+// } else if (currentPath === '/shopping-list.html') {
+//   shopList.classList.add('current__page__shop');
+//   homePg.classList.remove('current__page');
+// }
+
 const homePg = document.querySelector('.nav__link_home');
 const shopList = document.querySelector('.nav__link_shopping');
-const currentPath = window.location.pathname;
-
-if (currentPath === 'src/index.html' || currentPath === '/') {
-  homePg.classList.add('current__page');
-  shopList.classList.remove('current__page');
-} else if (currentPath === '/shopping-list.html') {
-  shopList.classList.add('current__page__shop');
+const currentPath = window.top.location.pathname;
+console.log(currentPath);
+if (
+  currentPath === '/book-team-project-13/shopping-list.html' ||
+  currentPath === '/' ||
+  currentPath === '/shopping-list.html'
+) {
   homePg.classList.remove('current__page');
+  shopList.classList.add('current__page__shop');
+} else if (currentPath === '/index.html') {
+  shopList.classList.remove('current__page__shop');
+  homePg.classList.add('current__page');
 }
