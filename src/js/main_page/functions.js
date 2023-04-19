@@ -21,7 +21,7 @@ export async function murkup(data) {
     return ` 
     <div class="item-books__home"> 
     <h3 class="js-book-categoty">${list_name}</h3> 
-    <ul class='list-books__home'>${await sliceData(books)}</ul> 
+    <ul class='list-books__home'>${await makeListOfBooks(books)}</ul>  
     <button class="button see-more" data-js="${list_name}">See more</button> 
     </div> 
     `;
