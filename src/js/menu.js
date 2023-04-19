@@ -30,6 +30,8 @@ const body = document.querySelector('body');
 
   function onRegistration () {
     document.body.classList.remove('show-modal');
+    refs.closeModalBtn.style.display = 'none';
+    refs.openModalBtn.style.display = 'flex';
     openModal();
   }
 
@@ -46,7 +48,6 @@ const body = document.querySelector('body');
   });
 
   function onExit () {
-    
     singOutFunction()
   }
 
