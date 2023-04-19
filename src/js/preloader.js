@@ -1,4 +1,8 @@
 window.addEventListener('load', () => {
+  const preloader = document.querySelector('#preloader');
+  setTimeout(() => {
+    preloader.firstElementChild.remove();
+  }, 350);
   startPreloader();
 });
 
@@ -13,11 +17,11 @@ function stopPreloader() {
     document.body.classList.remove('loaded_hiding');
     const preloader = document.querySelector('#preloader');
     preloader.remove();
-  }, 250);
+  }, 350);
 }
 
 function addMarkupOfPreloader() {
-  return '<div class="preloader books" id="preloader"><div class="preloader__row"><div class="preloader__item"><div></div></div></div></div>';
+  return '<div id="preloader"><div class="preloader__row"><div class="preloader__item"><div></div></div></div></div>';
 }
 
 export { startPreloader, stopPreloader, addMarkupOfPreloader };
