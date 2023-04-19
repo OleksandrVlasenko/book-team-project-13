@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, set, ref, update } from 'firebase/database';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import Notiflix from 'notiflix';
-Notiflix.Notify.init({ timeout: '1000', cssAnimationStyle: 'from-right'});
+Notiflix.Notify.init({ timeout: 1000, cssAnimationStyle: 'from-top', position: 'center-top'});
 import { readShoppingList } from './firebaseDatabase';
 
 const firebaseConfig = {

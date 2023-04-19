@@ -114,6 +114,7 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     transition: fill $cubic-time;
 
     html.dark & {
+        fill: $white-color;
         background-color: var(--main-bg-cl-dark-theme);
     }
 }
@@ -189,6 +190,7 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: $dark-color;
+    user-select: none;
 
     transform: translateY(-50%);
     transition: transform $cubic-time;
@@ -269,7 +271,8 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
 }
 
 .form__btn-up,
-.form__btn-in {
+.form__btn-in,
+.form__btn-out {
     position: relative;
 
     font-weight: 700;
@@ -283,7 +286,7 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     cursor: pointer;
 
     html.dark & {
-        color: $yellow-color;
+        color: rgba(246, 246, 246, 0.5);
         background-color: var(--main-bg-cl-dark-theme);
     }
 
@@ -302,7 +305,8 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
 }
 
 .form__btn-up::after,
-.form__btn-in::after {
+.form__btn-in::after,
+.form__btn-out::after {
     content: '';
         position: absolute;
         bottom: 5;
@@ -319,61 +323,11 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
 }
 
 .form__btn-up:hover::after,
-.form__btn-in:hover::after {
-    width: 85%;
-}
-
-
-.form__btn-out {
-    position: relative;
-
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.01em;
-    color: #11111180;
-    text-transform: uppercase;
-    border: none;
-    background-color: $primary-background-color;
-    cursor: pointer;
-
-    html.dark & {
-        background-color: var(--main-bg-cl-dark-theme);
-    }
-
-    &:hover {
-        color: $blue-color;
-
-        html.dark & {
-        color: $yellow-color;
-        }
-    }
-
-    @media screen and (min-width: 1280px) {
-        font-size: 18px;
-        line-height: 1.33;
-    }
-}
-
-.form__btn-out::after {
-    content: '';
-        position: absolute;
-        bottom: 5;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 1.5px;
-        background-color: $blue-color;
-        transition: width 0.3s ease-out;
-
-    html.dark & {
-         background-color: $yellow-color;
-    }
-}
-
+.form__btn-in:hover::after,
 .form__btn-out:hover::after {
     width: 85%;
 }
+
 
 .form__icon {
     position: absolute;
@@ -397,8 +351,6 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
 
 
 
-
-
 .checked {
     transform: translateY(-50px);
     color: $blue-color;
@@ -416,6 +368,10 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
 .active {
     text-decoration-line: underline;
     color: $blue-color;
+
+    html.dark & {
+            color: $yellow-color;
+        }
 }
 
 .disabled {
