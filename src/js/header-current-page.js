@@ -8,8 +8,8 @@ const btnWr = document.querySelector('.auth-btns__wrapper');
 
 const liEl = document.querySelector('.nav__item');
 
-const currentPath = window.location.pathname;
-
+const currentPath = window.top.location.pathname;
+console.log(currentPath);
 // if (currentPath === '/index.html') {
 //   console.log(currentPath);
 //   homePg.classList.add('current__page');
