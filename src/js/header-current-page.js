@@ -22,7 +22,8 @@ console.log(currentPath);
 if (
   currentPath === '/book-team-project-13/index.html' ||
   currentPath === '/index.html' ||
-  currentPath === '/book-team-project-13'
+  currentPath === '/book-team-project-13/' ||
+  currentPath === '/'
 ) {
   // console.log(currentPath);
   homePg.classList.add('current__page');
