@@ -170,7 +170,7 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   display: none;
   position: relative;
 
-  width: 184px;
+  min-width: 184px;
   height: 48px;
   padding: 4px 12px;
 
@@ -211,6 +211,7 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
     border-radius: 18px;
     color: $dark-color;
     cursor: pointer;
+    
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;

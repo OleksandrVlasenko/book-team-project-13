@@ -52,6 +52,12 @@ document.body.addEventListener('click', (e) => {
     }
 });
 
+refs.logOut.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    singOutFunction();
+
+});
 
 refs.signOutBtn.addEventListener('click', (e) => {
     e.preventDefault();
