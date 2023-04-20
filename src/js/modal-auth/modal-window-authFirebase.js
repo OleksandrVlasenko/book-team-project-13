@@ -17,15 +17,19 @@ refs.inputMail.addEventListener('input', debounce(onInput, 250));
 refs.inputPassword.addEventListener('input', debounce(onInput, 250));
 
 
-refs.userBtn.addEventListener('mouseover', () => {
-  refs.userBtn.innerHTML = 'Log out';
-  refs.userBtn.style.display = "inline-block";
-});
+// refs.userBtn.addEventListener('mouseover', () => {
+//   refs.userBtn.innerHTML = 'Log out';
+//   refs.userBtn.style.display = "inline-block";
+// });
 
-refs.userBtn.addEventListener('mouseout', () => {
-  refs.userBtn.innerHTML = "User";
-  refs.userBtn.display = "none";
-});
+// refs.userBtn.addEventListener('mouseout', () => {
+//   refs.userBtn.textContent = `User`;
+//   refs.userBtn.display = "none";
+// });
+
+refs.userBtn.addEventListener('click', () => {
+  refs.logOut.classList.remove('is-hidden');
+})
 
 
 
