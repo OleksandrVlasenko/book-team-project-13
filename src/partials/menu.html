@@ -5,6 +5,7 @@
         type="button"
         class="registration__btn"
         data-action="registration"
+        aria-label="Registration"
       >
         <span>Sign up</span
         ><span
@@ -18,19 +19,35 @@
       </div>
       <nav class="modal__nav">
         <ul class="nav__list">
-          <li class="home__item">
-            <a href="./index.html" class="nav__link nav__home">Home</a>
+          <li>
+            <a
+              href="./index.html"
+              class="nav__link nav__home"
+              aria-label="Link to home page"
+              >Home</a
+            >
           </li>
-          <li class="shop__item">
-            <a href="./shopping-list.html" class="nav__link nav__shopping"
+          <li>
+            <a
+              href="./shopping-list.html"
+              class="nav__link nav__shopping"
+              aria-label="Link to Shopping list"
               ><span>Shopping list</span
-              ><svg width="20" height="20" class="shopping-list-icon">
-                <use href="./images/icons.svg#icon-shopping-bag"></use></svg
+              ><span
+                ><svg width="20" height="20">
+                  <use
+                    href="./images/icons.svg#icon-uil_cart"
+                  ></use></svg></span
             ></a>
           </li>
         </ul>
       </nav>
-      <button type="button" class="exit_btn" data-action="exit">
+      <button
+        type="button"
+        class="exit_btn"
+        data-action="exit"
+        aria-label="Close modal"
+      >
         <span>Log out</span
         ><span
           ><svg class="registration__arrow" width="20" height="20">
