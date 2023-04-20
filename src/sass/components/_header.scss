@@ -237,26 +237,24 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
 }
 
 .auth-btn__icon-user-fone {
-    position: relative;
+  position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background-color: $yellow-color;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-  }
+  background-color: $yellow-color;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
 
 .auth-btn__icon-user {
-position: absolute;
-top: 25%;
-left: 29%;
+  position: absolute;
+  top: 25%;
+  left: 29%;
 }
 
 .auth-btn__icon-user-arrow-down {
   fill: $white-color;
 }
-
-
