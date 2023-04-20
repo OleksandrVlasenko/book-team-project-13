@@ -28,7 +28,6 @@ export const readShoppingList = () => {
   const shoppingListEl = ref(database, '/users' + userId);
   onValue(shoppingListEl, snapshot => {
     const data = snapshot.val();
-    console.log(data.shoppingList);
     localStorage.setItem(`idBooks`, JSON.stringify(data.shoppingList));
   });
 };
@@ -39,7 +38,6 @@ export const readUsername = () => {
   onValue(usernameEl, snapshot => {
     const data = snapshot.val();
     refs.userText.textContent = data.username;
-    console.log('username',data.username);
     return data.username;
   });
 };
@@ -55,10 +53,9 @@ export const updateShoppingList = () => {
   })
     .then(() => {
       // Data saved successfully!
-      console.log('data updated');
     })
     .catch(error => {
       // The write failed...
-      console.log(error);
+      console.log(error.message);
     });
 };

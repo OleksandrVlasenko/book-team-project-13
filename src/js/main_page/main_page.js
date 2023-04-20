@@ -12,6 +12,7 @@ import {
 import Notiflix from "notiflix";
 import { currentCategoryTogle } from "./functions";
 import { modalAboutBook } from "../popup-about-book"
+import {scrollToStart} from "../scroll-up"
 
 
 
@@ -58,7 +59,7 @@ async function onCategoryClick(el) {
   el.preventDefault();
 
   if (el.target.classList.contains("category__home-itm")) {
-
+    scrollToStart();
     refBooks.innerHTML = "";
     //Add and start preloader
     refBooks.insertAdjacentHTML(
@@ -103,6 +104,7 @@ async function onSeeMoreClick(event) {
   }
 
   if (event.target.classList.contains('see-more')) {
+    scrollToStart();
     const requestedCategory = event.target.dataset.js;
     refBooks.innerHTML = '';
     //Add and start preloader
@@ -123,6 +125,7 @@ async function onSeeMoreClick(event) {
       Notiflix.Notify.failure(`Books was not found : ${error.message}`);
     }
   } else if (event.target.classList.contains('all-categories__btn')) {
+    scrollToStart();
     refBooks.innerHTML = '';
     //Add and start preloader
     refBooks.insertAdjacentHTML('afterbegin', addMarkupOfPreloader());
