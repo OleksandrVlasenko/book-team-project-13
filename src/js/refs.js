@@ -1,5 +1,4 @@
 export const refs = {
-
   openAuthBtn: document.querySelector('button.auth__modal-open-js'),
   closeAutBtn: document.querySelector('button.auth__modal-close-js'),
   modalAuth: document.querySelector('div.auth__modal-js'),
@@ -25,5 +24,7 @@ export const refs = {
   exitBtn: document.querySelector('.exit_btn'),
   userName: document.querySelector('.modal__item'),
   userNameModal: document.querySelector('.modal__user'),
-  userText:  document.querySelector('.auth-btn__user-text'),
-}
+  userText: document.querySelector('.auth-btn__user-text'),
+  shopingListBtn: document.querySelector('.nav__shopping'),
+  homeBtn: document.querySelector('.nav__home'),
+};

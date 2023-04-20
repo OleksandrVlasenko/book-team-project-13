@@ -109,13 +109,13 @@ body.show-modal .modal {
 }
 
 .registration__arrow {
-  stroke:var(--secondary-accent-cl);
+  stroke: var(--secondary-accent-cl);
 }
 
 .registration__btn:focus .registration__arrow,
 .registration__btn:hover .registration__arrow {
   stroke: var(--main-text-cl-dark-theme);
-};
+}
 
 .modal__user {
   display: flex;
@@ -145,6 +145,9 @@ body.show-modal .modal {
   text-transform: uppercase;
   color: var(--main-text-cl-dark-theme);
 }
+.shopping-list-icon {
+  fill: currentColor;
+}
 .nav__link--current {
   border: 0px solid rgba(0, 0, 0, 0.2);
   padding: 8px 16px;
@@ -159,11 +162,15 @@ body.show-modal .modal {
   color: var(--main-text-cl-light-theme);
 }
 
+.home__item {
+  display: flex;
+  justify-content: center;
+}
 .nav__shopping {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .exit_btn {
@@ -192,10 +199,9 @@ body.show-modal .modal {
   left: 20px;
 }
 .registration__arrow {
-  stroke:var(--secondary-accent-cl);
+  stroke: var(--secondary-accent-cl);
 }
-
 
 .registration__arrow:hover {
   stroke: var(--main-text-cl-dark-theme);
-};
+}
