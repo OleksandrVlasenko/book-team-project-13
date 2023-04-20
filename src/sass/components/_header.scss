@@ -18,7 +18,7 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   border-radius: 0px 0px 8px 8px;
   width: 100%;
   background-color: var(--main-text-cl-dark-theme);
-
+  transition: all 0.3s ease 0s;
   // @media screen and (min-width: 768px) {
   //   // height: 72px;
   // }
@@ -52,6 +52,12 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
     margin-right: 0;
   }
 
+  & span {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
   // fill: rgb(0, 255, 255);
 }
 .header__togglers {
@@ -71,13 +77,13 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   }
 }
 
-//registration__btn
+//-----registration__btn-----
 
 .registration__btnMain {
   display: none;
 
   position: relative;
-  width: 184;
+  min-width: 184;
   height: 48;
   background-color: $blue-color;
   text-align: left;
@@ -94,13 +100,6 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   @media screen and (min-width: 768px) {
     display: flex;
   }
-
-  // &.is-hidden {
-  //   display: none;
-  //   opacity: 0;
-  //   visibility: hidden;
-  //   pointer-events: none;
-  // }
 
   &:hover {
     background: linear-gradient(
@@ -126,14 +125,8 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
     @media screen and (min-width: 768px) {
       display: flex;
     }
-
-    // &.is-hidden {
-    //   display: none;
-    //   opacity: 0;
-    //   visibility: hidden;
-    //   pointer-events: none;
-    // }
   }
+
   &:hover {
     color: $dark-color;
     background: linear-gradient(
@@ -167,33 +160,17 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   display: flex;
   align-items: center;
   justify-content: center;
-  // gap: 14px;
-  // margin-left: auto;
 
   @media screen and (min-width: 768px) {
     margin-left: auto;
-    // gap: 24px;
-  }
-}
-
-.auth-btns__wrapper {
-  position: relative;
-  // opacity: 0;
-  // &.is-hidden {
-  display: none;
-  //   opacity: 0;
-  //   visibility: hidden;
-  //   pointer-events: none;
-  // }
-  @media screen and (min-width: 768px) {
-    display: block;
   }
 }
 
 .auth-btn__user {
   display: none;
+  position: relative;
 
-  width: 184px;
+  min-width: 184px;
   height: 48px;
   padding: 4px 12px;
 
@@ -220,7 +197,60 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
 }
 
 .auth-btn__logOut {
+  position: absolute;
+  top: 100%;
+  right: 0%;
+
   display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 40px;
+  background-color: $white-color;
+  border: 1.5px solid $dark-color;
+  border-radius: 18px;
+  color: $dark-color;
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  fill: $yellow-color;
+  transition: background-color $cubic-time, fill $cubic-time;
+
+  &:hover {
+    fill: $blue-color;
+    background-color: $yellow-color;
+  }
+}
+
+.auth-btn__icon-user-fone {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $yellow-color;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.auth-btn__icon-user {
+  position: absolute;
+  top: 25%;
+  left: 29%;
+}
+
+.auth-btn__icon-user-arrow-down {
+  fill: $white-color;
+}
+
+.auth-btn__logOut__icon-arrow {
+  position: absolute;
+  top: 32%;
+  right: 5%;
 }
 
 .is-hidden {
@@ -230,27 +260,6 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   pointer-events: none;
 }
 
-.auth-btn__icon-user-fone {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: $yellow-color;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-  }
-
-.auth-btn__icon-user {
-position: absolute;
-top: 25%;
-left: 29%;
+.btn-wrapper {
+  position: relative;
 }
-
-.auth-btn__icon-user-arrow-down {
-  fill: $white-color;
-}
-
-

@@ -54,3 +54,21 @@ img {
 //   opacity: 1;
 //   visibility: visible;
 // }
+
+::-webkit-scrollbar {
+  width: 8px
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(224, 224, 224, 1);
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(156, 156, 156);
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}

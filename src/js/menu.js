@@ -31,6 +31,7 @@ function onRegistration() {
   document.body.classList.remove('show-modal');
   refs.closeModalBtn.style.display = 'none';
   refs.openModalBtn.style.display = 'flex';
+  body.style.overflow = 'auto';
   openModal();
 }
 
@@ -39,25 +40,26 @@ onAuthStateChanged(auth, user => {
     refs.exitBtn.style.display = 'flex';
     refs.registrationBtn.style.display = 'none';
     refs.userNameModal.classList.remove('visually-hidden');
+    refs.shopingListBtn.classList.remove('visually-hidden');
+    refs.homeBtn.classList.remove('visually-hidden');
   } else {
     refs.exitBtn.style.display = 'none';
     refs.userNameModal.classList.add('visually-hidden');
     refs.registrationBtn.style.display = 'flex';
+    refs.shopingListBtn.classList.add('visually-hidden');
+    refs.homeBtn.classList.add('visually-hidden');
   }
 });
 
 function onExit() {
+  document.body.classList.remove('show-modal');
+  refs.closeModalBtn.style.display = 'none';
+  refs.openModalBtn.style.display = 'flex';
+  body.style.overflow = 'auto';
   singOutFunction();
 }
 
 const currentPath = window.location.pathname;
-
-// if (currentPath === '/index.html' || currentPath === '/') {
-//     refs.homePainting.classList.add('nav__link--current')
-// }
-// else if (currentPath === '/shopping-list.html') {
-//     refs.shoppingListPainting.classList.add('nav__link--current')
-// }
 
 if (
   currentPath === '/book-team-project-13/index.html' ||
