@@ -31,6 +31,7 @@ function onRegistration() {
   document.body.classList.remove('show-modal');
   refs.closeModalBtn.style.display = 'none';
   refs.openModalBtn.style.display = 'flex';
+  body.style.overflow = 'auto';
   openModal();
 }
 
@@ -47,17 +48,14 @@ onAuthStateChanged(auth, user => {
 });
 
 function onExit() {
+  document.body.classList.remove('show-modal');
+  refs.closeModalBtn.style.display = 'none';
+  refs.openModalBtn.style.display = 'flex';
+  body.style.overflow = 'auto';
   singOutFunction();
 }
 
 const currentPath = window.location.pathname;
-
-// if (currentPath === '/index.html' || currentPath === '/') {
-//     refs.homePainting.classList.add('nav__link--current')
-// }
-// else if (currentPath === '/shopping-list.html') {
-//     refs.shoppingListPainting.classList.add('nav__link--current')
-// }
 
 if (
   currentPath === '/book-team-project-13/index.html' ||
