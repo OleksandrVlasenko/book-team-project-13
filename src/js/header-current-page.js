@@ -1,9 +1,10 @@
-import { signUp, signIn, singOutFunction } from './modal-auth/firebaseFunction';
+// import { signUp, signIn, singOutFunction } from './modal-auth/firebaseFunction';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const homePg = document.querySelector('.nav__link_home');
 const shopList = document.querySelector('.nav__link_shopping');
-const btnWr = document.querySelector('.auth-btns__wrapper');
+// console.log(shopList);
+// const btnWr = document.querySelector('.auth-btns__wrapper');
 
 const liEl = document.querySelector('.nav__item');
 
@@ -70,7 +71,7 @@ onAuthStateChanged(auth, user => {
     //     const uid = user.uid;
     //     // ...
 
-    btnWr.classList.remove('is-hidden');
+    // btnWr.classList.remove('is-hidden');
     shopList.classList.add('is-hidden');
     homePg.classList.add('is-hidden');
 
@@ -84,7 +85,7 @@ onAuthStateChanged(auth, user => {
     // );
   } else {
     // console.log('not registrated');
-    btnWr.classList.remove('is-hidden');
+    // btnWr.classList.remove('is-hidden');
     shopList.classList.remove('is-hidden');
     homePg.classList.remove('is-hidden');
   }
