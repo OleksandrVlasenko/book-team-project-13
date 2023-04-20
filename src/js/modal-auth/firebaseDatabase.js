@@ -32,16 +32,19 @@ export const readShoppingList = () => {
   });
 };
 // Читання даних Username з бази даних database
+
 export const readUsername = () => {
   const userId = auth.currentUser.uid;
   const usernameEl = ref(database, '/users' + userId);
   onValue(usernameEl, snapshot => {
     const data = snapshot.val();
     refs.userText.textContent = data.username;
+    refs.userTextMobMenu.textContent = data.username;
+    userName = data.username
     return data.username;
   });
 };
-
+export let userName = null;
 // Оновлення даних
 
 export const updateShoppingList = () => {

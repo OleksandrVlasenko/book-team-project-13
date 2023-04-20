@@ -5,6 +5,7 @@ import Notiflix from 'notiflix';
 Notiflix.Notify.init({ timeout: 1000, cssAnimationStyle: 'from-top', position: 'center-top'});
 import { readShoppingList } from './firebaseDatabase';
 import { renderCardOfBooks } from "../shopping_list/shopping-list";
+import { userName } from "./firebaseDatabase";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAmjMPhgeiPnKuRTAY8vypkpT4j7HmPfug",
@@ -69,8 +70,9 @@ export const signIn = (email, password) => {
                 last_login: lastLoginDate
             })
             readShoppingList();
-            renderCardOfBooks();
-            Notiflix.Notify.success(` Welcome ${email}!`);
+            renderCardOfBooks()
+
+            Notiflix.Notify.success(` Welcome ${userName}!`);
             
 
         })
