@@ -18,7 +18,7 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   border-radius: 0px 0px 8px 8px;
   width: 100%;
   background-color: var(--main-text-cl-dark-theme);
-
+  transition: all 0.3s ease 0s;
   // @media screen and (min-width: 768px) {
   //   // height: 72px;
   // }
@@ -201,21 +201,21 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   top: 100%;
   right: 0%;
 
-    display: none;
-    align-items: center;
-    justify-content: center;
-    min-width: 100px;
-    height: 40px;
-    background-color: $white-color;
-    border: 1.5px solid $dark-color;
-    border-radius: 18px;
-    color: $dark-color;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    fill: $yellow-color;
-    transition: background-color $cubic-time, fill $cubic-time;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 40px;
+  background-color: $white-color;
+  border: 1.5px solid $dark-color;
+  border-radius: 18px;
+  color: $dark-color;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  fill: $yellow-color;
+  transition: background-color $cubic-time, fill $cubic-time;
 
   &:hover {
     fill: $blue-color;
@@ -262,4 +262,3 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
 .btn-wrapper {
   position: relative;
 }
-
