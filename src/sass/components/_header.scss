@@ -71,7 +71,7 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   }
 }
 
-//registration__btn
+//-----registration__btn-----
 
 .registration__btnMain {
   display: none;
@@ -95,12 +95,6 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
     display: flex;
   }
 
-  // &.is-hidden {
-  //   display: none;
-  //   opacity: 0;
-  //   visibility: hidden;
-  //   pointer-events: none;
-  // }
 
   &:hover {
     background: linear-gradient(
@@ -127,13 +121,8 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
       display: flex;
     }
 
-    // &.is-hidden {
-    //   display: none;
-    //   opacity: 0;
-    //   visibility: hidden;
-    //   pointer-events: none;
-    // }
   }
+
   &:hover {
     color: $dark-color;
     background: linear-gradient(
@@ -167,28 +156,12 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   display: flex;
   align-items: center;
   justify-content: center;
-  // gap: 14px;
-  // margin-left: auto;
 
   @media screen and (min-width: 768px) {
     margin-left: auto;
-    // gap: 24px;
   }
 }
 
-.auth-btns__wrapper {
-  position: relative;
-  // opacity: 0;
-  // &.is-hidden {
-  display: none;
-  //   opacity: 0;
-  //   visibility: hidden;
-  //   pointer-events: none;
-  // }
-  @media screen and (min-width: 768px) {
-    display: block;
-  }
-}
 
 .auth-btn__user {
   display: none;
@@ -220,7 +193,31 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
 }
 
 .auth-btn__logOut {
-  display: none;
+  position: absolute;
+  top: 80%;
+  right: 2%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    background-color: $white-color;
+    border: 1.5px solid $dark-color;
+    border-radius: 18px;
+    color: $dark-color;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    fill: $yellow-color;
+    transition: background-color $cubic-time, fill $cubic-time;
+
+    &:hover {
+      fill: $blue-color;
+      background-color: $yellow-color;
+    }
+  
 }
 
 .is-hidden {
@@ -251,6 +248,12 @@ left: 29%;
 
 .auth-btn__icon-user-arrow-down {
   fill: $white-color;
+}
+
+.auth-btn__logOut__icon-arrow {
+  position: absolute;
+  top: 32%;
+  right: 5%;
 }
 
 
