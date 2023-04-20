@@ -22,7 +22,7 @@ export async function murkup(data) {
     <div class="item-books__home"> 
     <h3 class="js-book-categoty">${list_name}</h3> 
     <ul class='list-books__home'>${await makeListOfBooks(books)}</ul>  
-    <button class="button see-more" data-js="${list_name}">See more</button> 
+    <button class="button see-more" data-js="${list_name}" aria-label="See more">See more</button> 
     </div> 
     `;
   }));
@@ -33,9 +33,13 @@ export async function makeCategoryPage(category, data) {
   const title = category.split(" ");
   return ` 
   <h2 class="block__books-title"
->${title.splice(0, (title.length / 2)).join(' ')} <span class="block__books-colortitle">${title.splice((title.length / 2), title.length).join(' ')}</span></h2> 
+>${title
+    .splice(0, title.length / 2)
+    .join(' ')} <span class="block__books-colortitle">${title
+    .splice(title.length / 2, title.length)
+    .join(' ')}</span></h2> 
         <ul class="block__books-list">${await makeListOfBooks(data)}</ul>
-        <button class="button all-categories__btn" data-js="All Categories">All Categories</button>`
+        <button class="button all-categories__btn" data-js="All Categories" aria-label="All categories">All Categories</button>`;
 
 };
 

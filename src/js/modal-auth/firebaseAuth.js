@@ -34,7 +34,16 @@ refs.submitBtn.addEventListener('click', (e) => {
 })
  
 
-refs.userBtn.addEventListener('click', (e) => {
+refs.userBtn.addEventListener('click', () => {
+    if (refs.logOut.style.display === 'none') {
+        refs.logOut.style.display = 'flex';
+    } else {
+        refs.logOut.style.display = 'none';
+    }
+   
+});
+
+refs.logOut.addEventListener('click', (e) => {
     e.preventDefault();
 
     singOutFunction();
@@ -53,12 +62,9 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log('registrated');
         readUsername();
-        console.log(username);
 
-        // refs.userBtn.textContent = username;
         refs.openAuthBtn.classList.add('is-hidden');
         refs.userBtn.classList.remove('is-hidden');
-        refs.logOut.classList.remove('is-hidden');
         localStorage.setItem('user-data', JSON.stringify({
         id: user.uid,
         name: user.displayName,
@@ -71,3 +77,5 @@ onAuthStateChanged(auth, (user) => {
         localStorage.removeItem('user-data'); 
         }
 });
+
+
