@@ -6,6 +6,7 @@ $blue-color: #4f2ee8;
 $yellow-color: #eac645;
 $white-color: #ffffff;
 $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61); 
+$cubic-modal: 250ms cubic-bezier(.17, .67, .83, .67);
 
 .auth__backdrop {
     z-index: 1000;
@@ -16,7 +17,7 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     height: 100%;
     background-color: $blue-color;
     opacity: 1;
-    transition: opacity $cubic-time, visibility $cubic-time;
+    transition: opacity $cubic-modal, visibility $cubic-modal;
 }
 
 
@@ -30,7 +31,7 @@ $cubic-time: 250ms cubic-bezier(.17, .67, .91, 1.61);
     border: 2px solid $dark-color;
     border-radius: 18px;
     transform: translate(-50%, -50%) scale(1);
-    transition: transform $cubic-time, opacity $cubic-time, visibility $cubic-time;
+    transition: transform $cubic-modal, opacity $cubic-modal, visibility $cubic-modal;
 
     html.dark & {
             background-color: var(--main-bg-cl-dark-theme);
