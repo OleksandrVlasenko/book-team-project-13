@@ -12,7 +12,7 @@ import {
 import Notiflix from "notiflix";
 import { currentCategoryTogle } from "./functions";
 import { modalAboutBook } from "../popup-about-book"
-import {scrollToStart} from "../scroll-up"
+import { scrollToStart } from "../scroll-up"
 
 
 
@@ -68,12 +68,12 @@ async function onCategoryClick(el) {
     );
     startPreloader();
     //-----------------------
-    if (el.target.innerText === `All categories`) {
+    if (el.target.dataset.category === `all categories`) {
       try {
         const resp = (await bookApi.getTopBooks());
         refBooks.insertAdjacentHTML('afterbegin', '<h2 class="block__books-title">Best Sellers<span class="block__books-colortitle"> Books</span></h2>')
         refBooks.insertAdjacentHTML('beforeend', (await murkup(resp.data)).join(""));
-        currentCategoryTogle(el.target.innerText);
+        currentCategoryTogle(el.target.dataset.category);
         stopPreloader();
       } catch (error) {
         Notiflix.Notify.failure(`Books was not found : ${error.message}`);
@@ -81,9 +81,9 @@ async function onCategoryClick(el) {
       return;
     } else {
       try {
-        const data = await (await bookApi.getOneCategory(`${el.target.innerText}`)).data;
-        refBooks.insertAdjacentHTML('beforeend', await makeCategoryPage(`${el.target.innerText}`, data));
-        currentCategoryTogle(el.target.innerText)
+        const data = await (await bookApi.getOneCategory(`${el.target.dataset.category}`)).data;
+        refBooks.insertAdjacentHTML('beforeend', await makeCategoryPage(`${el.target.dataset.category}`, data));
+        currentCategoryTogle(el.target.dataset.category)
         stopPreloader();
       } catch (error) {
         Notiflix.Notify.failure(`Books was not found : ${error.message}`);
@@ -142,7 +142,7 @@ async function onSeeMoreClick(event) {
         (await murkup(resp.data)).join('')
       );
       stopPreloader();
-      currentCategoryTogle("All categories");
+      currentCategoryTogle("all categories");
     } catch (error) {
       Notiflix.Notify.failure(`Books was not found : ${error.message}`);
     }

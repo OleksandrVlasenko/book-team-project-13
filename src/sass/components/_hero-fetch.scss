@@ -127,14 +127,7 @@
            height: 336px;
        }
 
-       .books__itm {
 
-           :hover {
-               .books__overlay {
-                   top: 259px;
-               }
-           }
-       }
    }
 
    @media screen and (min-width: 1280px) {
@@ -182,14 +175,7 @@
 
 
 
-       .books__itm {
-           :hover {
-               .books__overlay {
-                   top: 170px;
-                   height: 26%;
-               }
-           }
-       }
+
 
        .block__books-list {
 
