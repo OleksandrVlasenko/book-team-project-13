@@ -16,12 +16,9 @@
     }
     width: 100%;
     margin-bottom: 20px;
-    // padding-left: 20px;
-    // padding-right: 20px;
     
     @media screen and (min-width: 768px) {
         margin-bottom: 40px;
-        // padding-left: 40px;
     }
 }
 
@@ -32,7 +29,6 @@
     }
     font-size: 48px;
     line-height: 52px;
-    /* identical to box height, or 119% */
 
     letter-spacing: -0.04em;
 
@@ -103,7 +99,6 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-    /* identical to box height, or 117% */
 
     letter-spacing: -0.04em;
     color: var(--secondary-text-cl);
@@ -123,7 +118,6 @@
             font-weight: 400;
             font-size: 12px;
             line-height: 14px;
-            /* identical to box height, or 117% */
         
             letter-spacing: -0.04em;
             color: var(--secondary-text-cl);
@@ -134,7 +128,6 @@
 .shopping-list__title-book{
     font-size: 16px;
     line-height: 18px;
-    /* identical to box height, or 112% */
 
     letter-spacing: -0.04em;
     text-transform: uppercase;
@@ -157,11 +150,16 @@
     margin-top: 4px;
     font-size: 12px;
     line-height: 14px;
-    /* identical to box height, or 117% */
 
     letter-spacing: 0.03em;
 
     color: var(--secondary-text-cl);
+@media screen and (max-width: 375px) {
+        font-size: 3.73vw;
+    }
+    @media screen and (max-width: 768px) {
+        padding-right: 38px;
+    }
 }
 
 .shopping-list__icon-deleteBtn {
@@ -172,6 +170,10 @@
     overflow: hidden;
     border-radius: 50%;
     cursor: pointer;
+
+    @media screen and (max-width: 375px) {
+        font-size: 4.266vw;
+    }
 
     @media screen and (min-width: 768px) {
         top: 24px;
@@ -246,7 +248,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    /* or 129% */
 
     letter-spacing: -0.04em;
     color: var(--main-text-cl-light-theme);
@@ -267,7 +268,6 @@
                 font-weight: 400;
                 font-size: 14px;
                 line-height: 18px;
-                /* or 129% */
             
                 letter-spacing: -0.04em;
                 color: var(--main-text-cl-light-theme);
@@ -318,12 +318,9 @@
     }
 }
 
-.for__support
-
-.shopping-list__section .supporters {
-    @media screen and (max-width: 1279px) {
-        display: none;    
+.support-block .supporters {
+    display: none;
+    @media screen and (min-width: 1280px) {
+        display: flex;    
     }
-
-    min-width: 356px;
 }
