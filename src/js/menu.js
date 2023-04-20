@@ -40,10 +40,14 @@ onAuthStateChanged(auth, user => {
     refs.exitBtn.style.display = 'flex';
     refs.registrationBtn.style.display = 'none';
     refs.userNameModal.classList.remove('visually-hidden');
+    refs.shopingListBtn.classList.remove('visually-hidden');
+    refs.homeBtn.classList.remove('visually-hidden');
   } else {
     refs.exitBtn.style.display = 'none';
     refs.userNameModal.classList.add('visually-hidden');
     refs.registrationBtn.style.display = 'flex';
+    refs.shopingListBtn.classList.add('visually-hidden');
+    refs.homeBtn.classList.add('visually-hidden');
   }
 });
 

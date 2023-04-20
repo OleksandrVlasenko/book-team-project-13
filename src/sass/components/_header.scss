@@ -101,7 +101,6 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
     display: flex;
   }
 
-
   &:hover {
     background: linear-gradient(
       90deg,
@@ -126,7 +125,6 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
     @media screen and (min-width: 768px) {
       display: flex;
     }
-
   }
 
   &:hover {
@@ -168,7 +166,6 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   }
 }
 
-
 .auth-btn__user {
   display: none;
 
@@ -203,27 +200,26 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
   top: 80%;
   right: 2%;
 
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 40px;
-    background-color: $white-color;
-    border: 1.5px solid $dark-color;
-    border-radius: 18px;
-    color: $dark-color;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    fill: $yellow-color;
-    transition: background-color $cubic-time, fill $cubic-time;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  background-color: $white-color;
+  border: 1.5px solid $dark-color;
+  border-radius: 18px;
+  color: $dark-color;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  fill: $yellow-color;
+  transition: background-color $cubic-time, fill $cubic-time;
 
-    &:hover {
-      fill: $blue-color;
-      background-color: $yellow-color;
-    }
-  
+  &:hover {
+    fill: $blue-color;
+    background-color: $yellow-color;
+  }
 }
 
 .is-hidden {
@@ -234,22 +230,22 @@ $cubic-time: 250ms cubic-bezier(0.17, 0.67, 0.91, 1.61);
 }
 
 .auth-btn__icon-user-fone {
-    position: relative;
+  position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background-color: $yellow-color;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-  }
+  background-color: $yellow-color;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
 
 .auth-btn__icon-user {
-position: absolute;
-top: 25%;
-left: 29%;
+  position: absolute;
+  top: 25%;
+  left: 29%;
 }
 
 .auth-btn__icon-user-arrow-down {
@@ -261,5 +257,3 @@ left: 29%;
   top: 32%;
   right: 5%;
 }
-
-

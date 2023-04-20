@@ -13,10 +13,7 @@
        margin-bottom: 15px;
    }
 
-   .block__books-title {
-       font-size: 48px;
-       height: 80px;
-   }
+   
 
    .books__wrapper {
 
@@ -31,8 +28,7 @@
 
    .see-more {
 
-       margin: 0 auto;
-       padding: 0;
+     
        display: flex;
        align-items: center;
        justify-content: center;
@@ -56,6 +52,15 @@
        white-space: nowrap;
        overflow: hidden;
        text-transform: uppercase;
+       margin-left: auto;
+       margin-right: 0;
+       margin-top: 8px;
+       &:hover,
+       &:focus{
+        background-color: var(--accent-cl);
+        color: var(--main-text-cl-dark-theme);
+        cursor: pointer;
+       }
    }
 
 
@@ -111,7 +116,7 @@
        }
 
        .see-more {
-           margin-left: 550px;
+        //    margin-left: 550px;
            margin-top: 20px;
            margin-right: 0;
        }
@@ -164,7 +169,7 @@
 
        .see-more {
            margin-top: 70px;
-           margin-left: 830px;
+        //    margin-left: 830px;
        }
 
 
@@ -242,9 +247,7 @@
            height: 256px;
        }
 
-       .see-more {
-           margin-left: 850px;
-       }
+       
 
        .for__support {
            width: 356px;
