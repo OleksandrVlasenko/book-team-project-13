@@ -77,17 +77,18 @@ function onSignUpBtn() {
   refs.signUpBtn.classList.add('active');
   refs.submitBtn.textContent = 'Sign up';
   refs.formInputs.innerHTML = `<div class="form__field">
-          <input
-            id="username"
-            aria-label="username"
-            type="text"
-            class="form__input form__input-name"
-            name="name"
-            pattern="^[A-Za-z][A-Za-z0-9_]{3,10}$"
-            required
-          />
-          <label for="name" class="form__label form__label-name">Name</label>
-        </div>`;
+                    <input id="username"
+                    aria-label="Username"
+                    type="text" 
+                    class="form__input form__input-name" 
+                    name="name"
+                    minlength="4"
+                    pattern="^[A-Za-z][A-Za-z0-9_]{3,10}$" required />
+                    <label for="username" class="form__label form__label-name">Name</label>
+                    <svg class="form__icon" width="32" height="32">
+                    <use href="./images/icons.svg#icon-auth-user"></use>
+                    </svg>
+                </div>`
   refs.inputName = document.querySelector('.form__input-name');
   refs.inputName.addEventListener('input', debounce(onInput, 250));
 }
