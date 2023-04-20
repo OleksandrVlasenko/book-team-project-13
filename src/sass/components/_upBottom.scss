@@ -1,0 +1,59 @@
+.btn-up {
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
+    
+    right: 5%;
+    position: fixed;
+    display: inline-flex;
+    bottom: 9.1%;;
+    right: 15%;
+
+    width: 46px;
+    height: 46px;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999999;
+
+    font-family: var(--secondary-font);
+
+    transition: var(--timing-function);
+
+    background-color: transparent;
+    backdrop-filter: blur(1.5px);
+    border-radius: 50%;
+    border: none;
+
+    outline: 2px solid var(--secondary-accent-cl);
+    outline-offset: -3px;
+    // @media screen and (min-width: 768px) {
+    // }
+
+    @media screen and (min-width: 1024px) {
+        right: 10%;
+    }
+    @media screen and (min-width: 1440px) {
+        bottom: 3%;
+        right:3.1%;
+    }
+
+    &:hover,
+    &:focus {
+        outline-offset: 3px;
+        border: 2px solid var(--accent-bg-txt-cl);
+        background-color: rgb(248, 210, 78, 0.5);
+    }
+}
+
+html.dark .btn-up {
+    color: #fff;
+    outline: 2px solid var(--accent-cl);
+    backdrop-filter: blur(3px);
+    &:hover,
+    &:focus {
+        outline-offset: 3px;
+        border: 2px solid var(--accent-cl);
+        background-color: rgb(79, 46, 232, 0.5);
+    }
+}

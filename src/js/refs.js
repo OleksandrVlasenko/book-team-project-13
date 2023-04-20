@@ -30,4 +30,5 @@ export const refs = {
   userIconArrowUse: document.querySelector('.auth-btn__icon-user-arrow-down use'),
   userIconArrow: document.querySelector('.auth-btn__icon-user-arrow-down'),
   userIconUser: document.querySelector('.auth-btn__icon-user'),
+  userTextMobMenu: document.querySelector(`.modal__user p`),
 };
