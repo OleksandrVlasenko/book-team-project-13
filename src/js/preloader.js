@@ -16,7 +16,9 @@ function stopPreloader() {
     document.body.classList.add('loaded');
     document.body.classList.remove('loaded_hiding');
     const preloader = document.querySelector('#preloader');
-    preloader.remove();
+    if (preloader) {
+      preloader.remove();
+    }
   }, 350);
 }
 

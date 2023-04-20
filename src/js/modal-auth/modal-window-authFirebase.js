@@ -25,14 +25,14 @@ refs.userBtn.addEventListener('click', () => {
 
 
 export function openModal() {
-  refs.modalAuth.classList.remove('is-hidden');
+  refs.modalAuth.classList.remove('is-hiddenModal');
   document.body.classList.add('modal-open');
   window.addEventListener('keydown', OnEscPress);
   window.addEventListener('click', OnbackDropClick);
 }
 
 function closeModal() {
-  refs.modalAuth.classList.add('is-hidden');
+  refs.modalAuth.classList.add('is-hiddenModal');
   document.body.classList.remove('modal-open');
   window.removeEventListener('keydown', OnEscPress);
   window.removeEventListener('click', OnbackDropClick);
