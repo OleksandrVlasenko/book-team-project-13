@@ -63,28 +63,30 @@
           </svg>
         </button>
       </div>
-      <button
-        class="auth__modal-open-js registration__btnMain"
-        aria-label="Registration"
-      >
+      <div class="btn-wrapper">
+      <button class="auth__modal-open-js registration__btnMain" aria-label="Registration">
         <svg class="registration__icon-arrow" width="32" height="32">
           <use href="./images/icons.svg#icon-auth-arrow"></use></svg
         >Sign Up
       </button>
-      <button class="auth-btn__user auth-btn__user-js" type="button">
-        <span class="auth-btn__icon-user-fone">
-          <svg class="auth-btn__icon-user" width="20px" height="20px">
-            <use href="./images/icons.svg#icon-auth-user"></use>
+        <button class="auth-btn__user auth-btn__user-js" type="button" aria-label="User">
+          <span class="auth-btn__icon-user-fone">
+            <svg class="auth-btn__icon-user" width="20px" height="20px">
+              <use href="./images/icons.svg#icon-auth-user"></use>
+            </svg>
+          </span>
+          <span class="auth-btn__user-text">User</span>
+          <svg class="auth-btn__icon-user-arrow-down" width="23px" height="26px">
+            <use href="./images/icons.svg#icon-arrow-down"></use>
           </svg>
-        </span>
-        <span class="auth-btn__user-text">User</span>
-        <svg class="auth-btn__icon-user-arrow-down" width="23px" height="26px">
-          <use href="./images/icons.svg#icon-arrow-down"></use>
+        </button>
+        <button class="auth-btn__logOut auth-btn__logOut-js" type="button" aria-label="LogOut">
+        <svg class="auth-btn__logOut__icon-arrow" width="14px" height="14px">
+          <use href="./images/icons.svg#icon-arrow-logOut"></use>
         </svg>
-      </button>
-      <button class="auth-btn__logOut auth-btn__logOut-js" type="button">
         Log out
       </button>
+      </div>
     </div>
   </div>
 </header>

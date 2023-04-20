@@ -27,4 +27,7 @@ export const refs = {
   userText: document.querySelector('.auth-btn__user-text'),
   shopingListBtn: document.querySelector('.nav__shopping'),
   homeBtn: document.querySelector('.nav__home'),
+  userIconArrowUse: document.querySelector('.auth-btn__icon-user-arrow-down use'),
+  userIconArrow: document.querySelector('.auth-btn__icon-user-arrow-down'),
+  userIconUser: document.querySelector('.auth-btn__icon-user'),
 };
