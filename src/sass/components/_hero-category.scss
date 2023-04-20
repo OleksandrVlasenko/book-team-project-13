@@ -1,39 +1,43 @@
 .block__books-title {
-    @media screen and (max-width: 767px) {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 38px;
-    /* identical to box height, or 119% */
-    letter-spacing: -0.04em;
-    color: #111111;
-    }
-    @media screen and (min-width: 768px){
+    margin-bottom: 40px;
 
-    font-size: 48px;
-    line-height: 52px;
-}
+    @media screen and (max-width: 767px) {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 38px;
+        /* identical to box height, or 119% */
+        letter-spacing: -0.04em;
+        color: #111111;
+    }
+
+    @media screen and (min-width: 768px) {
+
+        font-size: 48px;
+        line-height: 52px;
+    }
 }
 
 .block__books-colortitle {
     @media screen and (max-width: 767px) {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 38px;
-    letter-spacing: -0.04em;
-    text-align: left;
-    color: rgba(79, 46, 232, 1);
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 38px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        color: rgba(79, 46, 232, 1);
 
-}
-@media screen and (min-width: 768px) {
+    }
 
-    font-size: 48px;
-    line-height: 52px;
-    color: rgba(79, 46, 232, 1);
-}
+    @media screen and (min-width: 768px) {
+
+        font-size: 48px;
+        line-height: 52px;
+        color: rgba(79, 46, 232, 1);
+    }
 }
 
 
@@ -97,12 +101,13 @@
 }
 
 .books__itm {
-cursor: pointer;
+    cursor: pointer;
+
     :hover {
 
         .books__overlay {
             top: 378px;
-            
+
         }
     }
 }
@@ -169,7 +174,7 @@ cursor: pointer;
     color: rgba(79, 46, 232, 1);
     text-transform: uppercase;
     white-space: nowrap;
-   
+
 }
 
 *.dark {
@@ -179,6 +184,7 @@ cursor: pointer;
 }
 
 .all-categories__btn {
+    display: block;
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 700;
@@ -193,7 +199,7 @@ cursor: pointer;
     padding: 14px 28px 14px 28px;
     border: 2px solid rgba(79, 46, 232, 1);
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    
+
 
     &:hover,
     &:focus {
