@@ -4,6 +4,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 import Notiflix from 'notiflix';
 Notiflix.Notify.init({ timeout: 1000, cssAnimationStyle: 'from-top', position: 'center-top'});
 import { readShoppingList } from './firebaseDatabase';
+import { renderCardOfBooks } from "../shopping_list/shopping-list";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAmjMPhgeiPnKuRTAY8vypkpT4j7HmPfug",
@@ -58,7 +59,7 @@ export const signUp = (email, password, username) => {
 };
 
 export const signIn = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password, )
         .then((userCredential) => {
       
             const user = userCredential.user;
@@ -68,6 +69,7 @@ export const signIn = (email, password) => {
                 last_login: lastLoginDate
             })
             readShoppingList();
+            renderCardOfBooks();
             Notiflix.Notify.success(` Welcome ${email}!`);
             
 
