@@ -81,7 +81,6 @@ window.addEventListener('load', () => {
 const homePg = document.querySelector('.nav__link_home');
 const shopList = document.querySelector('.nav__link_shopping');
 const currentPath = window.top.location.pathname;
-console.log(currentPath);
 if (
   currentPath === '/book-team-project-13/shopping-list.html' ||
   currentPath === '/' ||

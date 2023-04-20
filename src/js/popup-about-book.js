@@ -43,6 +43,9 @@ export async function modalAboutBook(bookId) {
 }
 
 function addOrRemoveBook(e) {
+  if (!e.target.disabled) {
+    return;
+  }
   const id = e.target.attributes.id.value;
   if (btn.textContent === 'Add to shopping list') {
     addBook(id);
