@@ -8,7 +8,6 @@
     flex-direction: column;
     gap: 32px;
     height: 472px;
-    width: 318px;
 
     overflow-y: scroll;
     margin-bottom: 86px;
@@ -17,8 +16,6 @@
 }
 
 .for__support {
-
-    height: 490px;
     width: 335px;
     border-radius: 16px;
 }
@@ -31,7 +28,7 @@
     text-align: left;
     color: rgba(17, 17, 17, 0.6);
 
-    .html.dark &{
+    .html.dark & {
         color: rgba(255, 255, 255, 0.6);
     }
 }
