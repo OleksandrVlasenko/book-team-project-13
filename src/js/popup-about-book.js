@@ -43,7 +43,7 @@ export async function modalAboutBook(bookId) {
 }
 
 function addOrRemoveBook(e) {
-  if (!e.target.disabled) {
+  if (e.target.disabled) {
     return;
   }
   const id = e.target.attributes.id.value;
@@ -100,11 +100,13 @@ function checkLocalStorage(book) {
 onAuthStateChanged(auth, user => {
   if (user) {
     btn.classList.remove('disabled');
+    btn.disabled = false;
     congratMessage.textContent =
       'Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".';
     congratMessage.hidden = true;
   } else {
     btn.classList.add('disabled');
+    btn.disabled = true;
     congratMessage.textContent = 'Please, log in to get more options.';
     congratMessage.hidden = false;
   }
