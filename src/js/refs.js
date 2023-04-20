@@ -25,5 +25,8 @@ export const refs = {
   exitBtn: document.querySelector('.exit_btn'),
   userName: document.querySelector('.modal__item'),
   userNameModal: document.querySelector('.modal__user'),
-  userText:  document.querySelector('.auth-btn__user-text'),
+  userText: document.querySelector('.auth-btn__user-text'),
+  userIconArrowUse: document.querySelector('.auth-btn__icon-user-arrow-down use'),
+  userIconArrow: document.querySelector('.auth-btn__icon-user-arrow-down'),
+  userIconUser: document.querySelector('.auth-btn__icon-user'),
 }
