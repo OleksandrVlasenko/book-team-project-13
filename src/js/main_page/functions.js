@@ -34,10 +34,10 @@ export async function makeCategoryPage(category, data) {
   return ` 
   <h2 class="block__books-title"
 >${title
-    .splice(0, title.length / 2)
-    .join(' ')} <span class="block__books-colortitle">${title
-    .splice(title.length / 2, title.length)
-    .join(' ')}</span></h2> 
+      .splice(0, title.length / 2)
+      .join(' ')} <span class="block__books-colortitle">${title
+        .splice(title.length / 2, title.length)
+        .join(' ')}</span></h2> 
         <ul class="block__books-list">${await makeListOfBooks(data)}</ul>
         <button class="button all-categories__btn" data-js="All Categories" aria-label="All categories">All Categories</button>`;
 
@@ -63,6 +63,6 @@ export async function makeListOfBooks(data) {
 };
 
 export async function currentCategoryTogle(value) {
-  document.querySelector('.js-current-category').classList.remove(`js-current-category`);
+  await document.querySelector('.js-current-category').classList.remove(`js-current-category`);
   document.querySelector(`li[data-category="${value}"]`).classList.add(`js-current-category`);
 };
