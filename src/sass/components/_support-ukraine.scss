@@ -75,6 +75,12 @@
   background-color: #ffffff;
   transform: rotateX(0);
   transition: transform 0.5s ease-in-out;
+
+  & span {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
 }
 
 .supporters__btn--up {
