@@ -60,7 +60,7 @@ window.addEventListener('load', () => {
     } else {
       stopPreloader();
       Notiflix.Notify.info(`Sign in to view your shopping list`);
-      // galleryBooksEl.innerHTML = renderClearShoppingList();
+      galleryBooksEl.innerHTML = renderClearShoppingList();
     }
   });
 });
