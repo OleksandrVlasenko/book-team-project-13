@@ -148,6 +148,11 @@ body.show-modal .modal {
 .shopping-list-icon {
   fill: currentColor;
 }
+.nav__List-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .nav__link--current {
   border: 0px solid rgba(0, 0, 0, 0.2);
   padding: 8px 16px;
