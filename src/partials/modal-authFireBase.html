@@ -4,6 +4,7 @@
             <div class="form__render">
                 <div class="form__field">
                     <input id="username"
+                    aria-label="Username"
                     type="text" 
                     class="form__input form__input-name" 
                     name="name"
@@ -18,6 +19,7 @@
 
             <div class="form__field">
                 <input id="email"
+                aria-label="Email"
                     type="email" 
                     class="form__input form__input-mail" 
                     name="mail"
@@ -30,6 +32,7 @@
 
             <div class="form__field">
                 <input id="password"
+                aria-label="Password"
                     type="password" 
                     class="form__input form__input-password" 
                     name="password"
@@ -40,13 +43,13 @@
                 </svg>
             </div>
 
-            <button type="submit" class="form__btn disabled">Sign up</button>
+            <button type="submit" class="form__btn disabled" aria-label="Submit">Sign up</button>
             <div class="form__btns">
-                <button type="button" class="form__btn-up active">Sign up</button>
-                <button type="button" class="form__btn-in">Sign in</button>
-                <button type="button" class="form__btn-out">Log out</button>
+                <button type="button" class="form__btn-up active" aria-label="Sign up">Sign up</button>
+                <button type="button" class="form__btn-in" aria-label="Sign in">Sign in</button>
+                <button type="button" class="form__btn-out" aria-label="Log out">Log out</button>
             </div>
-            <button class="auth__modal-close auth__modal-close-js">
+            <button class="auth__modal-close auth__modal-close-js" aria-label="Close modal">
                 <svg class="auth__modal-close-icon" width="32" height="32">
                 <use href="./images/icons.svg#icon-auth-close"></use>
                 </svg>

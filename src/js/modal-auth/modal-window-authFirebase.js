@@ -84,6 +84,7 @@ function onSignUpBtn() {
   refs.formInputs.innerHTML = `<div class="form__field">
           <input
             id="username"
+            aria-label="username"
             type="text"
             class="form__input form__input-name"
             name="name"

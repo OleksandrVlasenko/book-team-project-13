@@ -33,17 +33,17 @@ function renderShoppingList(book) {
                             <p class="shopping-list__author--near">${author}</p>
                             <ul class="shopping-list__shop-list">
                                 <li class="shopping-list__shop-list-item">
-                                    <a rel="noreferrer noopener nofollow" class="shopping-list__shop-list-link" href="${buy_links[0].url}" target="_blank">
+                                    <a aria-label="Link to shop" rel="noreferrer noopener nofollow" class="shopping-list__shop-list-link" href="${buy_links[0].url}" target="_blank">
                                         <img class="shopping-list__shop-lis--img logoAmazon" srcset="${logoAmazonImagesUrlx2} 2x, ${logoAmazonImagesUrlx3} 3x" src="${logoAmazonImagesUrlx1}" alt="logoAmazon">
                                     </a>
                                 </li>
                                 <li class="shopping-list__shop-list-item">
-                                    <a rel="noreferrer noopener nofollow" class="shopping-list__shop-list-link" href="${buy_links[1].url} " target="_blank">
+                                    <a aria-label="Link to shop" rel="noreferrer noopener nofollow" class="shopping-list__shop-list-link" href="${buy_links[1].url} " target="_blank">
                                         <img class="shopping-list__shop-lis--img logoBook" srcset="${allpeBookImagesUrlx2} 2x, ${allpeBookImagesUrlx3} 3x" src="${allpeBookImagesUrlx1}" alt="logoBook">
                                     </a>
                                 </li>
                                 <li class="shopping-list__shop-list-item">
-                                    <a rel="noreferrer noopener nofollow" class="shopping-list__shop-list-link" href="${buy_links[4].url} " target="_blank">
+                                    <a aria-label="Link to shop" rel="noreferrer noopener nofollow" class="shopping-list__shop-list-link" href="${buy_links[4].url} " target="_blank">
                                         <img class="shopping-list__shop-lis--img bookShop" srcset="${bookShopImagesUrlx2} 2x, ${bookShopImagesUrlx3} 3x" src="${bookShopImagesUrlx1}" alt="bookShop">
                                     </a>
                                 </li>
