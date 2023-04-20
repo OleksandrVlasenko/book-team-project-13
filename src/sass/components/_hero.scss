@@ -30,6 +30,10 @@
     letter-spacing: -0.02em;
     text-align: left;
     color: rgba(17, 17, 17, 0.6);
+
+    .html.dark &{
+        color: rgba(255, 255, 255, 0.6);
+    }
 }
 
 

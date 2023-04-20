@@ -9,7 +9,7 @@ export function onOpenPoPUpModal() {
 
 function onCloseModalByClicking(e) {
   const backdrop = document.querySelector('[data-modal]');
-  const modalWindow = document.querySelector('[modal-window]');
+  const modalWindow = document.querySelector('[data-modal-window]');
   const closeBtn = document.querySelector('[data-modal-close]');
   const withinBoundaries = e.composedPath().includes(modalWindow);
 
