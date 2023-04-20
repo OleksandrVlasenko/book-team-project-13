@@ -60,7 +60,6 @@ refs.signOutBtn.addEventListener('click', (e) => {
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        console.log('registrated');
         readUsername();
 
         refs.openAuthBtn.classList.add('is-hidden');
@@ -70,7 +69,6 @@ onAuthStateChanged(auth, (user) => {
         name: user.displayName,
         mail: user.email}));  
     } else {
-        console.log('not registrated');
         refs.openAuthBtn.classList.remove('is-hidden');
         refs.userBtn.classList.add('is-hidden');
         refs.logOut.classList.add('is-hidden');
