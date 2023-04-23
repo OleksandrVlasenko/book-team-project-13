@@ -16,6 +16,4 @@ window.addEventListener('scroll', () => {
   }
 });
 
-
-console.log(btnUp)
   btnUp.addEventListener('click',scrollToTop);

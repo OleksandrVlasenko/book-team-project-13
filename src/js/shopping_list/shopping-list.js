@@ -33,16 +33,16 @@ async function renderCardOfBooks() {
     IdBooks === 'undefined' ||
     !IdBooks ||
     IdBooks === '' ||
-    JSON.parse(IdBooks).length === 0
-  ) {
-    return (galleryBooksEl.innerHTML = renderClearShoppingList());
+    JSON.parse(IdBooks).length === 0) {
+    console.log(galleryBooksEl)
+    return galleryBooksEl.innerHTML = renderClearShoppingList();
   }
   try {
     IdBooks = JSON.parse(IdBooks);
     const books = await fetchBookByID(IdBooks);
     const data = books.map(book => book.data);
 
-    galleryBooksEl.innerHTML = renderShoppingList(data);
+    galleryBooksEl.innerHTML = await renderShoppingList(data);
     const cardBook = document.querySelector(`.shopping-list__gallery-boocks`);
     cardBook.addEventListener(`click`, handleDeleteBookBtn);
   } catch (error) {
